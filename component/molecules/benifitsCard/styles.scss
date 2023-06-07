@@ -1,0 +1,47 @@
+
+@import "../../../styles/color.module.scss";
+
+.cardBenifits{
+    width: 100%;
+    float: left;
+    padding: 20px 20px 30px;
+    border-radius: 8px;
+    background: $white-100;
+    text-align: center;
+    min-height: 290px;
+    border: 1px solid #e3e3e3;
+    cursor: pointer;
+    margin-bottom: 20px;
+    img{
+        width: 60px;
+        margin-top: 10px;
+        height: 60px;
+    }
+    .cardBenifitsCaption{
+        h4{
+            font-size: 20px;
+            line-height: 32px;
+            color: $black-100;;
+            margin: 20px 0 0px;
+            height: 55px;
+            overflow: hidden;
+        }
+        p{
+            font-size: 16px;
+            line-height: 26px;
+            color: #8d959d;
+            margin: 0;
+            font-weight: 300;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-bottom: 20px;
+        }
+        a{
+            color: #22536E;
+            text-decoration: none;
+        }
+    }
+}

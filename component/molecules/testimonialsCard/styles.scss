@@ -1,0 +1,49 @@
+@import "../../../styles/color.module.scss";
+
+.testimonials{
+    width: 100%;
+    float: left;
+    padding: 20px 20px 30px;
+    border-radius: 8px;
+    background: $white-100;
+    text-align: center;
+    border: 1px solid #e3e3e3;
+    cursor: pointer;
+    margin-bottom: 20px;
+    min-height: auto;
+    transition: 0.2s;
+    position: relative;
+    .quoteMarks{
+        position: absolute;
+        opacity: 0.2;
+        filter: brightness(0) invert(0.6);
+        top: 0;
+    }
+    &:hover{
+        -webkit-box-shadow: 0 15px 14px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 15px 14px rgba(0, 0, 0, 0.2);
+        -webkit-transform: translate(0,-10px);
+        -ms-transform: translate(0,-10px);
+        transform: translate(0,-10px);
+        transition: 0.2s;
+    }
+    img{
+        width: 60px;
+        margin-top: 10px;
+    }
+    .testimonialsCaption{
+        p{
+            font-size: 16px;
+            line-height: 26px;
+            color: #8d959d;
+            margin: 0;
+            font-weight: 300;
+            margin-bottom: 20px;
+            margin-top: 20px;
+        }
+        a{
+            color: #22536E;
+            text-decoration: none;
+        }
+    }
+}

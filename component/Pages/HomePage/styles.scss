@@ -1,0 +1,497 @@
+@import "../../../styles/color.module.scss";
+
+.tabsCaption{
+  border-bottom: 0px solid !important;
+  display: flex !important;
+  justify-content: center;
+  li{
+    margin: 0 1px;
+    &.nav-item{
+      flex: 0 auto !important;
+      button{
+        background: $white-100;
+        padding: 10px 50px !important;
+        border-radius: 0;
+        border: 0px solid;
+        width: 140px;
+        position: relative;
+        top: -1px;
+        color: $primary-color;
+        border-radius: 4px 4px 0 0;
+        &.active {
+          color: $white-100 !important;
+          font-weight: 500;
+          background-color: rgba(33,83,111,0.75);
+        }
+      }
+    }
+  }
+}
+.formTab{
+  background: $white-100;
+  padding: 12px 10px;
+  border-radius: 4px;
+  box-shadow: 0px 20px 40px 0px rgba(000,000,000,0.1);
+  .optionField{
+    select{
+      width: 100%;
+      float: left;
+      font-size: 15px;
+      height: 45px;
+      background-color: $white-100;
+      border-radius: 4px;
+      padding: 0 10px;
+      font-weight: 300;
+    }
+  }
+  .colSelect{
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+  .buttonField{
+    padding-right: 0;
+    button{
+      width: 100%;
+      height: 45px;
+      background: #221e18;
+      border-color: $primary-color;
+    }
+  }
+}
+.img-responsive{
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+.tabsContainer{
+  width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 999;
+  .tabsCaption{
+    background-color: transparent;
+    padding: 0 !important;
+    border: 0px solid;
+    margin-top: -75px;
+    nav{display: flex; justify-content: center;}
+    .nav-tabs{
+      margin-bottom: 0 !important;
+      border-bottom: 0px solid;
+      button.nav-link{
+        margin: 0 1px;
+        background: $white-100;
+        padding: 8px 42px;
+        border-radius: 4px 4px 0 0;
+        color: $primary-color;
+        font-size: 14px;
+        font-weight: 500;
+        &.active{
+          background:$primary-color;
+          border-color: $primary-color;
+          color: $white-100;
+        }
+      }
+    }
+    .tab-content{
+      padding: 12px !important;
+      border-radius: 6px;
+      background: $white-100;
+      .container{
+        padding: 0;
+        .selectOption_search{
+          display: flex;
+          .form-floating{
+            padding: 0 5px;
+            label{
+              padding: 0.75rem 1rem;
+              font-size: 14px;
+            }
+            .form-select {
+              padding-top: 1.4rem;
+              padding-bottom: .625rem;
+              padding-left: 0.65rem;
+              height: 50px;
+              min-height: 50px;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.searchButton {
+  button{
+    width: 100%;
+    height: 50px;
+    background: $primary-color;
+    border: 0px solid;
+  }
+}
+.callPh {
+    margin-top: 0;
+    display: flex;
+    justify-content: flex-end;
+    width: 200px;
+    img {
+      float: left;
+      width: 45px;
+      height: 45px;
+      filter: brightness(0) invert(1);
+    }
+  .callPhInfo {
+    float: left;
+    width: calc(100% - 60px);
+    text-align: left;
+    span {
+      text-transform: uppercase;
+      font-weight: 300;
+      font-size: 12px;
+      line-height: 15px;
+      color: $white-100;
+  }
+  a {
+      font-size: 18px;
+      color: $primary-light;
+      float: left;
+      width: 100%;
+      line-height: 22px;
+      text-decoration: none;
+  }
+  }
+}
+.overlayCity{
+  height: auto;
+  width: 100%;
+  background: $black-100;;
+  position: relative;
+  background-image: url(../../../public/images/caltoaction.jpeg);
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: fixed;
+  margin-bottom: 15px;
+}
+.noo-vc {
+  background-color: rgba(15, 36, 49, 0.8);
+  padding-top: 60px;
+  padding-bottom: 100px;
+  padding-left: 10%;
+  padding-right: 35px;
+  text-align: left;
+  h1{
+    margin-bottom: 75px;
+  }
+  .noo-vcBox{
+    margin-bottom: 30px;
+    h2{
+      font-weight: 100;
+    }
+    h3{
+      font-weight: 400;
+      font-size: 20px;
+      margin-bottom: 16px;
+      color: #a5d5eb;
+    }
+    p{
+      font-size: 14px;
+      font-weight: 300;
+    }
+  }
+  h1, h2, h3, p{
+    color: $white-100;
+  }
+}
+.inqueryForm{
+  margin: 0 auto;
+  width: 35%;
+  padding: 60px 0;
+  .inqueryFormBox{
+    background: $white-100;
+    border-radius: 6px;
+    padding: 20px 25px;
+    text-align: left;
+    float: left;
+    width: 100%;
+    h3{
+      font-size: 24px;
+      color: #0F2431;
+    }
+    p{
+      font-size: 14px;
+      color: #555e78;
+    }
+    form{
+      .fieldType{
+        float: left;
+        width: 100%;
+        margin-bottom: 6px;
+        label{
+          font-size: 14px;
+          font-weight: 500;
+          color: #0F2431;
+          float: left;
+          width: 100%;
+          margin-bottom: 4px;
+        }
+        input, textarea{
+          background-color: #deebf1;
+          width: 100%;
+          float: left;
+          max-width: 100%;
+          border-radius: 3px;
+          border: 1px solid #4c7689;
+          height: 40px;
+          padding: 0 10px;
+          font-size: 1rem;
+          font-weight: 200;
+        }
+        input{
+          &.submitBtn{
+            height: 50px;
+            color: $white-100;
+            background: #0F2431;
+            margin-top: 10px;
+            border-radius: 4px;
+            border-color: #0F2431;
+            text-transform: uppercase;
+            font-weight: 400;
+          }
+        }
+        textarea{
+          height: 75px;
+          padding-top: 6px;
+        }
+      }
+    }
+    .form-group {
+      display: block;
+      margin-bottom: 15px;
+      input {
+        padding: 0;
+        height: initial;
+        width: initial;
+        margin-bottom: 0;
+        display: none;
+        cursor: pointer;
+      }
+      label {
+        position: relative;
+        cursor: pointer;
+        &:before {
+          content:'';
+          -webkit-appearance: none;
+          background-color: transparent;
+          border: 2px solid #0F2431;
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
+          padding: 8px;
+          display: inline-block;
+          position: relative;
+          vertical-align: middle;
+          cursor: pointer;
+          margin-right: 5px;
+        }
+      }
+    }
+    .form-group input:checked + label:after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 5px;
+      left: 7px;
+      width: 6px;
+      height: 14px;
+      border: solid #0F2431;
+      border-width: 0 2px 2px 0;
+      transform: rotate(45deg);
+    }
+  }
+}
+.select-dropdown {
+  position: relative;
+  background-color: #deebf1;
+  width: 100%;
+  float: left;
+  max-width: 100%;
+  border-radius: 3px;
+  border: 1px solid #4c7689;
+  select {
+    font-family: "helvetica neue", helvetica;
+    font-size: 1rem;
+    font-weight: 200;
+    width: 100%;
+    max-width: 100%;
+    padding: 8px 24px 8px 10px;
+    border: none;
+    background-color: transparent;
+    -webkit-appearance: none;
+       -moz-appearance: none;
+            appearance: none;
+    &:active,
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 50%;
+    margin-top: -2px;
+    right: 8px;
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #aaa;
+  }
+}
+.BenifitsCard-Container{
+  margin-top: 40px;
+}
+.flexCenter{
+  display: flex;
+  justify-content: center;
+}
+.flexRow{
+  display: flex;
+  flex-direction: row;
+}
+.testimonialsBg{
+  background-color: #e7f6fc;
+  padding-bottom: 40px;
+}
+.partnerRealcity{
+    display: flex;
+    justify-content: space-around;
+    padding: 20px 0;
+}
+.propertyArea{
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  padding: 25px 0;
+  background-color: #ebf5fa;
+  .featureTitle{
+    p{
+      padding: 0 15%;
+    }
+  }
+  .propertyArea_box{
+    background-color: $white-100;
+    padding: 15px 30px;
+    border-radius: 5px;
+    margin-top: 3.5rem;
+    float: left;
+    width: 100%;
+    margin-bottom: 30px;
+  }
+  .propertyAreaCard{
+    padding: 0 10px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    float: left;
+    .cardimage{
+      width: 30%;
+      float: left;
+      padding-right: 16px;
+      span{
+        overflow: hidden;
+        position: relative;
+        float: left;
+        border-radius: 50%;
+        height: 75px;
+        width: 75px;
+        background: $white-100;
+        -webkit-box-shadow: 0 0 3px 0 rgba(148,148,148,.9);
+        -moz-box-shadow: 0 0 3px 0 rgba(148,148,148,.9);
+        box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.9);
+        display: block;
+        img {
+          width: 75px;
+          height: 75px;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+    }
+    .cardImage_content{
+      width: 70%;
+      float: left;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      padding-left: 15px;
+      span{
+        font-size: 15px;
+        font-weight: 300;
+        color: $black-100;;
+        margin: 0 0 5px;
+        line-height: 15px;
+      }
+      p{
+        font-size: 14px;
+        color: $black-100;;
+        margin-bottom: 0;
+      }
+    }
+  }
+}
+.propertyWhiteBg{
+  width: 100%;
+  padding: 25px 0;
+  background-color: $white-100;
+  display: flex;
+  &.lighBg{
+    background: #ebf5fa;
+  }
+}
+.propertyWhiteBg{
+  .propertyAreaContainer{
+    .featureTitle{
+      p{
+        padding: 0 10%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 991px){
+  .tabsContainer{
+    width: 100%;
+  }
+}
+@media screen and (max-width: 767px){
+  .tabsContainer{
+    width: 100%;
+  }
+  .partnerRealcity{
+    display: block;
+    .partnersWrap{
+      margin-top: 6px;
+    }
+  }
+  .tabsContainer .tabsCaption{
+    margin-top: 10px;
+    border-bottom: 1px solid #6d8896 !important;
+  }
+  .tabsCaption li.nav-item button{
+    padding: 10px 25px !important;
+    line-height: 18px;
+    height: 40px;
+  }
+  .formTab {
+    .colSelect{
+      margin-bottom: 5px;
+    }
+    .buttonField{
+      padding-left: 0;
+      margin-top: 10px;
+    }
+  }
+  .inqueryForm{
+    width: 90%;
+  }
+}

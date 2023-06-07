@@ -1,0 +1,79 @@
+@import "./color.module.scss";
+
+body{margin: 0;}
+::selection {
+  color: $white-100;
+  background-color: $primary-color;
+}
+::-moz-selection {
+  color: $white-100;
+  background-color: $primary-color;
+}
+a,
+.transiction-effect {
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+ul,
+li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.topHeader .folowUs {
+  float: left;
+  width: 50%;
+  margin: 0;
+}
+.topHeader .folowUs ul {
+  float: left;
+  padding: 0;
+  margin-bottom: 0;
+}
+.topHeader .folowUs ul li a {
+  color: $white-100 !important;
+  font-size: 13px;
+  line-height: 12px;
+  font-weight: bold;
+  margin: 4px 0;
+}
+.topHeader .folowUs ul li a:active, .topHeader .folowUs ul li a:focus{color: $white-100 !important;}
+.topHeader .folowUs ul li a:hover {
+  color: $black-100 !important;
+}
+.topHeader .dropShipMenu {
+  float: right;
+  width: 50%;
+}
+.folowUs.dropShipMenu ul {
+  float: right;
+  padding: 0;
+}
+.carousel.slide .carousel-inner a img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+}
+header {
+  position: fixed;
+  top: 0;
+  float: left;
+  width: 100%;
+  z-index: 9999;
+}
+
+.title{
+  color:  $primary-color
+}
+.featureTitle{
+  display: flex;
+text-align: center;
+flex-direction: column;
+}

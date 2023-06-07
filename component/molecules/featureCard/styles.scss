@@ -1,0 +1,145 @@
+@import "../../../styles/color.module.scss";
+
+.featureCard {
+    box-shadow: 0 0 5px rgba(000,000,000,0.15);
+    color: $white-100;
+    background-color: $white-100;
+    float: left;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 16px;
+    margin: 10px 1%;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    border-radius: 6px 6px 0 0;
+    .image{
+        padding-top: 60%;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        -webkit-filter: none !important;
+        object-fit: contain;
+        .saleCapton{
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            z-index: 999;
+            .saleCapton_tab{
+                background: $yellow-color;
+                padding: 3px 10px;
+                font-size: 12px;
+                border-radius: 4px;
+                color: $white-100;
+                display: flex;
+                align-items: center;
+                float: left;
+                margin-left: 6px;
+                &.green{
+                    background: $grey-green;
+                }
+                p{
+                    margin: 0;
+                    color: $white-100;
+                }
+            }
+            
+        }
+        img {
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            max-width: 100%;
+            max-height: initial;
+            transition: opacity .5s linear;
+            transition: -webkit-transform .5s ease-in-out;
+            transition: transform .5s ease-in-out;
+            transition: transform .5s ease-in-out,-webkit-transform .5s ease-in-out;
+        }
+    } 
+    figcaption{
+        padding: 10px 15px 15px;
+        bottom: 0;
+        width: 100%;
+        position: relative; 
+        .feature_address {
+            position: absolute;
+            top: -40px;
+            background: rgba(255,255,255,0.75);
+            padding: 6px 10px;
+            font-size: 12px;
+            border-radius: 20px;
+            color: $black-100;;
+            display: flex;
+            align-items: center;
+            img{
+                width: 16px;
+                margin-right: 5px;
+            }
+
+        }
+        .feature-title{
+            display: flex;
+            flex-direction: column;
+            h5 {
+               
+                font-size: 18px;
+                color: $black-100;;
+                margin: 5px 0;
+                font-weight: 500;
+                a {
+                    color: $primary-color;
+                    text-decoration: none;
+                }
+            }
+            h4{
+                color: $black-100;;
+                font-weight: bold;
+                font-size: 20px;
+            }
+        } 
+        .fp--excerpt{
+            p{
+                color: #474b4f;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+}
+.property_fdetail {
+    border-top: 0px solid;
+    padding-bottom: 6px;
+    .area {
+        width: 30%;
+        float: left;
+        padding: 6px 10px;
+        img {
+            width: 20px;
+            float: left;
+            opacity: 0.5;
+        }
+        span {
+            width: calc(100% - 30px);
+            float: left;
+            font-size: 12px;
+            color: $black-300;
+            padding-left: 8px;
+        }
+        &.area_First {
+            width: 40%;
+        }
+        &:last-child {
+            border-right: 0px;
+        }
+    }
+}

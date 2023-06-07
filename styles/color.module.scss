@@ -1,0 +1,19 @@
+$primary-color: #21536f;
+$black-100: #000000;
+$black-300: #333333;
+$black-dark: #0e2531;
+$white-100: #ffffff;
+$primary-light: #acced1;
+$grey-green: #3fc7ae;
+$yellow-color: #dfcc32;
+ 
+:export {
+  primaryColor: $primary-color;
+  black100: $black-100;
+  black300: $black-300;
+  blackDark: $black-dark;
+  white100: $white-100;
+  primaryLight: $primary-light;
+  greyGreen: $grey-green;
+  yellowColor: $yellow-color;
+}

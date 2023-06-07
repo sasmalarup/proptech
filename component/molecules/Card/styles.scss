@@ -1,0 +1,96 @@
+@import "../../../styles/color.module.scss";
+
+.blogSnip {
+    box-shadow: 0 0 5px rgba(000,000,000,0.15);
+    color: $white-100;
+    float: left;
+    font-family: "Lato", Arial, sans-serif;
+    font-size: 16px;
+    margin: 10px 1%;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    border-radius: 6px 6px 0 0;
+    .image img {
+        width: 100%;
+        vertical-align: top;
+        position: relative;
+    }
+    figcaption{
+        padding: 10px 15px 15px;
+        bottom: 0;
+        width: 100%;
+        position: relative; 
+        .fp_price {
+            position: absolute;
+            top: -15px;
+            background: $grey-green;
+            padding: 3px 10px;
+            font-size: 12px;
+            border-radius: 20px;
+        }
+        .fp-title{
+            h4 {
+                font-size: 20px;
+                color: $black-100;;
+                margin: 5px 0 10px;
+                a {
+                    color: $grey-green;
+                    text-decoration: none;
+                }
+            }
+            .fp-address {
+                display: flex;
+                align-items: center;
+                font-size: 14px;
+                color: #a2a2a2;
+                margin-bottom: 8px;
+                img {
+                    width: 15px;
+                    margin-right: 5px;
+                }
+            }
+        } 
+        .fp--excerpt{
+            p{
+                color: #474b4f;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                display: -webkit-box;
+                -webkit-line-clamp: 3;
+                -webkit-box-orient: vertical;
+            }
+        }
+    }
+}
+.property_detail {
+    border-top: 1px solid #c6c6c6;
+    .area {
+        border-right: 1px solid #c6c6c6;
+        width: 30%;
+        float: left;
+        padding: 6px 10px;
+        img {
+            width: 20px;
+            float: left;
+            opacity: 0.5;
+        }
+        span {
+            width: calc(100% - 25px);
+            float: left;
+            font-size: 12px;
+            color: $black-300;
+            padding-left: 8px;
+        }
+        &.area_First {
+            width: 40%;
+        }
+        &:last-child {
+            border-right: 0px;
+        }
+    }
+}
