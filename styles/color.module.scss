@@ -6,6 +6,7 @@ $white-100: #ffffff;
 $primary-light: #acced1;
 $grey-green: #3fc7ae;
 $yellow-color: #dfcc32;
+$black-200: #212121;
  
 :export {
   primaryColor: $primary-color;
@@ -16,4 +17,5 @@ $yellow-color: #dfcc32;
   primaryLight: $primary-light;
   greyGreen: $grey-green;
   yellowColor: $yellow-color;
+  black200: $black-200;
 }
