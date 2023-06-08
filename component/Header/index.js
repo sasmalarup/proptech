@@ -12,12 +12,14 @@ function Header() {
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
       <div className="container">
         <div className="navbar-brand">
-        <Image
-          src={logo}
-          width={500}
-          height={500}
-          alt="logo"
-        />
+          <a href="/">
+            <Image
+              src={logo}
+              width={500}
+              height={500}
+              alt="logo"
+            />
+          </a>
         </div>
         <div className="assignBtn">
           <a className="btnRcnt" href="{Recent}">Recent</a>
@@ -81,7 +83,7 @@ function Header() {
               <a className="nav-link" href="#">pricing</a>
             </li>
           </ul>
-          <a href="#" className="userIcon">
+          <a href="/login" className="userIcon">
           <Image
             src={loginUser}
             width={40}

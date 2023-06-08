@@ -1,21 +1,28 @@
 $primary-color: #21536f;
 $black-100: #000000;
+$black-200: #212121;
 $black-300: #333333;
 $black-dark: #0e2531;
 $white-100: #ffffff;
 $primary-light: #acced1;
 $grey-green: #3fc7ae;
 $yellow-color: #dfcc32;
-$black-200: #212121;
+$blue-light: #ebf5fa;
+$white-600: #c6c6c6;
+$grey: #a2a2a2;
+
  
 :export {
   primaryColor: $primary-color;
   black100: $black-100;
+  black200: $black-200;
   black300: $black-300;
   blackDark: $black-dark;
   white100: $white-100;
   primaryLight: $primary-light;
   greyGreen: $grey-green;
   yellowColor: $yellow-color;
-  black200: $black-200;
+  blueLight: $blue-light;
+  white600: $white-600;
+  grey: $grey
 }
