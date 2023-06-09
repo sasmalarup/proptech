@@ -1,6 +1,8 @@
 "use client";
-import Home from "@/component/Pages/HomePage/home"
+//import Home from "@/component/Pages/HomePage/home"
 import { useEffect, useState } from "react"
+//import React from "react"
+import Home from "@/component/Pages/HomePage"
 
 export default function Homepage() {
  const [data,setData]=useState();

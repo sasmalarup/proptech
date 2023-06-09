@@ -9,7 +9,7 @@
     background: $white-100;
     text-align: center;
     min-height: 290px;
-    border: 1px solid #e3e3e3;
+    border: 1px solid $blue-light;
     cursor: pointer;
     margin-bottom: 20px;
     img{
@@ -29,7 +29,7 @@
         p{
             font-size: 16px;
             line-height: 26px;
-            color: #8d959d;
+            color: $black-300;
             margin: 0;
             font-weight: 300;
             display: -webkit-box;
@@ -40,7 +40,7 @@
             margin-bottom: 20px;
         }
         a{
-            color: #22536E;
+            color: $primary-color;
             text-decoration: none;
         }
     }

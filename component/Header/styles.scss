@@ -69,6 +69,10 @@ nav{
     z-index: 9999;
     background-color: rgba(28,57,74,0.70) !important;
     padding: 0;
+    &.innerHeader{
+      top: 0;
+      background-color: $primary-color !important;
+    }
   }
 }
 .navbar-toggler{

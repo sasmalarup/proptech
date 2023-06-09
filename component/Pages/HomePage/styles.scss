@@ -53,7 +53,7 @@
     button{
       width: 100%;
       height: 45px;
-      background: #221e18;
+      background: $black-dark;
       border-color: $primary-color;
     }
   }
@@ -64,7 +64,7 @@
   height: auto;
 }
 .tabsContainer{
-  width: 900px;
+  width: 1000px;
   margin: 0 auto;
   position: relative;
   z-index: 999;
@@ -100,14 +100,15 @@
         padding: 0;
         .selectOption_search{
           display: flex;
+          padding-right: 0;
           .form-floating{
-            padding: 0 5px;
+            padding: 0 3px;
             label{
               padding: 0.75rem 1rem;
               font-size: 14px;
             }
             .form-select {
-              padding-top: 1.4rem;
+              padding-top: 1.25rem;
               padding-bottom: .625rem;
               padding-left: 0.65rem;
               height: 50px;
@@ -165,7 +166,7 @@
   width: 100%;
   background: $black-100;;
   position: relative;
-  background-image: url(../../../public/images/caltoaction.jpeg);
+  background-image: url(../../../public//images/caltoaction.jpeg);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -191,7 +192,7 @@
       font-weight: 400;
       font-size: 20px;
       margin-bottom: 16px;
-      color: #a5d5eb;
+      color: $primary-light;
     }
     p{
       font-size: 14px;
@@ -215,11 +216,11 @@
     width: 100%;
     h3{
       font-size: 24px;
-      color: #0F2431;
+      color: $black-dark;
     }
     p{
       font-size: 14px;
-      color: #555e78;
+      color: $black-300;
     }
     form{
       .fieldType{
@@ -229,18 +230,18 @@
         label{
           font-size: 14px;
           font-weight: 500;
-          color: #0F2431;
+          color: $black-dark;
           float: left;
           width: 100%;
           margin-bottom: 4px;
         }
         input, textarea{
-          background-color: #deebf1;
+          background-color: $white-100;
           width: 100%;
           float: left;
           max-width: 100%;
           border-radius: 3px;
-          border: 1px solid #4c7689;
+          border: 1px solid $primary-color;
           height: 40px;
           padding: 0 10px;
           font-size: 1rem;
@@ -250,10 +251,10 @@
           &.submitBtn{
             height: 50px;
             color: $white-100;
-            background: #0F2431;
+            background: $primary-color;
             margin-top: 10px;
             border-radius: 4px;
-            border-color: #0F2431;
+            border-color: $primary-color;
             text-transform: uppercase;
             font-weight: 400;
           }
@@ -280,9 +281,8 @@
         cursor: pointer;
         &:before {
           content:'';
-          -webkit-appearance: none;
           background-color: transparent;
-          border: 2px solid #0F2431;
+          border: 2px solid $black-dark;
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
           padding: 8px;
           display: inline-block;
@@ -301,7 +301,7 @@
       left: 7px;
       width: 6px;
       height: 14px;
-      border: solid #0F2431;
+      border: solid $black-dark;
       border-width: 0 2px 2px 0;
       transform: rotate(45deg);
     }
@@ -309,12 +309,12 @@
 }
 .select-dropdown {
   position: relative;
-  background-color: #deebf1;
+  background-color: $white-100;
   width: 100%;
   float: left;
   max-width: 100%;
   border-radius: 3px;
-  border: 1px solid #4c7689;
+  border: 1px solid $primary-color;
   select {
     font-family: "helvetica neue", helvetica;
     font-size: 1rem;
@@ -343,7 +343,7 @@
     height: 0; 
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
-    border-top: 5px solid #aaa;
+    border-top: 5px solid $primary-light;
   }
 }
 .BenifitsCard-Container{
@@ -358,7 +358,7 @@
   flex-direction: row;
 }
 .testimonialsBg{
-  background-color: #e7f6fc;
+  background-color: $blue-light;
   padding-bottom: 40px;
 }
 .partnerRealcity{
@@ -371,7 +371,7 @@
   justify-content: center;
   text-align: center;
   padding: 25px 0;
-  background-color: #ebf5fa;
+  background-color: $blue-light;
   .featureTitle{
     p{
       padding: 0 15%;
@@ -445,7 +445,7 @@
   background-color: $white-100;
   display: flex;
   &.lighBg{
-    background: #ebf5fa;
+    background: $blue-light;
   }
 }
 .propertyWhiteBg{
@@ -475,7 +475,7 @@
   }
   .tabsContainer .tabsCaption{
     margin-top: 10px;
-    border-bottom: 1px solid #6d8896 !important;
+    border-bottom: 1px solid $primary-light !important;
   }
   .tabsCaption li.nav-item button{
     padding: 10px 25px !important;
