@@ -17,7 +17,7 @@ function HomeTabs() {
             <div className="container text-center">
               <div className="row justify-content-start">
                 <div className="col-md-10 col-12 selectOption_search">
-                  <div className="col-3 form-floating">
+                  <div className="col-md-3 col-12 form-floating">
                     <select className="form-select">
                       <option selected>Choose Type</option>
                       <option value="1">One</option>
@@ -26,7 +26,7 @@ function HomeTabs() {
                     </select>
                     <label for="floatingSelect">Select Type</label>
                   </div>
-                  <div className="col-3 form-floating">
+                  <div className="col-md-3 col-12 form-floating">
                     <select className="form-select">
                       <option selected>Choose Province</option>
                       <option value="1">One</option>
@@ -35,7 +35,7 @@ function HomeTabs() {
                     </select>
                     <label for="floatingSelect">Select Province</label>
                   </div>
-                  <div className="col-3 form-floating">
+                  <div className="col-md-3 col-12 form-floating">
                     <select className="form-select">
                       <option selected>Choose City/Muncipality</option>
                       <option value="1">One</option>
@@ -44,7 +44,7 @@ function HomeTabs() {
                     </select>
                     <label for="floatingSelect">Select City/Muncipality</label>
                   </div>
-                  <div className="col-3 form-floating">
+                  <div className="col-md-3 col-12 form-floating">
                     <select className="form-select">
                       <option selected>Choose Barnagay</option>
                       <option value="1">One</option>
@@ -64,7 +64,7 @@ function HomeTabs() {
           <div className="container text-center">
               <div className="row justify-content-start">
                 <div className="col-md-10 col-12 selectOption_search">
-                  <div className="col-3 form-floating">
+                  <div className="col-md-3 col-12 form-floating">
                     <select className="form-select">
                       <option selected>Choose Type</option>
                       <option value="1">One</option>
@@ -73,7 +73,7 @@ function HomeTabs() {
                     </select>
                     <label for="floatingSelect">Select Type</label>
                   </div>
-                  <div className="col-3 form-floating">
+                  <div className="col-md-3 col-12 form-floating">
                     <select className="form-select">
                       <option selected>Choose Province</option>
                       <option value="1">One</option>
@@ -82,7 +82,7 @@ function HomeTabs() {
                     </select>
                     <label for="floatingSelect">Select Province</label>
                   </div>
-                  <div className="col-3 form-floating">
+                  <div className="col-md-3 col-12 form-floating">
                     <select className="form-select">
                       <option selected>Choose City/Muncipality</option>
                       <option value="1">One</option>
@@ -91,7 +91,7 @@ function HomeTabs() {
                     </select>
                     <label for="floatingSelect">Select City/Muncipality</label>
                   </div>
-                  <div className="col-3 form-floating">
+                  <div className="col-md-3 col-12 form-floating">
                     <select className="form-select">
                       <option selected>Choose Barnagay</option>
                       <option value="1">One</option>
