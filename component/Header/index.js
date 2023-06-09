@@ -4,9 +4,11 @@ import Image from 'next/image';
 import logo from'../../public/images/logo.png';
 import phone from '../../public/images/phone.png'
 import loginUser from '../../public/images/user-icon.png'
-
+//import { usePathname } from 'next/navigation';
 
 function Header() {
+  //const pathname = usePathname();
+  //console.log("gggggddd123",pathname)
   return (
     <>
     <nav className="navbar navbar-expand-lg navbar-light bg-light">
