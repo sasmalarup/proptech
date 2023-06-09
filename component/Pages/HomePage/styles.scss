@@ -64,7 +64,7 @@
   height: auto;
 }
 .tabsContainer{
-  width: 900px;
+  width: 1000px;
   margin: 0 auto;
   position: relative;
   z-index: 999;
@@ -100,14 +100,15 @@
         padding: 0;
         .selectOption_search{
           display: flex;
+          padding-right: 0;
           .form-floating{
-            padding: 0 5px;
+            padding: 0 3px;
             label{
               padding: 0.75rem 1rem;
               font-size: 14px;
             }
             .form-select {
-              padding-top: 1.4rem;
+              padding-top: 1.25rem;
               padding-bottom: .625rem;
               padding-left: 0.65rem;
               height: 50px;
@@ -280,7 +281,6 @@
         cursor: pointer;
         &:before {
           content:'';
-          -webkit-appearance: none;
           background-color: transparent;
           border: 2px solid $black-dark;
           box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05), inset 0px -15px 10px -12px rgba(0, 0, 0, 0.05);
