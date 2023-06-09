@@ -9,7 +9,7 @@ export const GET = async (req)=>{
       query: "SELECT * FROM flower_store_master where store_url LIKE ?",
       values: [`%${domain_name}%`],
     });    
-      return NextResponse.json({msg:result}) 
+      return NextResponse.json(result) 
   } catch (error) {
       return NextResponse.json(error)
   }   

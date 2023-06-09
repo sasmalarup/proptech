@@ -1,25 +1,16 @@
-"use client";
-//import Home from "@/component/Pages/HomePage/home"
-import { useEffect, useState } from "react"
-//import React from "react"
 import Home from "@/component/Pages/HomePage"
-
-export default function Homepage() {
- const [data,setData]=useState();
-  // useEffect(()=>{
-  //   const fetchData = async () => {
-  //     // const params = new URLSearchParams({
-  //     //   name: 'John Smith',
-  //     //   age: 30
-  //     // });
-  //     const response = await fetch(`${process.env.URL}api/property`);
-  //     const data = await response.json();
-  //     setData(data);
-  //   };
-  //   fetchData();
-  // },[])
-  //console.log(data)
-  
+// export const metadata = {
+//   title: 'Realcity',
+//   description: 'RealCity is the best restaurant website',
+// };
+export async function generateMetadata(){
+  const storeDetails=await fetch(`${process.env.BASE_URL}api/store`,{next:{revalidate:60}}).then((res)=>res.json());
+  return {
+    title:storeDetails[0].page_title, 
+    description:storeDetails[0].meta_desc
+  }
+}
+export default function Landingpage() {
   return (
     <>
       <Home />

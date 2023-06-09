@@ -5,13 +5,6 @@ import '../styles/globals.scss'
 import Header from '@/component/Header'
 import Footer from '@/component/Footer'
 
-
-
-export const metadata = {
-  title: 'Realcity',
-  description: 'RealCity is the best restaurant website',
-}
-
 export default function RootLayout({ children }) {
   
   useEffect(() => {
