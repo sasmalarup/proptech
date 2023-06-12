@@ -1,0 +1,53 @@
+@import "../../../styles/color.module.scss";
+
+.contactWrapper {
+    margin: 75px 0;
+    .leftContect-box {
+        border-right: 1px solid #ededed;
+        .infoBox {
+            text-align: center;
+            padding: 10px 20px;
+            h3 {
+                font-size: 20px;
+                color: #313541;
+                margin: 8px 0 12px;
+            }
+            p {
+                font-size: 15px;
+                color: #3f3f3f;
+                margin: 0 0 12px;
+            }
+        }
+    }
+    .rightContect-box {
+        padding-left: 25px;
+        text-align: left;
+        h2 {
+            font-size: 28px;
+            font-weight: 600;
+            margin: 0 0 15px;
+        }
+        form {
+            margin-top: 20px;
+            float: left;
+            width: 100%;
+            input, textarea{
+                width: 100%;
+                height: 40px;
+                border-radius: 3px;
+                font-size: 15px;
+                margin-bottom: 10px;
+                border: 1px solid #ededed;;
+                padding: 0 10px;
+            }
+        }
+    }
+}
+.rightContect-box{
+    button{
+        &.submtBtn{
+            background-color: $primary-color;
+            border-color: $primary-color;
+        }
+    }
+}

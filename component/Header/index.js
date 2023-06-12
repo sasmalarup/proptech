@@ -41,11 +41,11 @@ function Header() {
                   Rent
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a className="dropdown-item" href="#">Commercial</a></li>
-                  <li><a className="dropdown-item" href="#">Land</a></li>
-                  <li><a className="dropdown-item" href="#">House</a></li>
-                  <li><a className="dropdown-item" href="#">Apartment</a></li>
-                  <li><a className="dropdown-item" href="#">Condominium</a></li>
+                  <li><a className="dropdown-item" href="/category">Commercial</a></li>
+                  <li><a className="dropdown-item" href="/category">Land</a></li>
+                  <li><a className="dropdown-item" href="/category">House</a></li>
+                  <li><a className="dropdown-item" href="/category">Apartment</a></li>
+                  <li><a className="dropdown-item" href="/category">Condominium</a></li>
                 </ul>
               </li>
               <li className="nav-item dropdown">
@@ -53,11 +53,11 @@ function Header() {
                   Sell/Buy
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a className="dropdown-item" href="#">Commercial</a></li>
-                  <li><a className="dropdown-item" href="#">Land</a></li>
-                  <li><a className="dropdown-item" href="#">House</a></li>
-                  <li><a className="dropdown-item" href="#">Apartment</a></li>
-                  <li><a className="dropdown-item" href="#">Condominium</a></li>
+                  <li><a className="dropdown-item" href="/category">Commercial</a></li>
+                  <li><a className="dropdown-item" href="/category">Land</a></li>
+                  <li><a className="dropdown-item" href="/category">House</a></li>
+                  <li><a className="dropdown-item" href="/category">Apartment</a></li>
+                  <li><a className="dropdown-item" href="/category">Condominium</a></li>
                 </ul>
               </li>
               <li className="nav-item dropdown">
@@ -84,7 +84,7 @@ function Header() {
                 </ul>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">pricing</a>
+                <a className="nav-link" href="/package">pricing</a>
               </li>
             </ul>
             <a href="/login" className="userIcon">
