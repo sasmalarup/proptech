@@ -7,7 +7,6 @@ import phone from '../../public/images/phone.png'
 import loginUser from '../../public/images/user-icon.png'
 import { usePathname } from 'next/navigation';
 
-
 function Header() {
   const pathname = usePathname(); 
   const headerClass = pathname === '/' ? 'navbar navbar-expand-lg navbar-light bg-light' : 'navbar navbar-expand-lg navbar-light bg-light innerHeader';
