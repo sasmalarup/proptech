@@ -10,7 +10,7 @@ function FeatureCard() {
   return (
     <div className="col-md-4 col-xs-12">
       <div className="blogCol">
-        <div className="featureCard">
+        <a href="/property-details" className="featureCard">
           <div className="image">
             <Image
               src={hotel}
@@ -34,7 +34,7 @@ function FeatureCard() {
                     </span>
                     <div className="feature-title">
                             <h4><span className="amount">Rs.3,410</span> /month</h4>
-                            <h5><a href="#">AVA High Line </a></h5>
+                            <h5>AVA High Line</h5>
                     </div>
                     <div className="fp--excerpt">
                       <p>Special pricing for immediate move-ins! Call for details! AVA is a first. Our apartments are energized by New York City, personalized by you. Yep. Take our DIY kits and go...</p>
@@ -55,7 +55,7 @@ function FeatureCard() {
                 <span>2</span>
               </div>
           </div>
-      </div>
+      </a>
       </div>
     </div>
   );

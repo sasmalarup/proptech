@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import Image from 'next/image';
 import hotel from'../../../public/images/propertyHotel.jpeg';
@@ -10,10 +11,15 @@ import BenifitsCard from '../../molecules/benifitsCard/index';
 import BlogCard from '../../molecules/blogCard/index';
 import TestimonialsCard from '../../molecules/testimonialsCard/index';
 import Partner from './partner';
+import { getGlobalstate,setGlobalstate } from "@/redux/features/globalSlice";
+import { useDispatch,useSelector } from "react-redux";
 
 import './styles.scss';
 
-function HomePage() {
+function HomePage({id}) {
+  const dispatch=useDispatch()
+  dispatch(setGlobalstate(id))
+  
   return (
     <>
       <HomeBanner />

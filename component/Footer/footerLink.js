@@ -58,7 +58,7 @@ function FooterLink() {
                             <a href="#">Privacy Policy</a>
                         </li>
                         <li>
-                            <a href="#">Contact Support</a>
+                            <a href="/contact">Contact Support</a>
                         </li>
                         <li>
                             <a href="#">Pricing</a>
