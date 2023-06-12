@@ -3,7 +3,14 @@ import banner from'../../../public/images/banner-image.jpeg';
 import Image from 'next/image';
 import './styles.scss';
 
-function HomeBanner() {
+async function HomeBanner() {
+  try{
+    const bannerDetails=await fetch(`${process.env.BASE_URL}api/homesettings?storeid=9&ap=Banner`,{cache: "no-cache"})
+  .then((res)=>res.json());
+  }catch (err) {
+    console.log("api error",err);
+  }
+  
   return (
     <>
         <div id="carouselExampleFade" className="carousel slide carousel-fade">
