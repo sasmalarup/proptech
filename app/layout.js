@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
 import '../styles/globals.scss'
 import Header from '@/component/Header'
 import Footer from '@/component/Footer'
+import { Reduxprovider } from "@/redux/provider";
 
 export default function RootLayout({ children }) {
   
@@ -14,9 +15,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
         <body>
-            <Header/>
+        <Reduxprovider>
+            <Header/>         
             {children}
             <Footer/>
+          </Reduxprovider>
+            
       </body>
     </html>
   )

@@ -7,7 +7,17 @@ const nextConfig = {
     DB_PASSWORD:",nCcJk)@~%TK@pmsMLS2023",
     DB_DATABASE:"rephil_mlspms2023"
 
-  }
+  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'www.rephil.app',
+        port: '',
+        
+      },
+    ],
+  },
 }
 
 const path = require('path');

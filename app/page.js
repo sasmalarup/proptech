@@ -1,19 +1,18 @@
 import Home from "@/component/Pages/HomePage"
-// export const metadata = {
-//   title: 'Realcity',
-//   description: 'RealCity is the best restaurant website',
-// };
+import { getStoredetails } from "@/lib/getStoredetails";
+
 export async function generateMetadata(){
-  const storeDetails=await fetch(`${process.env.BASE_URL}api/store`,{next:{revalidate:60}}).then((res)=>res.json());
+  const storeDetails=await getStoredetails();
   return {
     title:storeDetails[0].page_title, 
     description:storeDetails[0].meta_desc
   }
 }
-export default function Landingpage() {
+export default async function Landingpage() {
+  const storeDetails=await getStoredetails();
   return (
     <>
-      <Home />
+      <Home id={storeDetails[0].id}/>
     </>
       
   )
