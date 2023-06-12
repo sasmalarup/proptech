@@ -21,7 +21,7 @@
         padding-bottom: 15px;
         padding-left: 16px !important;
         padding-right: 16px !important;
-        color: $white-100;
+        color: $white-100 !important;
         &.active{
           background: #11242f;
           color: $white-100;
@@ -142,47 +142,6 @@ a.btnRcnt{
       color:$white-100;
     }
 }
-@media screen and (max-width: 767px){
-  .assignBtn{
-    display: block;
-  }
-  .headerInner nav.navbar{
-    padding-bottom: 15px;
-  }
-  .rightNav{
-    margin-top: 10px;
-    border-right: 0px solid;
-    li{
-      &.nav-item{
-        border-bottom: 1px solid #5989a4;
-      }
-      ul.dropdown-menu {
-        padding-bottom: 8px;
-        background: #2b6889;
-        border: 0px solid;
-      }
-    }
-    li a.nav-link{
-      text-align: left;
-      padding-top: 12px;
-      padding-bottom: 12px;
-      &.dropdown-toggle::after{
-        position: absolute;
-        top: 20px;
-        right: 15px;
-      }
-    }
-  }
-  .userIcon{
-    float: left;
-    padding: 0;
-    width: calc(100% - 200px);
-    img{
-      float: left;
-    }
-  }
-}
-
 
 .menu-container {
   position: relative;
@@ -280,5 +239,57 @@ a.btnRcnt{
   padding: 15px 20px;
   display: block;
 }
+
+@media screen and (max-width: 767px){
+  .headerInner nav.navbar{
+    padding-bottom: 15px;
+  }
+  .rightNav{
+    margin-top: 10px;
+    border-right: 0px solid;
+    li{
+      &.nav-item{
+        border-bottom: 1px solid #5989a4;
+      }
+      ul.dropdown-menu {
+        padding-bottom: 8px;
+        background: #2b6889;
+        border: 0px solid;
+      }
+    }
+    li a.nav-link{
+      text-align: left;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      &.dropdown-toggle::after{
+        position: absolute;
+        top: 20px;
+        right: 15px;
+      }
+    }
+  }
+  .userIcon{
+    float: left;
+    padding: 0;
+    width: 50%;
+    img{
+      float: left;
+    }
+  }
+  .callicon{
+    width: 50%;
+  }
+  nav.navbar.innerHeader .container .navbar-collapse{padding-bottom: 30px;}
+  a.btnRcnt{
+    margin-top: 20px;
+    float: left;
+    width: 100%;
+    text-align: center;
+    height: 38px;
+    line-height: 38px;
+    padding: 0;
+  }
+}
+
 
 
