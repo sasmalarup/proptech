@@ -8,7 +8,7 @@ export async function generateMetadata(){
     description:storeDetails[0].meta_desc
   }
 }
-export default async function Landingpage() {
+export default async function Landingpage() { 
   const storeDetails=await getStoredetails();
   return (
     <>

@@ -7,21 +7,20 @@ import Footer from '@/component/Footer'
 import { Reduxprovider } from "@/redux/provider";
 
 export default function RootLayout({ children }) {
-  
+
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
   }, []);
-  
+
   return (
     <html lang="en">
+      <Reduxprovider>
         <body>
-        <Reduxprovider>
-            <Header/>         
-            {children}
-            <Footer/>
-          </Reduxprovider>
-            
-      </body>
+          <Header />
+          {children}
+          <Footer />
+        </body>
+      </Reduxprovider>
     </html>
   )
 }
