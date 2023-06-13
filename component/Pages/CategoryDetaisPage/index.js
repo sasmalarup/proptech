@@ -147,7 +147,7 @@ function CategoryPage() {
                 </div>
             </div>
             <div className="col-md-9 rightContainer category_list">
-                {[...Array(5).keys()].map((item) => (
+                {[...Array(5)].map((item) => (
                     <FeatureCard />
                 ))}
             </div>
