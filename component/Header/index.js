@@ -14,15 +14,6 @@ async function Header() {
   const pathname = usePathname();
   const headerClass = pathname === '/' ? 'navbar navbar-expand-lg navbar-light bg-light' : 'navbar navbar-expand-lg navbar-light bg-light innerHeader';
   const plevel = await getpropertyParentlevel('pclevel');
-
-  // useEffect(async () => {
-  //   const mapped_parentchild = await Promise.all(plevel.map(async (parent_level) => ({
-  //     ...parent_level,
-  //     childs: await getpropertyCategory(parent_level.id, 'clevel')
-  //   })))
-  //   setMenu(mapped_parentchild)
-  // }, [])
-  //console.log(mapped_parentchild)
   return (
     <>
       <nav className={headerClass}>
