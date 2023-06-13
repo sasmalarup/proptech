@@ -1,30 +1,15 @@
 "use client";
 import React, { useEffect, useState } from 'react';
-import banner from'../../../public/images/banner-image.jpeg';
+//import banner from'../../../public/images/banner-image.jpeg';
 import Image from 'next/image';
 import './styles.scss';
-import { getGlobalstate } from "@/redux/features/globalSlice";
+//import { getGlobalstate } from "@/redux/features/globalSlice";
 import { useSelector } from "react-redux";
 import { gethomeBanner } from '@/lib/gethomeBanner';
 
 async function HomeBanner() {
   const storeid=useSelector(state=>state.globalReducer.value.storeID);
   const data=await gethomeBanner(storeid,'Banner');
-  //const [data, setData] = useState([])
-  // useEffect(()=>{
-  //   try {
-  //     fetch(`${process.env.BASE_URL}api/homesettings?storeid=${storeid}&ap=Banner`,{next:{revalidate:60}})
-  //     .then((res)=>res.json()).then((data) => {
-  //       setData(data)
-  //     })
-  //   } catch (error) {
-  //      throw new Error("Error from getbanner")
-  //   }
-   
-  // },[])
-  //if (isLoading) return <p>Loading...</p>
-  //if (!data) return <p>No profile data</p>
-  //console.log("banner data",data)
   return (
     <>
         <div id="carouselExampleFade" className="carousel slide carousel-fade">
@@ -42,15 +27,6 @@ async function HomeBanner() {
             </div>
             }) 
           }
-         
-          {/* <div className="carousel-item" style={{width: '100%', height: '100%', position: 'relative'}}>
-            <Image
-              src={banner}
-              width='100px'
-              height='100px'
-              alt="Picture of the author"
-            />
-          </div> */}
         </div>
         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
           <span className="carousel-control-prev-icon" aria-hidden="true"></span>
