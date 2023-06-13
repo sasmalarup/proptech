@@ -7,7 +7,7 @@ function LoginPage() {
     <>
     <div className="overlayCitySignup width-100">
       <div className="signUpText col-md-6 col-sm-12">
-          <div class="SingListContent width-100">
+          <div className="SingListContent width-100">
               <h1>Thing you Can Do with<br/>RealCity Account</h1>
               <ul>
                 <li>Post on Signle Property Free</li>
@@ -19,7 +19,7 @@ function LoginPage() {
           </div>
       </div>
         <div className="signUpCol col-md-6 col-sm-12">
-            <div class="UserForm width-100">
+            <div className="UserForm width-100">
                 <h1>Login</h1>
                 <form>
                   <div className="row">
