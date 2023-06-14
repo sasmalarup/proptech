@@ -1,9 +1,15 @@
-import React from 'react'
+"use client"
+import React,{useState} from 'react'
 import Link from 'next/link'
 import { getpropertyCategory } from '@/lib/getpropertyCategory';
-const Secondlevel = async ({ id }) => {
-    const slevel = await getpropertyCategory(id, 'clevel');
-    //console.log("slevel",slevel)
+const Secondlevel = ({ id }) => {
+    const [slevel,setData]=useState([])
+    const fetchData = async () => {
+        const res = await getpropertyCategory(id, 'clevel');
+        setData(res)
+    };
+
+    fetchData();
     return (
         <>
 

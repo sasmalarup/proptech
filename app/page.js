@@ -13,7 +13,7 @@ export async function generateMetadata(){
   }
 }
 export default async function Landingpage() { 
-  const storeDetails=await getStoredetails();
+  const storeDetails=await getStoredetails(); 
   return (
     <>
    

@@ -11,8 +11,8 @@ import BenifitsCard from '../../molecules/benifitsCard/index';
 import BlogCard from '../../molecules/blogCard/index';
 import TestimonialsCard from '../../molecules/testimonialsCard/index';
 import Partner from './partner';
-import { getGlobalstate,setGlobalstate } from "@/redux/features/globalSlice";
-import { useDispatch,useSelector } from "react-redux";
+import { setGlobalstate } from "@/redux/features/globalSlice";
+import { useDispatch } from "react-redux";
 
 import './styles.scss';
 
@@ -22,7 +22,9 @@ function HomePage({id}) {
   
   return (
     <>
-      <HomeBanner />
+    
+    <HomeBanner />
+      
       <HomeTabs/>
       <div className='container mt-5 mb-5'>
           <div className='row gy-1'>
