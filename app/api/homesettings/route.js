@@ -61,7 +61,7 @@ export const GET = async (req)=>{
          
         try {
             const result = await query({
-              query: "select * from flower_province where country_code=? and province_status=?",
+              query: "select * from flower_province where country_code=? and province_status=? order by province_name",
               values: ['PH',1],
             });    
             return NextResponse.json(result) 
