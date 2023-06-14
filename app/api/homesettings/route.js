@@ -22,7 +22,7 @@ export const GET = async (req)=>{
 
         try {
           const result = await query({
-            query: "select * from flower_supplier_category_level where c_level_status=?",
+            query: "select * from flower_supplier_category_level where c_level_status=? order by level_name",
             values: [1],
           });    
             return NextResponse.json(result) 

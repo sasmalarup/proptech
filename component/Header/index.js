@@ -1,5 +1,5 @@
 "use client"
-import React from "react"
+import React,{useState} from "react"
 import './styles.scss';
 import Image from 'next/image';
 import logo from '../../public/images/logo.png';
@@ -10,10 +10,16 @@ import { getpropertyParentlevel } from "@/lib/getpropertyParentlevel";
 import Link from "next/link";
 import Secondlevel from "./secondlevel";
 
-async function Header() {
+function Header() {
   const pathname = usePathname();
   const headerClass = pathname === '/' ? 'navbar navbar-expand-lg navbar-light bg-light' : 'navbar navbar-expand-lg navbar-light bg-light innerHeader';
-  const plevel = await getpropertyParentlevel('pclevel');
+  const [plevel,setData]=useState([])
+  const fetchData = async () => {
+    const res = await getpropertyParentlevel('pclevel');
+    setData(res)
+  };
+
+  fetchData();
   return (
     <>
       <nav className={headerClass}>
