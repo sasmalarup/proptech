@@ -32,7 +32,7 @@ function HomePage({id}) {
                   <h2>Our Feature Exclusive</h2>
                   <p>Lorem Ipsum is simply dume text please change this description</p>
               </div>
-              {[...Array(3).keys()].map((item) => (
+              {[...Array(3)].map((item) => (
                 <AssetsCard />
               ))}
           </div>
@@ -44,7 +44,7 @@ function HomePage({id}) {
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
           <div className='propertyArea_box'>
-          {[...Array(12).keys()].map((item) => (
+          {[...Array(12)].map((item) => (
             <a href={'test'} className="col-md-3 col-xs-12 propertyAreaCard">
               <div className='cardimage'>
                 <span>
@@ -78,7 +78,7 @@ function HomePage({id}) {
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
           <div className='row gy-1 mt-5'>
-            {[...Array(3).keys()].map((item) => (
+            {[...Array(3)].map((item) => (
               <FeatureCard />
             ))}
           </div>
@@ -91,7 +91,7 @@ function HomePage({id}) {
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
           <div className='row gy-1 mt-5'>
-            {[...Array(3).keys()].map((item) => (
+            {[...Array(3)].map((item) => (
               <FeatureCard />
             ))}
           </div>
@@ -116,7 +116,7 @@ function HomePage({id}) {
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
           <div className='row gy-1 mt-5'>
-            {[...Array(3).keys()].map((item) => (
+            {[...Array(3)].map((item) => (
               <BlogCard />
             ))}
           </div>
