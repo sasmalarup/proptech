@@ -3,6 +3,8 @@ import React,{useEffect, useState} from 'react'
 import AssetsCard from '@/component/molecules/Card'
 import { getProperty } from '@/lib/getProperty';
 import { useSelector } from 'react-redux';
+//import PropertySkeleton from '@/component/molecules/Skeleton/PropertySkeleton';
+import CardSkeleton from '@/component/molecules/Skeleton/CardSkelton';
 const Propertyblock = () => {
   const [blockp,setBlockp]=useState([]);
   const [isLoading,setLoading]=useState(false)
@@ -16,7 +18,7 @@ const Propertyblock = () => {
      }
      propertyRes()
   },[])
-  console.log("blockp",blockp)
+  //console.log("blockp",blockp)
   return (
     <div className='container mt-5 mb-5'>
           <div className='row gy-1'>
@@ -26,7 +28,12 @@ const Propertyblock = () => {
               </div>
               { 
               isLoading ? 
-              <p>Loading please wait...</p> :
+              <>
+              {
+                [...Array(3)].map(()=><CardSkeleton />)
+              }
+              </>
+               :
               blockp.map(itm=><AssetsCard itm={itm}/>)
             }
           </div>

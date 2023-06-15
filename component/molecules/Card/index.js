@@ -5,7 +5,8 @@ import { FiMapPin } from 'react-icons/fi';
 import { BiArea } from 'react-icons/bi';
 import { MdOutlineBathtub, MdOutlineBedroomParent } from 'react-icons/md';
 import Link from "next/link";
-const parse = require('html-react-parser');
+import parse from 'html-react-parser';
+import getSymbolFromCurrency from 'currency-symbol-map'
 import './styles.scss';
 
 function AssetsCard({itm}) {
@@ -26,10 +27,10 @@ function AssetsCard({itm}) {
                 itm.price_show==='Y' ?
                 <>
                 <span className="fp_price">
-                      <span className="amount">Rs.{parseFloat(itm.price).toLocaleString()}</span> / {itm.rent_price_on_yr_or_month_basis==='Yearly'?'Year':'Month'} 
+                      <span className="amount">{getSymbolFromCurrency('PHP')}{parseFloat(itm.price).toLocaleString()}</span> / {itm.rent_price_on_yr_or_month_basis==='Yearly'?'Year':'Month'} 
                   </span>
                 </> :
-                ""
+                null
                 }
                   
                   <div className="fp-title">

@@ -1,10 +1,11 @@
 "use client";
 import React, { useState,useEffect } from 'react';
-import banner from'../../../public/images/elms-hero.jpeg';
+//import banner from'../../../public/images/elms-hero.jpeg';
 import Image from 'next/image';
 import './styles.scss';
 import { useSelector } from "react-redux";
 import { gethomeBanner } from '@/lib/gethomeBanner';
+import SkeletonBanner from '@/component/molecules/Skeleton/BannerSkeleton';
 
 function HomeBanner() {
   const storeid=useSelector(state=>state.globalReducer.value.storeID);
@@ -26,16 +27,7 @@ function HomeBanner() {
         {
                           isloading ?
                             (
-                              <>
-                              <div className="carousel-item active">
-                                <Image
-                                  src={banner}
-                                  width={1440}
-                                  height={432}
-                                  alt="schema img"
-                                />
-                              </div>
-                              </>
+                              <SkeletonBanner />
                             ) :
 
                             (
