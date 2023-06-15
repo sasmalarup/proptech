@@ -5,11 +5,12 @@ import hotel from'../../../public/images/propertyHotel.jpeg';
 import HomeBanner from './banner'
 import HomeTabs from './tabs';
 import InqueryCard from './inqueryForm';
-import AssetsCard from '../../molecules/Card';
+//import AssetsCard from '../../molecules/Card';
 import FeatureCard from '../../molecules/featureCard/index';
 import BenifitsCard from '../../molecules/benifitsCard/index';
 import BlogCard from '../../molecules/blogCard/index';
 import TestimonialsCard from '../../molecules/testimonialsCard/index';
+import Propertyblock from './propertyblock';
 import Partner from './partner';
 import { setGlobalstate } from "@/redux/features/globalSlice";
 import { useDispatch } from "react-redux";
@@ -26,17 +27,7 @@ function HomePage({id}) {
     <HomeBanner />
       
       <HomeTabs/>
-      <div className='container mt-5 mb-5'>
-          <div className='row gy-1'>
-              <div className='featureTitle'>
-                  <h2>Our Feature Exclusive</h2>
-                  <p>Lorem Ipsum is simply dume text please change this description</p>
-              </div>
-              {[...Array(3)].map((item) => (
-                <AssetsCard />
-              ))}
-          </div>
-      </div>
+      <Propertyblock />
       <div className='propertyArea'>
         <div className="container mt-5 mb-5 propertyAreaContainer">
           <div className='featureTitle'>

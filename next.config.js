@@ -5,7 +5,10 @@ const nextConfig = {
     DB_HOST:"whuk-52764.whukhost.com",
     DB_USER:"rephil_mlspms2023",
     DB_PASSWORD:",nCcJk)@~%TK@pmsMLS2023",
-    DB_DATABASE:"rephil_mlspms2023"
+    DB_DATABASE:"rephil_mlspms2023",
+    IMG_URL:"https://www.rephil.app/",
+    HOME_BLOCK_PROPERTY_IMG_URL:'img/p/pimg/su/370/300/',
+    HOME_BANNER_IMG_URL:'img/b/hsb/s/1440/432/'
 
   },
   images: {

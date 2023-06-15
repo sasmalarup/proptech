@@ -45,7 +45,7 @@ function HomeBanner() {
                                     return (
                                       <div className={`carousel-item ${i===0?'active':""}`} key={itm.id}>
                                                 <Image
-                                                  src={`https://www.rephil.app/img/b/hsb/s/1440/432/${itm.img_path}`}
+                                                  src={`${process.env.IMG_URL}${process.env.HOME_BANNER_IMG_URL}${itm.img_path}`}
                                                   width={1440}
                                                   height={432}
                                                   alt={itm.alt_txt}
