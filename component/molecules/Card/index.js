@@ -9,7 +9,6 @@ import './styles.scss';
 function AssetsCard() {
   return (
     <div className="col-md-4 col-xs-12">
-      <div className="blogCol">
         <div className="blogSnip">
           <div className="image">
             <Image
@@ -50,8 +49,7 @@ function AssetsCard() {
                   <span>2</span>
               </div>
           </div>
-      </div>
-      </div>
+        </div>
     </div>
   );
 }

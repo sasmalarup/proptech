@@ -1,0 +1,44 @@
+.skeletonCard{
+    float: left;
+    margin: 10px 1%;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-transition: all 0.25s ease;
+    transition: all 0.25s ease;
+    border-radius: 6px 6px 0 0;
+    h2{
+        margin-bottom: 5px;
+        font-size: 20px;
+    }
+    p{
+        font-size: 16px;
+        &.cardDescription{
+            margin-bottom: 0;
+        }
+    }
+}
+.propertySkeleton{
+    display: flex;
+    align-items: center;
+    float: left;
+    .skeletonImge{
+      width: 30%;
+      float: left;
+      padding-right: 16px;
+    }
+    .skeletonContent{
+      width: 70%;
+      float: left;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      padding-left: 15px;
+      p{
+        font-size: 16px;
+        margin-bottom: 0;
+      }
+    }
+}
