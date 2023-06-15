@@ -11,7 +11,6 @@ import './styles.scss';
 function AssetsCard({itm}) {
   return (
     <div className="col-md-4 col-xs-12">
-      <div className="blogCol">
         <div className="blogSnip">
           <div className="image">
             <Image
@@ -62,8 +61,7 @@ function AssetsCard({itm}) {
                   <span>Sqm {itm.floor_area}</span>
               </div>
           </div>
-      </div>
-      </div>
+        </div>
     </div>
   );
 }

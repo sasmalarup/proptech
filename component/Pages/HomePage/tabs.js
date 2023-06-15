@@ -55,7 +55,7 @@ function HomeTabs() {
   return (
     <>
       <div className='tabsContainer'>
-        <div className="card p-3 shadow tabsCaption">
+        <div className="card p-3 tabsCaption">
           <nav>
             <div className="nav nav-tabs mb-3" id="nav-tab" role="tablist">
               {
@@ -68,8 +68,7 @@ function HomeTabs() {
 
             </div>
           </nav>
-          <div className="tab-content p-3 border bg-light" id="nav-tabContent">
-
+          <div className="tab-content p-3 border bg-light shadow" id="nav-tabContent">
             <div className="tab-pane fade active show" id="nav-rent" role="tabpanel" aria-labelledby="nav-rent-tab">
               <div className="container text-center">
                 <div className="row justify-content-start">
@@ -164,7 +163,6 @@ function HomeTabs() {
                       </select>
                       <label for="floatingSelect">Select City/Muncipality</label>
                     </div>
-
                   </div>
                   <div className="searchButton col-md-2 col-12">
                     <button type='button' className="btn btn-primary">Search</button>
@@ -259,12 +257,9 @@ function HomeTabs() {
                             )
 
                         }
-
-
                       </select>
                       <label for="floatingSelect">Select City/Muncipality</label>
                     </div>
-
                   </div>
                   <div className="searchButton col-md-2 col-12">
                     <button type='button' className="btn btn-primary">Search</button>
