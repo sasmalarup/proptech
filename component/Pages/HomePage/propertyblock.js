@@ -34,7 +34,7 @@ const Propertyblock = () => {
               }
               </>
                :
-              blockp.map(itm=><AssetsCard itm={itm}/>)
+               blockp?.map(itm=><AssetsCard itm={itm}/>)
             }
           </div>
       </div>
