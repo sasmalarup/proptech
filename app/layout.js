@@ -7,6 +7,7 @@ import Header from '../component/Header'
 import Footer from '../component/Footer'
 import { Reduxprovider } from "../redux/provider";
 
+
 export default function RootLayout({ children }) {
   
   useEffect(() => {

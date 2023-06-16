@@ -33,7 +33,7 @@ function HomeBanner() {
                             (
                               <>
                                 {
-                                  data.map((itm, i) => {
+                                  data?.length>0 && data.map((itm, i) => {
                                     return (
                                       <div className={`carousel-item ${i===0?'active':""}`} key={itm.id}>
                                                 <Image

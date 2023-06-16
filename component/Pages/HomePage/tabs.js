@@ -89,7 +89,7 @@ function HomeTabs() {
                               <>
                                 <option selected>Choose Type</option>
                                 {
-                                  catdata.map((value, key) => {
+                                  catdata?.length>0 && catdata.map((value, key) => {
                                     return (
                                       <option value={value.id} key={value.id}>
                                         {value.category_name}
@@ -117,7 +117,7 @@ function HomeTabs() {
 
                         <option selected>Choose Province</option>
                         {
-                          provincedata.length > 0 && provincedata.map((value, key) => {
+                          provincedata?.length>0 && provincedata.length > 0 && provincedata.map((value, key) => {
                             return (
                               <option value={value.province_id} key={value.province_id}>
                                 {value.province_name}
@@ -144,7 +144,7 @@ function HomeTabs() {
                               <>
                                 <option selected>Choose City/Muncipality</option>
                                 {
-                                  citydata.map((value, key) => {
+                                  citydata?.length>0 && citydata.map((value, key) => {
                                     return (
                                       <option value={value.cid} key={value.cid}>
                                         {value.city_name}
@@ -190,7 +190,7 @@ function HomeTabs() {
                               <>
                                 <option selected>Choose Type</option>
                                 {
-                                  catdata.map((value, key) => {
+                                  catdata?.length>0 && catdata.map((value, key) => {
                                     return (
                                       <option value={value.id} key={value.id}>
                                         {value.category_name}
@@ -216,7 +216,7 @@ function HomeTabs() {
 
                         <option selected>Choose Province</option>
                         {
-                          provincedata.length > 0 && provincedata.map((value, key) => {
+                          provincedata?.length>0 && provincedata.length > 0 && provincedata.map((value, key) => {
                             return (
                               <option value={value.province_id} key={value.province_id}>
                                 {value.province_name}
@@ -243,7 +243,7 @@ function HomeTabs() {
                               <>
                                 <option selected>Choose City/Muncipality</option>
                                 {
-                                  citydata.map((value, key) => {
+                                  citydata?.length>0 && citydata.map((value, key) => {
                                     return (
                                       <option value={value.cid} key={value.cid}>
                                         {value.city_name}
