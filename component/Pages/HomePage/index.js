@@ -4,7 +4,7 @@ import HomeBanner from './banner'
 import HomeTabs from './tabs';
 import InqueryCard from './inqueryForm';
 //import AssetsCard from '../../molecules/Card';
-import FeatureCard from '../../molecules/featureCard/index';
+
 import BenifitsCard from '../../molecules/benifitsCard/index';
 import BlogCard from '../../molecules/blogCard/index';
 import TestimonialsCard from '../../molecules/testimonialsCard/index';
@@ -15,6 +15,8 @@ import { useDispatch } from "react-redux";
 
 import './styles.scss';
 import Propertybyarea from './propertybyarea';
+import Propertyrent from './propertyrent';
+import Propertysale from './propertysale';
 
 function HomePage({id}) {
   const dispatch=useDispatch()
@@ -28,33 +30,9 @@ function HomePage({id}) {
       <HomeTabs/>
       <Propertyblock />
       <Propertybyarea />
-      <div className='propertyWhiteBg'>
-        <div className="container mt-5 mb-5 propertyAreaContainer">
-          <div className='featureTitle'>
-            <h2 className='mb-4'>Property for Rent</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-          </div>
-          <div className='row gy-1 mt-5'>
-            {[...Array(3)].map((item) => (
-              <FeatureCard />
-            ))}
-          </div>
-        </div>
-      </div>
-      <div className='propertyWhiteBg lighBg'>
-        <div className="container mt-5 mb-5 propertyAreaContainer">
-          <div className='featureTitle'>
-            <h2 className='mb-4'>Property for Sale</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
-          </div>
-          <div className='row gy-1 mt-5'>
-            {[...Array(3)].map((item) => (
-              <FeatureCard />
-            ))}
-          </div>
-        </div>
-      </div>
-      <InqueryCard />
+      <Propertyrent />
+       <Propertysale />
+     <InqueryCard />
       <div className="container mt-5 mb-5">
         <div className="row gy-1 flexCenter">
           <div className='featureTitle mt-5'>

@@ -87,7 +87,7 @@ function HomeTabs() {
 
                             (
                               <>
-                                <option selected>Choose Type</option>
+                                <option>Choose Type</option>
                                 {
                                   catdata?.length>0 && catdata.map((value, key) => {
                                     return (
@@ -106,7 +106,7 @@ function HomeTabs() {
 
 
                       </select>
-                      <label for="floatingSelect">Select Type</label>
+                      <label htmlFor="floatingSelect">Select Type</label>
                     </div>
                     <div className="col-md-4 col-12 form-floating">
                       <select
@@ -115,7 +115,7 @@ function HomeTabs() {
                         onChange={(e) => provinceHandler(e.target.value)}
                       >
 
-                        <option selected>Choose Province</option>
+                        <option>Choose Province</option>
                         {
                           provincedata?.length>0 && provincedata.length > 0 && provincedata.map((value, key) => {
                             return (
@@ -126,9 +126,9 @@ function HomeTabs() {
                           })
                         }
                       </select>
-                      <label for="floatingSelect">Select Province</label>
+                      <label htmlFor="floatingSelect">Select Province</label>
                     </div>
-                    <div className="col-md-4 col-12 form-floating">
+                    <div className="col-md-4 col-12 form-floating"> 
                     <select
                         className="form-select"
                         value={city}
@@ -142,7 +142,7 @@ function HomeTabs() {
 
                             (
                               <>
-                                <option selected>Choose City/Muncipality</option>
+                                <option>Choose City/Muncipality</option>
                                 {
                                   citydata?.length>0 && citydata.map((value, key) => {
                                     return (
@@ -188,7 +188,7 @@ function HomeTabs() {
 
                             (
                               <>
-                                <option selected>Choose Type</option>
+                                <option>Choose Type</option>
                                 {
                                   catdata?.length>0 && catdata.map((value, key) => {
                                     return (
@@ -205,7 +205,7 @@ function HomeTabs() {
 
                         }
                       </select>
-                      <label for="floatingSelect">Select Type</label>
+                      <label htmlFor="floatingSelect">Select Type</label>
                     </div>
                     <div className="col-md-4 col-12 form-floating">
                       <select
@@ -214,7 +214,7 @@ function HomeTabs() {
                         onChange={(e) => provinceHandler(e.target.value)}
                       >
 
-                        <option selected>Choose Province</option>
+                        <option>Choose Province</option>
                         {
                           provincedata?.length>0 && provincedata.length > 0 && provincedata.map((value, key) => {
                             return (
@@ -225,7 +225,7 @@ function HomeTabs() {
                           })
                         }
                       </select>
-                      <label for="floatingSelect">Select Province</label>
+                      <label htmlFor="floatingSelect">Select Province</label>
                     </div>
                     <div className="col-md-4 col-12 form-floating">
                     <select
@@ -241,7 +241,7 @@ function HomeTabs() {
 
                             (
                               <>
-                                <option selected>Choose City/Muncipality</option>
+                                <option>Choose City/Muncipality</option>
                                 {
                                   citydata?.length>0 && citydata.map((value, key) => {
                                     return (
@@ -258,7 +258,7 @@ function HomeTabs() {
 
                         }
                       </select>
-                      <label for="floatingSelect">Select City/Muncipality</label>
+                      <label htmlFor="floatingSelect">Select City/Muncipality</label>
                     </div>
                   </div>
                   <div className="searchButton col-md-2 col-12">

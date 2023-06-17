@@ -1,7 +1,35 @@
-import React from 'react'
+"use client";
+import {useState,useEffect} from 'react'
 import Image from 'next/image';
 import hotel from'../../../public/images/propertyHotel.jpeg';
+import PropertySkeleton from '@/component/molecules/Skeleton/PropertySkeleton';
+import { useSelector } from 'react-redux';
+import { getProperty } from '@/lib/getProperty';
 const Propertybyarea = () => {
+    const [propertybyarea,setPropbyarea]=useState([]);
+    const [isLoading,setLoading]=useState(false)
+    const seller_id=useSelector(state=>state.globalReducer.value.storeID)
+    useEffect(()=>{
+       const propertycityRes=async ()=>{
+           setLoading(true)
+           const res=await getProperty(seller_id,0,'plbyc');
+           setPropbyarea(res)
+           setLoading(false)
+       }
+       propertycityRes()
+    },[])
+     console.log("before sorted",propertybyarea)
+    // if(propertybyarea.length>0){
+    //     propertybyarea.sort(
+    //         function(a, b) {          
+    //         //    if (a.city === b.city) {
+    //         //       // Price is only important when cities are the same
+    //         //       return b.price - a.price;
+    //         //    }
+    //            return a.cname > b.cname ? 1 : -1;
+    //         });
+    // }
+    // console.log("after sorted",propertybyarea)
     return (
         <>
             <div className='propertyArea'>
@@ -11,30 +39,37 @@ const Propertybyarea = () => {
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
                     </div>
                     <div className='propertyArea_box'>
-                        {[...Array(12)].map((item) => (
-                            <a href={'test'} className="col-md-3 col-xs-12 propertyAreaCard">
-                                <div className='cardimage'>
-                                    <span>
+                    { 
+                                isLoading ? 
+                                <>
+                                {
+                                    [1,2,3].map((x)=><PropertySkeleton />)
+                                }
+                                </>
+                                :
+                                propertybyarea?.length>0 && propertybyarea.map(itm=>
+                                <a href={'test'} className="col-md-3 col-xs-12 propertyAreaCard" key={`propertyAreaCard-${itm.cid}`}>
+                                <div className='cardimage' key={`cardimage-${itm.cid}`}>
+                                    <span key={`span-${itm.cid}`}>
                                         <Image
                                             src={hotel}
-                                            width='75px'
-                                            height='75px'
-                                            alt="image"
-                                            optimized
+                                            width='75'
+                                            height='75'
+                                            alt={itm.cname}
+                                            key={`image-${itm.cid}`}
+                                            
                                         />
-                                        <img
-                                            className="d-block w-100"
-                                            src={hotel}
-                                            alt="First slide"
-                                        />
+                                      
                                     </span>
                                 </div>
-                                <div className='cardImage_content'>
-                                    <span>Jersery City</span>
-                                    <p>25 Listing</p>
+                                <div className='cardImage_content' key={`cardimage-content-${itm.cid}`}>
+                                    <span>{itm.cname}</span>
+                                    <p>{itm.total_no_of_property} Listing</p>
                                 </div>
                             </a>
-                        ))}
+                            )
+                                }
+                       
                     </div>
                 </div>
             </div>

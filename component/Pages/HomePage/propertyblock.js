@@ -12,7 +12,7 @@ const Propertyblock = () => {
   useEffect(()=>{
      const propertyRes=async ()=>{
          setLoading(true)
-         const res=await getProperty(seller_id,3);
+         const res=await getProperty(seller_id,3,'pl',0);
          setBlockp(res)
          setLoading(false)
      }
@@ -30,11 +30,11 @@ const Propertyblock = () => {
               isLoading ? 
               <>
               {
-                [...Array(3)].map(()=><CardSkeleton />)
+                [...Array(3)].map((i)=><CardSkeleton/>)
               }
               </>
                :
-              blockp?.length>0 && blockp.map(itm=><AssetsCard itm={itm}/>)
+              blockp?.length>0 && blockp.map((itm,i)=><AssetsCard itm={itm}/>)
             }
           </div>
       </div>
