@@ -2,6 +2,7 @@ import React from "react";
 import Image from "next/image";
 import homeImage from '../../public/images/room-house.jpeg'
 import homeImage2 from '../../public/images/room-house2.jpeg'
+import facebook from '../../public/images/facebook.png'
 import pinIcon from '../../public/images/pin.png'
 import phoneIcon from '../../public/images/email.png'
 import emailIcon from '../../public/images/phone.png'
@@ -105,6 +106,8 @@ function FooterLink() {
                             </span>
                             <p><a href="tel: 6221234345510">622 1234 3455 10</a></p>
                         </div>
+                    </div>
+                    <div className="footerSocial">
                     </div>
                 </div>
             </div>

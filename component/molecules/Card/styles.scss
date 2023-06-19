@@ -15,6 +15,7 @@
     -webkit-transition: all 0.25s ease;
     transition: all 0.25s ease;
     border-radius: 6px 6px 0 0;
+    min-height: 515px;
     .image img {
         width: 100%;
         vertical-align: top;
@@ -38,6 +39,10 @@
                 font-size: 20px;
                 color: $black-100;;
                 margin: 5px 0 10px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                color: $grey-green;
                 a {
                     color: $grey-green;
                     text-decoration: none;
@@ -69,9 +74,13 @@
 }
 .property_detail {
     border-top: 1px solid $white-600;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    bottom: 0;
     .area {
         border-right: 1px solid $white-600;
-        width: 30%;
+        width: 20%;
         float: left;
         padding: 6px 10px;
         img {
@@ -87,6 +96,9 @@
             padding-left: 8px;
         }
         &.area_First {
+            width: 40%;
+        }
+        &.area_Last {
             width: 40%;
         }
         &:last-child {

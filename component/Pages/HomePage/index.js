@@ -4,7 +4,6 @@ import HomeBanner from './banner'
 import HomeTabs from './tabs';
 import InqueryCard from './inqueryForm';
 //import AssetsCard from '../../molecules/Card';
-
 import BenifitsCard from '../../molecules/benifitsCard/index';
 import BlogCard from '../../molecules/blogCard/index';
 import TestimonialsCard from '../../molecules/testimonialsCard/index';
@@ -12,7 +11,8 @@ import Propertyblock from './propertyblock';
 import Partner from './partner';
 import { setGlobalstate } from "@/redux/features/globalSlice";
 import { useDispatch } from "react-redux";
-
+import FeaturedBanner from './featuredBanner';
+import AgentProfle from './agentProfile';
 import './styles.scss';
 import Propertybyarea from './propertybyarea';
 import Propertyrent from './propertyrent';
@@ -29,6 +29,7 @@ function HomePage({id}) {
       
       <HomeTabs/>
       <Propertyblock />
+      <FeaturedBanner />
       <Propertybyarea />
       <Propertyrent />
        <Propertysale />
@@ -68,6 +69,7 @@ function HomePage({id}) {
           </div>
         </div>
       </div>
+      <AgentProfle />
       <div className='container partnerRealcity'>
         <Partner />
       </div>
