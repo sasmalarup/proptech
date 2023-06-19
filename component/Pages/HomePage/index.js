@@ -32,8 +32,8 @@ function HomePage({id}) {
       <Propertybyarea />
       <Propertyrent />
        <Propertysale />
-     <InqueryCard />
-      <div className="container mt-5 mb-5">
+     {/* <InqueryCard /> */}
+      {/* <div className="container mt-5 mb-5">
         <div className="row gy-1 flexCenter">
           <div className='featureTitle mt-5'>
             <h2>Our Featured Exclusive</h2>
@@ -43,7 +43,7 @@ function HomePage({id}) {
               <BenifitsCard />
           </div>
         </div>
-      </div>
+      </div> */}
       <div className='propertyWhiteBg'>
         <div className="container mt-5 mb-5 propertyAreaContainer">
           <div className='featureTitle'>
@@ -57,7 +57,7 @@ function HomePage({id}) {
           </div>
         </div>
       </div>
-      <div className="container-fluid testimonialsBg mt-5">
+      {/* <div className="container-fluid testimonialsBg mt-5">
         <div className="row gy-1 flexCenter">
           <div className='featureTitle mt-5'>
             <h2>Testimonials</h2>
@@ -70,7 +70,7 @@ function HomePage({id}) {
       </div>
       <div className='container partnerRealcity'>
         <Partner />
-      </div>
+      </div> */}
     </>
   );
 }
