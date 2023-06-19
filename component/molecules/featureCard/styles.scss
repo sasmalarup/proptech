@@ -67,6 +67,7 @@
         bottom: 0;
         width: 100%;
         position: relative; 
+        min-height: 176px;
         .feature_address {
             position: absolute;
             top: -40px;
@@ -92,6 +93,9 @@
                 color: $black-100;;
                 margin: 5px 0;
                 font-weight: 500;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 a {
                     color: $primary-color;
                     text-decoration: none;
@@ -119,7 +123,7 @@
     border-top: 0px solid;
     padding-bottom: 6px;
     .area {
-        width: 30%;
+        width: 20%;
         float: left;
         padding: 6px 10px;
         img {
@@ -135,6 +139,9 @@
             padding-left: 2px;
         }
         &.area_First {
+            width: 40%;
+        }
+        &.area_Last {
             width: 40%;
         }
         &:last-child {
