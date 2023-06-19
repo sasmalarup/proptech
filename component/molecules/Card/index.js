@@ -51,15 +51,15 @@ function AssetsCard({itm}) {
           </figcaption>
           <div className="property_detail width-100" key={`pd-${itm.id}`}>
               <div className="area area_First" key={`af-${itm.id}`}>
-                <BiArea fontSize={20} color='grey' style={{marginRight: '4px', float: 'left'}} />
+                <BiArea fontSize={20} color='grey' style={{float: 'left'}} />
                 <span>Sqm {itm.land_size}</span>
               </div>
               <div className="area" key={`area1-${itm.id}`}>
-                <MdOutlineBedroomParent fontSize={20} color='grey' style={{marginRight: '4px', float: 'left'}} />
+                <MdOutlineBedroomParent fontSize={20} color='grey' style={{float: 'left'}} />
                   <span>{itm.bedrooms}</span>
               </div>
-              <div className="area" key={`area-${itm.id}`}>
-              <MdOutlineBathtub fontSize={20} color='grey' style={{marginRight: '4px', float: 'left'}} />
+              <div className="area area_Last" key={`area-${itm.id}`}>
+              <MdOutlineBathtub fontSize={20} color='grey' style={{float: 'left'}} />
                   <span>Sqm {itm.floor_area}</span>
               </div>
           </div>

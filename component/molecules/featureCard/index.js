@@ -68,7 +68,7 @@ function FeatureCard({itm}) {
                 <MdOutlineBedroomParent fontSize={20} color='grey' style={{marginRight: '4px', float: 'left'}} />
                 <span>{itm.bedrooms}</span>
               </div>
-              <div className="area" key={`area-${itm.id}`}>
+              <div className="area area_Last" key={`area-${itm.id}`}>
                 <MdOutlineBathtub fontSize={20} color='grey' style={{marginRight: '4px', float: 'left'}} />
                 <span>Sqm {itm.floor_area}</span>
               </div>
