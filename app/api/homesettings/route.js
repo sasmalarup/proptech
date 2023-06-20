@@ -18,7 +18,19 @@ export const GET = async (req)=>{
             return NextResponse.json(error)
         }  
 
-    }else if(apiType=='pclevel'){ //property parent level fetching
+    }else if(apiType=='HomeBanner'){ //home page banner featured
+
+      try {
+        const result = await query({
+          query: "select * from flower_gallery where site_id=? and img_position=? ORDER BY rand() LIMIT 2",
+          values: [storeID,'M'],
+        });    
+          return NextResponse.json(result) 
+      } catch (error) {
+          return NextResponse.json(error)
+      }  
+
+  }else if(apiType=='pclevel'){ //property parent level fetching
 
         try {
           const result = await query({

@@ -1,10 +1,24 @@
 "use client";
-import React from 'react';
-import banner from'../../../public/images/featured-banner.jpg';
-import banner2 from '../../../public/images/featured-banner-gray.jpg';
+import React,{useState,useEffect} from 'react';
+//import banner from'../../../public/images/featured-banner.jpg';
+//import banner2 from '../../../public/images/featured-banner-gray.jpg';
 import Image from 'next/image';
-
+import { useSelector } from "react-redux";
+import { gethomeBanner } from '@/lib/gethomeBanner';
+import SkeletonBanner from '@/component/molecules/Skeleton/BannerSkeleton';
 function FeaturedBanner() {
+  const storeid=useSelector(state=>state.globalReducer.value.storeID);
+  const [data,setData]=useState([])
+  const [isloading,setLoading]=useState(false)
+  useEffect( ()=>{
+   const homepf=async ()=>{
+    setLoading(true)
+    const res = await gethomeBanner(storeid,'HomeBanner');
+    setData(res)
+    setLoading(false)
+   }
+   homepf()
+  },[])
   return (
     <>
     <div className='container'>
@@ -19,22 +33,34 @@ function FeaturedBanner() {
                         <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
                     </div>
                     <div className="carousel-inner">
-                        <div className="carousel-item active">
-                            <Image
-                                src={banner}
-                                width={1200}
-                                height={400}
-                                alt='BannerName1'
-                            />
-                        </div>
-                        <div className="carousel-item">
-                            <Image
-                            src={banner2}
-                                width={1200}
-                                height={400}
-                                alt="BannerName"
-                            />
-                        </div>
+                    {
+                          isloading ?
+                            (
+                              <SkeletonBanner />
+                            ) :
+
+                            (
+                              <>
+                                {
+                                  data?.length>0 && data.map((itm, i) => {
+                                    return (
+                                      <div className={`carousel-item ${i===0?'active':""}`} key={itm.id}>
+                                                <Image
+                                                  src={`${process.env.IMG_URL}${process.env.HOME_FEATURE_BANNER_IMG_URL}${itm.img_path}`}
+                                                  width={1200}
+                                                  height={411}
+                                                  alt={itm.alt_txt}
+                                                />
+                                              </div>
+                                    );
+                                  })
+                                }
+                              </>
+
+
+                            )
+
+                        }
                     </div>
                 </div>
             </div>

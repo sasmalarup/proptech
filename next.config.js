@@ -8,7 +8,9 @@ const nextConfig = {
     DB_DATABASE:"rephil_mlspms2023",
     IMG_URL:"https://www.rephil.app/",
     HOME_BLOCK_PROPERTY_IMG_URL:'img/p/pimg/su/370/300/',
-    HOME_BANNER_IMG_URL:'img/b/hsb/s/1440/432/'
+    HOME_BANNER_IMG_URL:'img/b/hsb/s/1440/432/',
+    BLOG_HOME_IMG_URL:'img/b/bimg/a/370/300/',
+    HOME_FEATURE_BANNER_IMG_URL:'img/b/hsb/s/1200/411/',
 
   },
   images: {

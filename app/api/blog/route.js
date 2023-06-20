@@ -1,4 +1,4 @@
-import { NextResponse } from require("next/server");
+import { NextResponse } from "next/server";
 import { query } from "../db";
 
 export const GET = async (req) => {
