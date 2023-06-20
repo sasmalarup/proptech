@@ -8,7 +8,7 @@ function CategoryPage() {
   return (
     <>
     <div className="bodyWrapper width-100">
-        <div className="container categoryWraper">
+        <div className="container-fluid categoryWraper">
             <h1>Find Property</h1>
             <div className="col-md-3 leftlistItem">
                 <div className="leftlistItemBox">
