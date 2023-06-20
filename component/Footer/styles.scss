@@ -1,10 +1,8 @@
 @import "../../styles/color.module.scss";
 
 .footerSocial{
-    float: left;
-    width: 100%;
+    float: right;
 }
-
 .menuNavTop{
     background: $black-dark;
     float: left;
@@ -142,14 +140,17 @@
 .copyright {
     background-color: $black-100;;
     padding: 8px 20px 8px;
-    float: left;
-    width: 100%;
-    text-align: left;
-    p {
-        color: $white-100;
-        font-size: 12px;
-        margin: 0;
+    display: flex;
+    justify-content: space-between;
+    .copyrightContent{
+        text-align: left;
+        p {
+            color: $white-100;
+            font-size: 12px;
+            margin: 0;
+        }
     }
+    
 }
 @media screen and (max-width: 767px){
     .footerUseLink .footerFsc-widgt {

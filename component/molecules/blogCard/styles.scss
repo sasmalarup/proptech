@@ -5,7 +5,6 @@
     font-family: "Lato", Arial, sans-serif;
     font-size: 16px;
     overflow: hidden;
-    position: relative;
     text-align: left;
     width: 100%;
     box-sizing: border-box;
@@ -14,8 +13,8 @@
     padding: 10px;
     .feature_date {
         position: absolute;
-        bottom: 20px;
-        left: 20px;
+        bottom: 12px;
+        left: 12px;
         background: rgba(38,33,33,0.75);
         padding: 6px 10px;
         font-size: 12px;
@@ -38,6 +37,7 @@
         min-height: 200px;
         max-height: 200px;
         overflow: hidden;
+        position: relative;
     }
     .image{
         height: 100%;
