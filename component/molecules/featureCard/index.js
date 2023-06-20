@@ -8,10 +8,11 @@ import './styles.scss';
 import Link from "next/link";
 import parse from 'html-react-parser';
 import getSymbolFromCurrency from 'currency-symbol-map'
-//import { useRouter } from "next/navigation";
+
 
 function FeatureCard({itm}) {
   //const router=useRouter()
+  //console.log("dddddddddd",itm)
   return (
     <div className="col-md-4 col-xs-12" key={`div-${itm.id}`}>
       <div className="blogCol" key={`blog-${itm.id}`}>

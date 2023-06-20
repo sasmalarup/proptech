@@ -16,6 +16,7 @@ const Propertyrent = () => {
      }
      propertyRes()
   },[]) 
+  //console.log(rentp)
   return (
     <>
      <div className='propertyWhiteBg'>

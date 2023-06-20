@@ -1,10 +1,23 @@
-import React from "react";
+import React,{useState,useEffect} from 'react'
 import FeatureCard from "@/component/molecules/featureCard"; 
 import './styles.scss';
+import { getProperty } from '@/lib/getProperty';
+import { useSelector } from 'react-redux';
 
 
 function CategoryPage() {
-   
+    const [rentp,setRent]=useState([]);
+     const seller_id=useSelector(state=>state.globalReducer.value.storeID)
+  useEffect(()=>{
+     const propertyRes=async ()=>{
+         
+         const res=await getProperty(9,3,'pl',28);
+         setRent(res)
+        
+     }
+     propertyRes()
+  },[]) 
+   //console.log("anup",rentp)
   return (
     <>
     <div className="bodyWrapper width-100">
@@ -147,9 +160,10 @@ function CategoryPage() {
                 </div>
             </div>
             <div className="col-md-9 rightContainer category_list">
-                {[...Array(5)].map((item) => (
-                    <FeatureCard />
-                ))}
+            {
+                    rentp.length>0 && rentp.map((itm)=><FeatureCard itm={itm}/>)
+                }
+               
             </div>
         </div>
        </div>
