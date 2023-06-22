@@ -26,7 +26,10 @@ class Slider extends React.Component {
 
 
 		return (
-			<div style={{ width: '100%' }}>
+			<div style={{ width: '100%', position: 'relative' }}>
+				<div className='rentType'>
+					<p>Rent</p>
+				</div>
 			    <ImageGallery items={images}/>
 			</div>
 		);
