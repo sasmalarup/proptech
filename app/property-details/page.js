@@ -1,7 +1,8 @@
 import React from "react"
+import DetailsPage from "@/component/Pages/DetailsPage"
 
 export default function propertDetails() {
   return (
-      <h1>Hello Property Details</h1>
+     <DetailsPage />
   )
 }

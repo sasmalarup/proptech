@@ -1,0 +1,131 @@
+.detailsContainer{
+    display: flex;
+    text-align: left;
+    padding-bottom: 40px;
+}
+.categoryWraper .detailsContainer .leftlistItem {
+    border-right: 0 solid;
+    padding-left: 24px;
+}
+.propertyDetails_content{
+    margin-top: 0;
+    float: left;
+    .leftDetails {
+        width: 100%;
+        float: left;
+        border: 1px solid #bbbbbb;
+        padding: 12px 10px;
+        border-radius: 5px;
+        position: sticky;
+        top: 70px;
+        h3{
+            font-size: 20px;
+            color: #313541;
+            font-weight: 300;
+            margin: 0 0 18px;
+            line-height: 22px;
+        }
+        p.typeTitle {
+            font-size: 16px;
+            font-weight: 600;
+            color: #313541;
+            line-height: 20px;
+            margin: 0 0 5px;
+        }
+        .infoAgent{
+            margin: 0 0 20px;
+            p, a{
+                color: #484848;
+                font-size: 15px;
+                line-height: 18px;
+                margin: 0 0 6px;
+                float: left;
+                width: 100%;
+                font-weight: 300;
+            }
+            a{
+                text-decoration: none;
+                &:hover{color: #22536E;}
+                span{
+                    margin-right: 7px;
+                   img{
+                    width: 16px;
+                   }
+                }
+            }
+        }
+        form{
+            input, textarea{
+                width: 100%;
+                height: 35px;
+                float: left;
+                border: 1px solid #818591;
+                padding: 0 10px;
+                font-size: 14px;
+                border-radius: 4px;
+                margin: 0 0 8px;
+            }
+            button{
+                background: #000;
+                width: 100%;
+                height: 48px;
+                font-size: 16px;
+                color: #fff;
+                border-radius: 4px;
+                border: 1px solid #000;
+                margin-top: 15px;
+            }
+        }
+    }
+    .rightContent_property {
+        width: 100%;
+        float: left;
+        padding-left: 0;
+        margin-top: 30px;
+    }
+}
+.rightContent_property{
+    h4{
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #22536e;
+    }
+}
+.prop_Features{
+    margin: 15px 0 25px;
+    h4{
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    p{
+        margin-bottom: 6px;
+        float: left;
+        margin-right: 20px;
+        img{
+            width: 14px;
+            margin-right: 6px;
+        }
+    }
+    
+}
+.rightFeatures{
+    ul{
+        padding-left: 0;
+        list-style-type: none;
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+        li{
+            width: 90%;
+            label{
+                font-size: 15px;
+                color: #545454;
+                span{
+                    color: #000;
+                    padding-left: 18px;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}

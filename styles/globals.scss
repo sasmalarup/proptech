@@ -78,3 +78,19 @@ header {
   flex-direction: column;
 }
 .bodyWrapper{margin-top: 70px;}
+h1.title_first{
+  font-size: 24px;
+  margin: 0 0 25px;
+  color: $grey-green;
+}
+.cmsContaier{
+  h2{
+    font-size: 28px;
+    font-weight: 600;
+    margin: 10px 0 15px;
+  }
+  p{
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+}
