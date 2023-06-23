@@ -15,7 +15,7 @@ const Blog = () => {
     }
     blogRes()
  },[seller_id]) 
- 
+
   return (
     <>
       <div className='propertyWhiteBg'>
