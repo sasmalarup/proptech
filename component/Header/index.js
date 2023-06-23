@@ -7,21 +7,38 @@ import phone from '../../public/images/phone.png'
 import loginUser from '../../public/images/user-icon.png'
 import { usePathname } from 'next/navigation';
 import { getpropertyParentlevel } from "@/lib/getpropertyParentlevel";
+import { getCMSList } from "@/lib/getCMSList";
 import Link from "next/link";
 import Secondlevel from "./secondlevel";
+import { useSelector } from "react-redux";
 
 function Header() {
   const pathname = usePathname();
+  const seller_id=useSelector(state=>state.globalReducer.value.storeID)
   const headerClass = pathname === '/' ? 'navbar navbar-expand-lg navbar-light bg-light' : 'navbar navbar-expand-lg navbar-light bg-light innerHeader';
   const [plevel,setData]=useState([])
+  const [cmsList,setCms] = useState([])
   useEffect(()=>{
     const fetchData = async () => {
-      const res = await getpropertyParentlevel('pclevel');
-      setData(res)
+      // const res = await getpropertyParentlevel('pclevel');
+      // setData(res)
+
+      // Initiate both requests in parallel
+      const resPLevel = getpropertyParentlevel('pclevel')
+      const resCmsList = getCMSList('cmslist',seller_id);
+      
+      // Wait for the promises to resolve
+      const [parentlevelcat, cmslist] = await Promise.all([resPLevel, resCmsList])
+
+      setData(parentlevelcat)
+      setCms(cmslist)
+
     };
   
     fetchData();
   },[])
+
+  console.log("cmsList",cmsList);
   
   return (
     <>
