@@ -78,3 +78,103 @@ header {
   flex-direction: column;
 }
 .bodyWrapper{margin-top: 70px;}
+h1.title_first{
+  font-size: 24px;
+  margin: 0 0 25px;
+  color: $grey-green;
+}
+.propertyDetails_Box{
+  float: left;
+  width: 100%;
+}
+.titleDetails_proptech{
+  h1{
+    font-size: 26px;
+    color: $grey-green;
+    margin: 0 0 5px;
+    font-weight: 600;
+  }
+  h2{
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 5px;
+    }
+}
+.addressWrapper{
+  margin-bottom: 5px;
+  p{
+    margin-bottom: 5px;
+  }
+}
+.cmsContaier{
+  h2{
+    font-size: 28px;
+    font-weight: 600;
+    margin: 10px 0 15px;
+  }
+  p{
+    margin-bottom: 20px;
+    font-size: 16px;
+  }
+}
+p.proptechTerms{
+  margin: 10px 0 0;
+  text-align: center;
+  font-size: 13px;
+  a{
+    color: $grey-green;
+  }
+}
+.detailsContent_proptech{
+  padding-right: 20px;
+}
+.rightContent_property{
+  .FeaturesProperty, .prop_Features{
+    float: left;
+    width: 100%;
+    h4{
+      font-size: 18px;
+      font-weight: 600;
+      color: #000;
+    }
+  }
+  .FeaturesProperty {
+    ul li{
+      float: left;
+      width: 50%;
+      padding-right: 25px;
+      margin-bottom: 6px;
+      label{
+        display: flex;
+        justify-content: space-between;
+        color: #9f9f9f;
+        font-size: 15px;
+        font-weight: 600;
+        span{
+          color: #22536e;
+        }
+      }
+    }
+  }
+  .facilitiesBox{
+    float: left;
+    width: 100%;
+    margin-bottom: 5px;
+    span{
+      color: #9f9f9f;
+      float: left;
+      width: 145px;
+      font-size: 15px;
+    }
+    .facilitieslist{
+      float: left;
+      width: calc(100% - 150px);
+      padding-left: 20px;
+      p{
+        color: #22536e;
+        font-size: 15px;
+        font-weight: 600;
+      }
+    }
+  }
+}
