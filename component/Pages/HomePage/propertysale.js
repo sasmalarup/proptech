@@ -15,7 +15,7 @@ const Propertysale = () => {
          setLoading(false)
      }
      propertyRes()
-  },[]) 
+  },[seller_id]) 
   return (
     <>
      <div className='propertyWhiteBg'>

@@ -9,12 +9,21 @@ import { usePathname } from 'next/navigation';
 import { getpropertyParentlevel } from "@/lib/getpropertyParentlevel";
 import Link from "next/link";
 import Secondlevel from "./secondlevel";
+import { useDispatch } from "react-redux";
+import { setGlobalstate } from "@/redux/features/globalSlice";
+import { getStoredetails } from "@/lib/getStoredetails";
 
 function Header() {
+  const dispatch = useDispatch()
   const pathname = usePathname();
   const headerClass = pathname === '/' ? 'navbar navbar-expand-lg navbar-light bg-light' : 'navbar navbar-expand-lg navbar-light bg-light innerHeader';
   const [plevel,setData]=useState([])
   useEffect(()=>{
+    const getStore=async ()=>{
+      const storeDetails=await getStoredetails(); 
+       dispatch(setGlobalstate(storeDetails[0].id))
+    }
+    getStore()
     const fetchData = async () => {
       const res = await getpropertyParentlevel('pclevel');
       setData(res)

@@ -14,7 +14,7 @@ const Blog = () => {
         setLoading(false)
     }
     blogRes()
- },[]) 
+ },[seller_id]) 
  console.log(blogs)
   return (
     <>

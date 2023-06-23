@@ -1,23 +1,150 @@
+"use client"
 import React,{useState,useEffect} from 'react'
 import FeatureCard from "@/component/molecules/featureCard"; 
 import './styles.scss';
-import { getProperty } from '@/lib/getProperty';
 import { useSelector } from 'react-redux';
+import { useSearchParams,useParams,useRouter,usePathname } from 'next/navigation';
+import { getcatsearchProperty } from '@/lib/getcatsearchProperty';
+import { getpropertyCategory } from '@/lib/getpropertyCategory';
+import { getpropertySubcategory } from '@/lib/getpropertySubcategory';
+import { dynamicSort } from '@/utils/arrayobjectsort';
+import { getallProvince } from '@/lib/getallProvince';
+import { getallcityByprovince } from '@/lib/getallcityByprovince';
+import { getBarangay } from '@/lib/getBarangay';
+
 
 
 function CategoryPage() {
-    const [rentp,setRent]=useState([]);
-     const seller_id=useSelector(state=>state.globalReducer.value.storeID)
+    const [sercres,setSearchres]=useState([]);
+    const [subcatres,setSubcatres]=useState([]);
+    const [filterinfo,setFilter]=useState({
+        fsubtype: [],
+        fprovince: [],
+        fcity: [],
+        fbarangay: []
+
+    })
+    const [ptypeID,setPtypeid]=useState("")
+    const [searchinfo, setSearchInfo] = useState({
+        province: [],
+        cities: [],
+        barangay: []
+      });
+    const qsearchparams=useSearchParams()
+    const params = useParams()
+    const router=useRouter()
+    const pathname = usePathname();
+    const seller_id=useSelector(state=>state.globalReducer.value.storeID)
   useEffect(()=>{
-     const propertyRes=async ()=>{
+    const fetchData = async () => {
+        const res = await getpropertyCategory(params.slug, 'clevel');
+        const fres=res.filter(itm=>itm.level_id==params.ptype)
+        setPtypeid(fres[0].id)
+    };
+
+    fetchData(); 
+     const searchRes=async ()=>{
          
-         const res=await getProperty(9,3,'pl',28);
-         setRent(res)
+         const res=await getcatsearchProperty(params.ptype,seller_id,params.slug,'pl');
+         setSearchres(res)
         
      }
-     propertyRes()
-  },[]) 
-   //console.log("anup",rentp)
+     searchRes()
+  },[seller_id]) 
+  useEffect(()=>{
+    const subcatFunc=async (ptypeID)=>{
+        const res=await getpropertySubcategory(params.ptype,ptypeID,'sclevel')
+        res.sort(dynamicSort("sub_category_name"))
+        setSubcatres(res)
+
+        const provinceres = await getallProvince('prov');
+        provinceres.sort(dynamicSort("province_name"))
+        setSearchInfo({...searchinfo,province: [...provinceres]})
+        
+
+    }
+   subcatFunc(ptypeID)
+  },[ptypeID])
+  const provinceHandler = async (e) => {
+    const { value, checked } = e.target;
+    const { cities } = searchinfo;
+    const { fprovince } = filterinfo;
+    if(checked){
+        const res=await getallcityByprovince(value,'city')
+        setSearchInfo({...searchinfo,cities: [...cities,...res]})
+        setFilter({...filterinfo,fprovince: [...fprovince,value]})
+    }else{
+        setSearchInfo({
+            ...searchinfo,
+            cities: cities.filter((obj) => obj.provin_id != value)
+          });
+        setFilter({
+            ...filterinfo,
+            fprovince: fprovince.filter((val) => val != value)
+        })  
+    }
+  }
+
+  const cityHandler =  (e) => {
+    const { value, checked } = e.target;
+    const { barangay } = searchinfo;
+    const { fprovince,fcity } = filterinfo;
+    if(checked){
+        fprovince?.length>0 && fprovince.map(async (provid)=>{
+            const res=await getBarangay(provid,value,'barangay')
+            setSearchInfo({...searchinfo,barangay: [...barangay,...res]})
+            setFilter({...filterinfo,fcity: [...fcity,value]})
+
+        })
+        
+    }else{
+        setSearchInfo({
+            ...searchinfo,
+            barangay: barangay.filter((obj) => obj.city_id != value)
+          });
+        setFilter({
+            ...filterinfo,
+            fcity: fcity.filter((val) => val != value)
+        })  
+    }
+  }
+  const barangayHandler =  (e) => {
+    const { value, checked } = e.target;
+    const { fbarangay } = filterinfo;
+    if(checked){
+        setFilter({...filterinfo,fbarangay: [...fbarangay,value]})
+        
+    }else{
+        setFilter({
+            ...filterinfo,
+            fbarangay: fbarangay.filter((val) => val != value)
+        })  
+    }
+  }
+  const subtypeHandler =  (e) => {
+    const { value, checked } = e.target;
+    const { fsubtype } = filterinfo;
+    if(checked){
+        setFilter({...filterinfo,fsubtype: [...fsubtype,value]})
+        
+    }else{
+        setFilter({
+            ...filterinfo,
+            fsubtype: fsubtype.filter((val) => val != value)
+        })  
+    }
+  }
+  
+  useEffect(()=>{
+    if(filterinfo?.fsubtype?.length>0 || filterinfo?.fbarangay?.length>0 || filterinfo?.fcity?.length>0 || filterinfo?.fprovince?.length>0){
+        const passParameter=`fsubtype=${filterinfo.fsubtype.join(",")}&fbarangay=${filterinfo.fbarangay.join(",")}&fcity=${filterinfo.fcity.join(",")}&fprovince=${filterinfo.fprovince.join(",")}`
+        router.push(`${pathname}?${passParameter}`)
+        //btoa for encode
+        //atob for decode
+    }
+    
+  },[filterinfo])
+  console.log("qsearchparams",qsearchparams.get('fsubtype'))
   return (
     <>
     <div className="bodyWrapper width-100">
@@ -25,37 +152,26 @@ function CategoryPage() {
             <h1>Find Property</h1>
             <div className="col-md-3 leftlistItem">
                 <div className="leftlistItemBox">
-                    <form>
+                    
                         <div className="accordion" id="accordionExample">
                             <div className="accordion-item">
                                 <h2 className="accordion-header">
                                 <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                    Property Type
+                                    Property Sub Type
                                 </button>
                                 </h2>
                                 <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
                                 <div className="accordion-body">
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="commercial" />
-                                        <label for="commercial">Commercial</label>
+                                    {
+                                        subcatres?.length>0 && subcatres.map(itm=>(
+                                        <div className="form-group checkCustom" key={itm.id}>
+                                        <input type="checkbox" value={itm.id} id={itm.sub_category_name} onChange={subtypeHandler}/>
+                                        <label htmlFor={itm.sub_category_name}>{itm.sub_category_name}</label>
                                     </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="land" />
-                                        <label for="land">Land</label>
-                                    </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="house" />
-                                        <label for="house">House</label>
-                                    </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="apartment" />
-                                        <label for="apartment">Apartment</label>
-                                    </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="condominium" />
-                                        <label for="condominium">Condominium</label>
-                                    </div>
-                                    <p className="note">You cannot select more than three</p>
+                                    ))
+                                    }
+                                    
+                                    
                                 </div>
                                 </div>
                             </div>
@@ -67,23 +183,18 @@ function CategoryPage() {
                                 </h2>
                                 <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div className="accordion-body">
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="manila" />
-                                        <label for="manila">Metro Manila</label>
-                                    </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="makati" />
-                                        <label for="makati">Makati City</label>
-                                    </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="calacoon" />
-                                        <label for="calacoon">Calacoon City</label>
-                                    </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="basmnet" />
-                                        <label for="basmnet">Basmnet City</label>
-                                    </div>
-                                    <p className="note">You cannot select more than three</p>
+                                    {
+                                        searchinfo?.province?.length>0 && searchinfo.province.map(value=>(
+                                            <div className="form-group checkCustom" key={value.province_id}>
+                                            <input type="checkbox" value={value.province_id} id={value.province_name} onChange={provinceHandler}/>
+                                            <label htmlFor={value.province_name}>{value.province_name}</label>
+                                            </div>
+
+                                        ))
+
+                                    }
+
+                                    
                                 </div>
                                 </div>
                             </div>
@@ -95,27 +206,17 @@ function CategoryPage() {
                                 </h2>
                                 <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div className="accordion-body">
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="laspinas" />
-                                        <label for="laspinas">Laspinas</label>
-                                    </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="passay" />
-                                        <label for="passay">Passay</label>
-                                    </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="malaboon" />
-                                        <label for="malaboon">Malaboon</label>
-                                    </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="makaya" />
-                                        <label for="makaya">Makaya</label>
-                                    </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="quezon" />
-                                        <label for="quezon">Quezon</label>
-                                    </div>
-                                    <p className="note">You cannot select more than three</p>
+                                    {
+                                        searchinfo?.cities?.length>0 && searchinfo.cities.map(value=>(
+                                            <div className="form-group checkCustom" key={value.cid}>
+                                               <input type="checkbox" value={value.cid} id={value.city_name} onChange={cityHandler}/>
+                                               <label htmlFor={value.city_name}>{value.city_name}</label>
+                                            </div>
+
+                                        ))
+                                    }
+
+                                    
                                 </div>
                                 </div>
                             </div>
@@ -127,41 +228,29 @@ function CategoryPage() {
                                 </h2>
                                 <div id="barnagay" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
                                 <div className="accordion-body">
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="barangay1" />
-                                        <label for="barangay1">Barangay 1</label>
-                                    </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="barangay2" />
-                                        <label for="barangay2">Barangay 2</label>
-                                    </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="barangay3" />
-                                        <label for="barangay3">Barangay 3</label>
-                                    </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="barangay4" />
-                                        <label for="barangay4">Barangay 4</label>
-                                    </div>
-                                    <div className="form-group checkCustom">
-                                        <input type="checkbox" id="barangay5" />
-                                        <label for="barangay5">Barangay 5</label>
-                                    </div>
-                                    <p className="note">You cannot select more than three</p>
+                                {
+                                        searchinfo?.barangay?.length>0 && searchinfo.barangay.map(value=>(
+                                            <div className="form-group checkCustom" key={value.municipality_id}>
+                                               <input type="checkbox" value={value.municipality_id} id={value.municipality_name} onChange={barangayHandler}/>
+                                               <label htmlFor={value.municipality_name}>{value.municipality_name}</label>
+                                            </div>
+
+                                        ))
+                                    }
                                 </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="priceRange">
+                        {/* <div className="priceRange">
                             <h2>Price</h2>
                         </div>
-                        <button className="searchProperty">Search</button>
-                    </form>
+                        <button className="searchProperty">Search</button> */}
+                    
                 </div>
             </div>
             <div className="col-md-9 rightContainer category_list">
-            {
-                    rentp.length>0 && rentp.map((itm)=><FeatureCard itm={itm}/>)
+                 {
+                    sercres?.length>0 && sercres.map((itm)=><FeatureCard itm={itm}/>)
                 }
                
             </div>
