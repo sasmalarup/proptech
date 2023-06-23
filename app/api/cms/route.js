@@ -9,10 +9,24 @@ export const GET = async (req) =>{
     if(apiType=="cmslist"){
 
         try{
-            let sql = `SELECT * FROM flower_cms WHERE site_id=?`
+            let sql = `SELECT id,title,slug FROM flower_cms WHERE site_id=?`
             const result = await query({
                 query: sql,
                 values: [seller_id]
+            })
+            return NextResponse.json(result)
+        }catch(error){
+            return NextResponse.json(error)
+        }
+
+    }else if(apiType=="cmsdetails"){
+
+        const slug = req.nextUrl.searchParams.get("slug");  
+        try{
+            let sql = `SELECT * FROM flower_cms WHERE site_id=? AND slug=?`
+            const result = await query({
+                query: sql,
+                values: [seller_id,slug]
             })
             return NextResponse.json(result)
         }catch(error){

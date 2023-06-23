@@ -1,6 +1,25 @@
-import React from "react";
+"use client"
+import { getCMSDetails } from "@/lib/getCMSList";
+import { useParams } from "next/navigation";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 function CmsPage() {
+
+  const seller_id = useSelector(state => state.globalReducer.value.storeID)
+  const params = useParams()
+  const [cmsDetails, setCmsDetails] = useState([])
+
+  useEffect(()=>{
+
+      const fetchData = async () => {         
+        const cmsinfo = await getCMSDetails('cmsdetails',seller_id,params.slug)        
+        setCmsDetails(cmsinfo)
+      };
+    
+      fetchData();
+
+  },[seller_id])
    
   return (
     <>
