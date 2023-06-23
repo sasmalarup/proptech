@@ -25,7 +25,7 @@ function Header() {
 
   useEffect(()=>{
 
-    const getStore=async ()=>{
+    const getStore=async ()=>{      
       const storeDetails=await getStoredetails(); 
        dispatch(setGlobalstate(storeDetails[0].id))
     }
