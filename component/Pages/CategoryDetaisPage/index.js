@@ -137,14 +137,15 @@ function CategoryPage() {
   
   useEffect(()=>{
     if(filterinfo?.fsubtype?.length>0 || filterinfo?.fbarangay?.length>0 || filterinfo?.fcity?.length>0 || filterinfo?.fprovince?.length>0){
-        const passParameter=`fsubtype=${filterinfo.fsubtype.join(",")}&fbarangay=${filterinfo.fbarangay.join(",")}&fcity=${filterinfo.fcity.join(",")}&fprovince=${filterinfo.fprovince.join(",")}`
+        const passParameter=`fsubtype=${btoa(filterinfo.fsubtype.join(","))}&fbarangay=${btoa(filterinfo.fbarangay.join(","))}&fcity=${btoa(filterinfo.fcity.join(","))}&fprovince=${btoa(filterinfo.fprovince.join(","))}`
+        //const passParameter=`fsubtype=${btoa(filterinfo.fsubtype.join(","))}`
         router.push(`${pathname}?${passParameter}`)
         //btoa for encode
         //atob for decode
     }
     
   },[filterinfo])
-  console.log("qsearchparams",qsearchparams.get('fsubtype'))
+  console.log("qsearchparams",atob(qsearchparams.get('fsubtype')))
   return (
     <>
     <div className="bodyWrapper width-100">
