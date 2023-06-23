@@ -1,3 +1,5 @@
+@import "../../../styles/color.module.scss";
+
 .detailsContainer{
     display: flex;
     text-align: left;
@@ -10,6 +12,7 @@
 .propertyDetails_content{
     margin-top: 0;
     float: left;
+    padding-left: 0;
     .leftDetails {
         width: 100%;
         float: left;
@@ -48,9 +51,6 @@
                 &:hover{color: #22536E;}
                 span{
                     margin-right: 7px;
-                   img{
-                    width: 16px;
-                   }
                 }
             }
         }
@@ -93,6 +93,8 @@
 }
 .prop_Features{
     margin: 15px 0 25px;
+    float: left;
+    width: 100%;
     h4{
         font-size: 20px;
         margin-bottom: 10px;
@@ -127,5 +129,20 @@
                 }
             }
         }
+    }
+}
+.rentType{
+    position: absolute;
+    z-index: 99;
+    top: 12px;
+    left: 12px;
+    background: red;
+    padding: 3px 12px;
+    border-radius: 4px;
+    p{
+        color: $white-100;
+        margin: 0;
+        font-size: 14px;
+        font-weight: 500;
     }
 }

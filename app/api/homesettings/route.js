@@ -45,10 +45,11 @@ export const GET = async (req)=>{
     }else if(apiType=='clevel'){ //property category level fetching
 
         const levelid = req.nextUrl.searchParams.get("levelid");  
+        const slug = req.nextUrl.searchParams.get("slug"); 
         try {
             const result = await query({
-              query: "select * from flower_supplier_category where level_id=?",
-              values: [levelid],
+              query: "select * from flower_supplier_category where (level_id=? OR slug=?)",
+              values: [levelid,slug],
             });    
             return NextResponse.json(result) 
         } catch (error) {
@@ -57,7 +58,7 @@ export const GET = async (req)=>{
 
     }else if(apiType=='sclevel'){ //property sub category level fetching
 
-        const levelid = req.nextUrl.searchParams.get("levelid");  
+        const levelid = req.nextUrl.searchParams.get("level_id");  
         const category_id = req.nextUrl.searchParams.get("cid");  
         try {
             const result = await query({

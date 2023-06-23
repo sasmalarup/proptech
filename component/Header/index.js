@@ -11,21 +11,30 @@ import { getCMSList } from "@/lib/getCMSList";
 import Link from "next/link";
 import Secondlevel from "./secondlevel";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { setGlobalstate } from "@/redux/features/globalSlice";
+import { getStoredetails } from "@/lib/getStoredetails";
 
 function Header() {
+  const dispatch = useDispatch()
   const pathname = usePathname();
   const seller_id=useSelector(state=>state.globalReducer.value.storeID)
   const headerClass = pathname === '/' ? 'navbar navbar-expand-lg navbar-light bg-light' : 'navbar navbar-expand-lg navbar-light bg-light innerHeader';
   const [plevel,setData]=useState([])
   const [cmsList,setCms] = useState([])
   useEffect(()=>{
+    const getStore=async ()=>{
+      const storeDetails=await getStoredetails(); 
+       dispatch(setGlobalstate(storeDetails[0].id))
+    }
+    getStore()
     const fetchData = async () => {
       // const res = await getpropertyParentlevel('pclevel');
-      // setData(res)
-
+      // setData(res)   
+      
       // Initiate both requests in parallel
       const resPLevel = getpropertyParentlevel('pclevel')
-      const resCmsList = getCMSList('cmslist',seller_id);
+      const resCmsList = getCMSList('cmslist',seller_id)
       
       // Wait for the promises to resolve
       const [parentlevelcat, cmslist] = await Promise.all([resPLevel, resCmsList])
@@ -36,7 +45,11 @@ function Header() {
     };
   
     fetchData();
-  },[])
+  },[seller_id])
+
+  // useEffect(()=>{
+    
+  // },[])
 
   console.log("cmsList",cmsList);
   

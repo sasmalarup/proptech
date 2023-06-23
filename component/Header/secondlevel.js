@@ -12,13 +12,13 @@ const Secondlevel = ({ id }) => {
     
         fetchData();  
     },[])
-    let subpath=(id===5)?`s`:`r`;
+    //let subpath=(id===5)?`s`:`r`;
     return (
         <>
 
             <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                 {
-                    slevel?.length > 0 && slevel.map((smn) => <li key={smn.id}><Link className="dropdown-item" href={`/${subpath}/property/${smn.slug}`}>{smn.category_name}</Link></li>)
+                    slevel?.length > 0 && slevel.map((smn) => <li key={smn.id}><Link className="dropdown-item" href={`/${smn.level_id}/property/${smn.slug}`}>{smn.category_name}</Link></li>)
                 }
 
 

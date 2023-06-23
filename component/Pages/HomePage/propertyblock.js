@@ -17,7 +17,7 @@ const Propertyblock = () => {
          setLoading(false)
      }
      propertyRes()
-  },[])
+  },[seller_id])
   //console.log("blockp",blockp)
   return (
     <div className='container mt-5 mb-5'>

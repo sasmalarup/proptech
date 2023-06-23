@@ -18,7 +18,7 @@ function FeaturedBanner() {
     setLoading(false)
    }
    homepf()
-  },[])
+  },[storeid])
   return (
     <>
     <div className='container'>

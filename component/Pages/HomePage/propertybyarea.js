@@ -17,19 +17,8 @@ const Propertybyarea = () => {
            setLoading(false)
        }
        propertycityRes()
-    },[])
-     console.log("before sorted",propertybyarea)
-    // if(propertybyarea.length>0){
-    //     propertybyarea.sort(
-    //         function(a, b) {          
-    //         //    if (a.city === b.city) {
-    //         //       // Price is only important when cities are the same
-    //         //       return b.price - a.price;
-    //         //    }
-    //            return a.cname > b.cname ? 1 : -1;
-    //         });
-    // }
-    // console.log("after sorted",propertybyarea)
+    },[seller_id])
+    
     return (
         <>
             <div className='propertyArea'>

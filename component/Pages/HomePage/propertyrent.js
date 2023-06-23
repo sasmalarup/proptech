@@ -15,7 +15,7 @@ const Propertyrent = () => {
          setLoading(false)
      }
      propertyRes()
-  },[]) 
+  },[seller_id]) 
   //console.log(rentp)
   return (
     <>

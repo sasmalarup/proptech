@@ -19,7 +19,7 @@ function HomeBanner() {
     setLoading(false)
    }
    homep()
-  },[])
+  },[storeid])
   return (
     <>
         <div id="carouselExampleFade" className="carousel slide carousel-fade">
