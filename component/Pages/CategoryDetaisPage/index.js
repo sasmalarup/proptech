@@ -17,40 +17,32 @@ import { getBarangay } from '@/lib/getBarangay';
 function CategoryPage() {
     const [sercres,setSearchres]=useState([]);
     const [subcatres,setSubcatres]=useState([]);
-    const [filterinfo,setFilter]=useState({
-        subtype: 0,
-        province: 0,
-        city: 0,
-        barangay: 0
-
-    })
+    const qsearchparams=useSearchParams()
+    const params = useParams()
+    const router=useRouter()
+    const pathname = usePathname();
+    const seller_id=useSelector(state=>state.globalReducer.value.storeID)
     const [ptypeID,setPtypeid]=useState("")
     const [searchinfo, setSearchInfo] = useState({
         province: [],
         cities: [],
         barangay: []
       });
-    const qsearchparams=useSearchParams()
-    const params = useParams()
-    const router=useRouter()
-    const pathname = usePathname();
-    const seller_id=useSelector(state=>state.globalReducer.value.storeID)
-  useEffect(()=>{
-    const fetchData = async () => {
-        const res = await getpropertyCategory(params.slug, 'clevel');
-        const fres=res.filter(itm=>itm.level_id==params.ptype)
-        setPtypeid(fres[0].id)
-    };
+      let subtype=qsearchparams.get('subtype')!=null?atob(qsearchparams.get('subtype')):0
+      let province=qsearchparams.get('province')!=null?atob(qsearchparams.get('province')):0
+      let city=qsearchparams.get('city')!=null?atob(qsearchparams.get('city')):0
+      let barangay=qsearchparams.get('barangay')!=null?atob(qsearchparams.get('barangay')):0
+    const [filterinfo,setFilter]=useState({
+        subtype,
+        province,
+        city,
+        barangay
 
-    fetchData(); 
-     const searchRes=async ()=>{
-         
-         const res=await getcatsearchProperty(params.ptype,seller_id,params.slug,'pl');
-         setSearchres(res)
-        
-     }
-     searchRes()
-  },[seller_id]) 
+    })
+    
+   
+   
+
   useEffect(()=>{
     const subcatFunc=async (ptypeID)=>{
         const res=await getpropertySubcategory(params.ptype,ptypeID,'sclevel')
@@ -63,7 +55,11 @@ function CategoryPage() {
         
 
     }
-   subcatFunc(ptypeID)
+    if(ptypeID>0){
+        //console.log("ptypeID",ptypeID)
+        subcatFunc(ptypeID)
+    }
+   
   },[ptypeID])
   const provinceHandler = async (provid) => {
     const { cities } = searchinfo;
@@ -126,7 +122,27 @@ function CategoryPage() {
     searchstring?.length>0 ? router.push(`${pathname}?${searchstring.join("&")}`) : router.push(`${pathname}`)
     
   },[filterinfo])
-  //console.log("qsearchparams",atob(qsearchparams.get('subtype')))
+  useEffect(()=>{
+    
+    const fetchData = async () => {
+        const res = await getpropertyCategory(params.slug, 'clevel');
+        const fres=res.filter(itm=>itm.level_id==params.ptype)
+        setPtypeid(fres[0].id)
+    };
+
+    fetchData(); 
+    const searchRes=async ()=>{
+        
+        const res=await getcatsearchProperty(params.ptype,seller_id,params.slug,'pl',subtype,province,city,barangay);
+        setSearchres(res)
+       
+    }
+    if(seller_id>0 || subtype>0 || province>0 || city>0 || barangay>0){
+        searchRes()
+    }
+     
+  },[seller_id,subtype,province,city,barangay]) 
+  //console.log("qsearchparams",qsearchparams.get('subtype'),atob(qsearchparams.get('subtype')))
   //console.log("filterinfo",filterinfo)
   return (
     <>
@@ -208,98 +224,7 @@ function CategoryPage() {
                     <label htmlFor="floatingSelect">Barangay</label>
                 </div>
 
-                {/* <div className="leftlistItemBox">
-                        <div className="accordion" id="accordionExample">
-                            <div className="accordion-item">
-                                <h2 className="accordion-header">
-                                <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
-                                    Property Sub Type
-                                </button>
-                                </h2>
-                                <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-                                <div className="accordion-body">
-                                    {
-                                        subcatres?.length>0 && subcatres.map(itm=>(
-                                        <div className="form-group checkCustom" key={itm.id}>
-                                        <input type="checkbox" value={itm.id} id={itm.sub_category_name} onChange={subtypeHandler}/>
-                                        <label htmlFor={itm.sub_category_name}>{itm.sub_category_name}</label>
-                                    </div>
-                                    ))
-                                    }
-                                    
-                                    
-                                </div>
-                                </div>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header">
-                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
-                                    Province
-                                </button>
-                                </h2>
-                                <div id="collapseTwo" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div className="accordion-body">
-                                    {
-                                        searchinfo?.province?.length>0 && searchinfo.province.map(value=>(
-                                            <div className="form-group checkCustom" key={value.province_id}>
-                                            <input type="checkbox" value={value.province_id} id={value.province_name} onChange={provinceHandler}/>
-                                            <label htmlFor={value.province_name}>{value.province_name}</label>
-                                            </div>
-
-                                        ))
-
-                                    }
-
-                                    
-                                </div>
-                                </div>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header">
-                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
-                                    City/Muncipality
-                                </button>
-                                </h2>
-                                <div id="collapseThree" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div className="accordion-body">
-                                    {
-                                        searchinfo?.cities?.length>0 && searchinfo.cities.map(value=>(
-                                            <div className="form-group checkCustom" key={value.cid}>
-                                               <input type="checkbox" value={value.cid} id={value.city_name} onChange={cityHandler}/>
-                                               <label htmlFor={value.city_name}>{value.city_name}</label>
-                                            </div>
-
-                                        ))
-                                    }
-
-                                    
-                                </div>
-                                </div>
-                            </div>
-                            <div className="accordion-item">
-                                <h2 className="accordion-header">
-                                <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#barnagay">
-                                    Barangay
-                                </button>
-                                </h2>
-                                <div id="barnagay" className="accordion-collapse collapse" data-bs-parent="#accordionExample">
-                                <div className="accordion-body">
-                                {
-                                        searchinfo?.barangay?.length>0 && searchinfo.barangay.map(value=>(
-                                            <div className="form-group checkCustom" key={value.municipality_id}>
-                                               <input type="checkbox" value={value.municipality_id} id={value.municipality_name} onChange={barangayHandler}/>
-                                               <label htmlFor={value.municipality_name}>{value.municipality_name}</label>
-                                            </div>
-
-                                        ))
-                                    }
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                    
-                </div> */}
+                
             </div>
             <div className="col-md-9 rightContainer category_list">
                 <h1 className='pl10'>Find Property</h1>

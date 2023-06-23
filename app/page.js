@@ -1,6 +1,7 @@
 import { getStoredetails } from '@/lib/getStoredetails';
 import Home from '../component/Pages/HomePage'
 
+
 export async function generateMetadata(){
   const storeDetails=await getStoredetails();
   return {
@@ -16,7 +17,7 @@ export default async function Landingpage() {
   return (
     <>
    
-      <Home/>
+      <Home />
      
     </>
       

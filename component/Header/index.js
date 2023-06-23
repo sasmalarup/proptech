@@ -14,19 +14,22 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setGlobalstate } from "@/redux/features/globalSlice";
 import { getStoredetails } from "@/lib/getStoredetails";
+//import { cookies } from 'next/headers'
 
-function Header() {
+function Header({stateSetter}) {
   const dispatch = useDispatch()
   const pathname = usePathname();
   const seller_id=useSelector(state=>state.globalReducer.value.storeID)
   const headerClass = pathname === '/' ? 'navbar navbar-expand-lg navbar-light bg-light' : 'navbar navbar-expand-lg navbar-light bg-light innerHeader';
   const [plevel,setData]=useState([])
   const [cmsList,setCms] = useState([])
-
+  
   useEffect(()=>{
 
     const getStore=async ()=>{
+     
       const storeDetails=await getStoredetails(); 
+     
        dispatch(setGlobalstate(storeDetails[0].id))
     }
 
