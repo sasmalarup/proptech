@@ -18,10 +18,10 @@ function CategoryPage() {
     const [sercres,setSearchres]=useState([]);
     const [subcatres,setSubcatres]=useState([]);
     const [filterinfo,setFilter]=useState({
-        fsubtype: [],
-        fprovince: [],
-        fcity: [],
-        fbarangay: []
+        subtype: 0,
+        province: 0,
+        city: 0,
+        barangay: 0
 
     })
     const [ptypeID,setPtypeid]=useState("")
@@ -65,87 +65,69 @@ function CategoryPage() {
     }
    subcatFunc(ptypeID)
   },[ptypeID])
-  const provinceHandler = async (e) => {
-    const { value, checked } = e.target;
+  const provinceHandler = async (provid) => {
     const { cities } = searchinfo;
-    const { fprovince } = filterinfo;
-    if(checked){
-        const res=await getallcityByprovince(value,'city')
-        setSearchInfo({...searchinfo,cities: [...cities,...res]})
-        setFilter({...filterinfo,fprovince: [...fprovince,value]})
+    const res=await getallcityByprovince(provid,'city')
+    setSearchInfo({...searchinfo,cities: [...res]})
+    if(provid>0){
+        setFilter({...filterinfo,province: parseInt(provid)})
     }else{
-        setSearchInfo({
-            ...searchinfo,
-            cities: cities.filter((obj) => obj.provin_id != value)
-          });
-        setFilter({
-            ...filterinfo,
-            fprovince: fprovince.filter((val) => val != value)
-        })  
+        setFilter({...filterinfo,province: parseInt(0),city: parseInt(0), barangay: parseInt(0)})
     }
+    
+    
   }
 
-  const cityHandler =  (e) => {
-    const { value, checked } = e.target;
+  const cityHandler =  async (cid) => {
     const { barangay } = searchinfo;
-    const { fprovince,fcity } = filterinfo;
-    if(checked){
-        fprovince?.length>0 && fprovince.map(async (provid)=>{
-            const res=await getBarangay(provid,value,'barangay')
-            setSearchInfo({...searchinfo,barangay: [...barangay,...res]})
-            setFilter({...filterinfo,fcity: [...fcity,value]})
-
-        })
-        
+    const { province } = filterinfo;
+    const res=await getBarangay(province,cid,'barangay')
+    setSearchInfo({...searchinfo,barangay: [...res]})
+    if(cid>0){
+        setFilter({...filterinfo,city: parseInt(cid)})
     }else{
-        setSearchInfo({
-            ...searchinfo,
-            barangay: barangay.filter((obj) => obj.city_id != value)
-          });
-        setFilter({
-            ...filterinfo,
-            fcity: fcity.filter((val) => val != value)
-        })  
+        setFilter({...filterinfo,city: parseInt(0), barangay: parseInt(0)})
     }
+    
   }
-  const barangayHandler =  (e) => {
-    const { value, checked } = e.target;
-    const { fbarangay } = filterinfo;
-    if(checked){
-        setFilter({...filterinfo,fbarangay: [...fbarangay,value]})
-        
+  const barangayHandler =  (barangayid) => {
+    const { province,city } = filterinfo;
+    if(barangayid>0){
+        setFilter({...filterinfo,barangay: parseInt(barangayid)})
     }else{
-        setFilter({
-            ...filterinfo,
-            fbarangay: fbarangay.filter((val) => val != value)
-        })  
+        setFilter({...filterinfo, barangay: parseInt(0)})
     }
+    
   }
-  const subtypeHandler =  (e) => {
-    const { value, checked } = e.target;
-    const { fsubtype } = filterinfo;
-    if(checked){
-        setFilter({...filterinfo,fsubtype: [...fsubtype,value]})
-        
-    }else{
-        setFilter({
-            ...filterinfo,
-            fsubtype: fsubtype.filter((val) => val != value)
-        })  
-    }
+  const subtypeHandler =  (subtypeid) => {
+    setFilter({...filterinfo,subtype: parseInt(subtypeid)})
   }
   
   useEffect(()=>{
-    if(filterinfo?.fsubtype?.length>0 || filterinfo?.fbarangay?.length>0 || filterinfo?.fcity?.length>0 || filterinfo?.fprovince?.length>0){
-        const passParameter=`fsubtype=${btoa(filterinfo.fsubtype.join(","))}&fbarangay=${btoa(filterinfo.fbarangay.join(","))}&fcity=${btoa(filterinfo.fcity.join(","))}&fprovince=${btoa(filterinfo.fprovince.join(","))}`
-        //const passParameter=`fsubtype=${btoa(filterinfo.fsubtype.join(","))}`
-        router.push(`${pathname}?${passParameter}`)
-        //btoa for encode
-        //atob for decode
+    let searchstring=[]
+    if(filterinfo.subtype>0 || filterinfo.province>0 || filterinfo.city>0 || filterinfo.barangay>0){
+        
+        if(filterinfo.subtype>0){
+            searchstring.push(`subtype=${btoa(filterinfo.subtype)}`)
+        }
+        if(filterinfo.province>0){
+            searchstring.push(`province=${btoa(filterinfo.province)}`)
+        }
+        if(filterinfo.province>0 && filterinfo.city>0){
+            searchstring.push(`city=${btoa(filterinfo.city)}`)
+        }
+        if(filterinfo.province>0 && filterinfo.city>0 && filterinfo.barangay>0){
+            searchstring.push(`barangay=${btoa(filterinfo.barangay)}`)
+        }
+        
+        
+
     }
+    searchstring?.length>0 ? router.push(`${pathname}?${searchstring.join("&")}`) : router.push(`${pathname}`)
     
   },[filterinfo])
-  console.log("qsearchparams",atob(qsearchparams.get('fsubtype')))
+  //console.log("qsearchparams",atob(qsearchparams.get('subtype')))
+  //console.log("filterinfo",filterinfo)
   return (
     <>
     <div className="bodyWrapper width-100">
@@ -155,49 +137,78 @@ function CategoryPage() {
                 <div className="form-floating optionField">
                     <select
                         className="form-select"
-                        value='type'
+                        value={filterinfo.subtype}
+                        onChange={e=>subtypeHandler(e.target.value)}
                     >
-                        <option>Choose Type</option>
-                        <option>Commerial</option>
-                        <option>Appartment</option>
+                        <option value="0">Choose Type</option>
+                        {
+                                        subcatres?.length>0 && subcatres.map(itm=>(
+                                       
+                                    <option key={itm.id} value={itm.id}>{itm.sub_category_name}</option>
+                                    ))
+                                    }
+                        
+                        
                     </select>
                     <label htmlFor="floatingSelect">Property Sub Type</label>
                 </div>
                 <div className="form-floating optionField">
                     <select
                         className="form-select"
-                        value='type'
+                        value={filterinfo.province}
+                        onChange={e=>provinceHandler(e.target.value)}
                     >
-                        <option>Choose Province</option>
-                        <option>Commerial</option>
-                        <option>Appartment</option>
+                        <option value="0">Choose Province</option>
+                        {
+                                        searchinfo?.province?.length>0 && searchinfo.province.map(value=>(
+                                            
+                                            <option key={value.province_id} value={value.province_id}>{value.province_name}</option>
+
+                                        ))
+
+                                    }
+                       
                     </select>
                     <label htmlFor="floatingSelect">Province</label>
                 </div>
                 <div className="form-floating optionField">
                     <select
                         className="form-select"
-                        value='type'
+                        value={filterinfo.city}
+                        onChange={e=>cityHandler(e.target.value)}
                     >
-                        <option>Choose City/Muncipality</option>
-                        <option>Commerial</option>
-                        <option>Appartment</option>
+                        <option value="0">Choose City/Muncipality</option>
+                        {
+                                        searchinfo?.cities?.length>0 && searchinfo.cities.map(value=>(
+                                           
+                                            <option value={value.cid} key={value.cid}>{value.city_name}</option>
+
+                                        ))
+                                    }
+                        
                     </select>
                     <label htmlFor="floatingSelect">City and Muncipality</label>
                 </div>
                 <div className="form-floating optionField">
                     <select
                         className="form-select"
-                        value='type'
+                        value={filterinfo.barangay}
+                        onChange={e=>barangayHandler(e.target.value)}
                     >
-                        <option>Choose Barangay</option>
-                        <option>Commerial</option>
-                        <option>Appartment</option>
+                        <option value="0">Choose Barangay</option>
+                        {
+                                        searchinfo?.barangay?.length>0 && searchinfo.barangay.map(value=>(
+                                            
+                                            <option key={value.municipality_id} value={value.municipality_id}>{value.municipality_name}</option>
+
+                                        ))
+                                    }
+                        
                     </select>
                     <label htmlFor="floatingSelect">Barangay</label>
                 </div>
 
-                <div className="leftlistItemBox">
+                {/* <div className="leftlistItemBox">
                         <div className="accordion" id="accordionExample">
                             <div className="accordion-item">
                                 <h2 className="accordion-header">
@@ -286,12 +297,9 @@ function CategoryPage() {
                                 </div>
                             </div>
                         </div>
-                        {/* <div className="priceRange">
-                            <h2>Price</h2>
-                        </div>
-                        <button className="searchProperty">Search</button> */}
+                        
                     
-                </div>
+                </div> */}
             </div>
             <div className="col-md-9 rightContainer category_list">
                 <h1 className='pl10'>Find Property</h1>
