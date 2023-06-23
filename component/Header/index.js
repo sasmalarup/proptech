@@ -22,16 +22,17 @@ function Header() {
   const headerClass = pathname === '/' ? 'navbar navbar-expand-lg navbar-light bg-light' : 'navbar navbar-expand-lg navbar-light bg-light innerHeader';
   const [plevel,setData]=useState([])
   const [cmsList,setCms] = useState([])
+
   useEffect(()=>{
+
     const getStore=async ()=>{
       const storeDetails=await getStoredetails(); 
        dispatch(setGlobalstate(storeDetails[0].id))
     }
+
     getStore()
-    const fetchData = async () => {
-      // const res = await getpropertyParentlevel('pclevel');
-      // setData(res)   
-      
+
+    const fetchData = async () => {   
       // Initiate both requests in parallel
       const resPLevel = getpropertyParentlevel('pclevel')
       const resCmsList = getCMSList('cmslist',seller_id)
@@ -45,11 +46,9 @@ function Header() {
     };
   
     fetchData();
+
   },[seller_id])
 
-  // useEffect(()=>{
-    
-  // },[])
 
   console.log("cmsList",cmsList);
   
@@ -91,23 +90,27 @@ function Header() {
                 )
               }
 
-              <li className="nav-item dropdown">
-                <Link className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Services
-                </Link>
-                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><Link className="dropdown-item" href="/">Property Mgnt.</Link></li>
-                  <li><Link className="dropdown-item" href="/">Contract Mgnt.</Link></li>
-                  <li><Link className="dropdown-item" href="/">Billing Mgnt.</Link></li>
-                  <li><Link className="dropdown-item" href="/">Collection Mgnt.</Link></li>
-                </ul>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" href="/package">pricing</Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" href="/about">about</Link>
-              </li>
+              {
+                cmsList.length>0 ?              
+
+                            <li className="nav-item dropdown">
+                              <Link className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Services
+                              </Link>
+                              <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                 {
+                                  cmsList.map(cms => {
+                                      return <li><Link className="dropdown-item" href={`/info/${cms.slug}`}>{cms.title}</Link></li>
+                                  })
+                                 }  
+                              </ul>
+                            </li>
+
+                            :
+
+                            <></>
+              }
+              
             </ul>
             <Link href="/login" className="userIcon">
               <Image
