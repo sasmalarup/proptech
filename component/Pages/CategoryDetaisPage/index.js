@@ -149,10 +149,54 @@ function CategoryPage() {
     <>
     <div className="bodyWrapper width-100">
         <div className="container-fluid categoryWraper">
-            <h1>Find Property</h1>
             <div className="col-md-3 leftlistItem">
+                <h1>Filter Property</h1>
+                <div className="form-floating optionField">
+                    <select
+                        className="form-select"
+                        value='type'
+                    >
+                        <option>Choose Type</option>
+                        <option>Commerial</option>
+                        <option>Appartment</option>
+                    </select>
+                    <label htmlFor="floatingSelect">Property Sub Type</label>
+                </div>
+                <div className="form-floating optionField">
+                    <select
+                        className="form-select"
+                        value='type'
+                    >
+                        <option>Choose Province</option>
+                        <option>Commerial</option>
+                        <option>Appartment</option>
+                    </select>
+                    <label htmlFor="floatingSelect">Province</label>
+                </div>
+                <div className="form-floating optionField">
+                    <select
+                        className="form-select"
+                        value='type'
+                    >
+                        <option>Choose City/Muncipality</option>
+                        <option>Commerial</option>
+                        <option>Appartment</option>
+                    </select>
+                    <label htmlFor="floatingSelect">City and Muncipality</label>
+                </div>
+                <div className="form-floating optionField">
+                    <select
+                        className="form-select"
+                        value='type'
+                    >
+                        <option>Choose Barangay</option>
+                        <option>Commerial</option>
+                        <option>Appartment</option>
+                    </select>
+                    <label htmlFor="floatingSelect">Barangay</label>
+                </div>
+
                 <div className="leftlistItemBox">
-                    
                         <div className="accordion" id="accordionExample">
                             <div className="accordion-item">
                                 <h2 className="accordion-header">
@@ -249,6 +293,7 @@ function CategoryPage() {
                 </div>
             </div>
             <div className="col-md-9 rightContainer category_list">
+                <h1 className='pl10'>Find Property</h1>
                  {
                     sercres?.length>0 && sercres.map((itm)=><FeatureCard itm={itm}/>)
                 }

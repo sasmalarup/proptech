@@ -1,14 +1,19 @@
 .categoryWraper{
     h1{
-        font-size: 24px;
-        font-weight: 300;
-        margin-bottom: 20px;
+        font-size: 22px;
+        margin-bottom: 15px;
         text-align: left;
-        font-weight: 500;
+        font-weight: 600;
+        &.pl10{
+            padding-left: 10px;
+        }
     }
     .leftlistItem {
         padding-left: 0;
-        border-right: 1px solid #ededed;
+        border-right: 0 solid;
+        .optionField{
+            margin-bottom: 8px;
+        }
         .leftlistItemBox {
             background-color: #ededed;
             padding: 8px;
