@@ -27,7 +27,6 @@ function Header({stateSetter}) {
   useEffect(()=>{
 
     const getStore=async ()=>{
-     
       const storeDetails=await getStoredetails(); 
      
        dispatch(setGlobalstate(storeDetails[0].id))
