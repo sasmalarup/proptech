@@ -27,7 +27,12 @@ function CmsPage() {
         <div className="bodyWrapper width-100">
             <div className="container ">
                 <div className="row cmsContaier">
-                    <div className="col-md-12 leftContect-box">                        
+                    <div className="col-md-12 leftContect-box"> 
+                        <h2>
+                        { 
+                          cmsDetails.length>0 ?  parse(cmsDetails[0]?.title) : <></>
+                        }
+                        </h2>                       
                         { 
                           cmsDetails.length>0 ?  parse(cmsDetails[0]?.content) : <></>
                         }
