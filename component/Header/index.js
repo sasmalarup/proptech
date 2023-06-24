@@ -14,7 +14,9 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { setGlobalstate } from "@/redux/features/globalSlice";
 import { getStoredetails } from "@/lib/getStoredetails";
-//import { cookies } from 'next/headers'
+
+
+
 
 function Header({stateSetter}) {
   const dispatch = useDispatch()
@@ -24,12 +26,12 @@ function Header({stateSetter}) {
   const [plevel,setData]=useState([])
   const [cmsList,setCms] = useState([])
   
+  
   useEffect(()=>{
 
     const getStore=async ()=>{
       const storeDetails=await getStoredetails(); 
-     
-       dispatch(setGlobalstate(storeDetails[0].id))
+      dispatch(setGlobalstate(storeDetails[0].id))
     }
 
     getStore()
@@ -52,7 +54,7 @@ function Header({stateSetter}) {
   },[seller_id])
 
 
-  console.log("cmsList",cmsList);
+  //console.log("cmsList",cmsList);
   
   return (
     <>

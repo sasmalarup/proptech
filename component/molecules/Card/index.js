@@ -35,7 +35,7 @@ function AssetsCard({itm}) {
                 }
                   
                   <div className="fp-title" key={`fpt-${itm.id}`}>
-                      <h4 key={`h-${itm.id}`}><Link href={`/${itm.slug}`}>{itm.title}</Link></h4>
+                      <h4 key={`h-${itm.id}`}><Link href={`/overview/${itm.slug}`} >{itm.title}</Link></h4>
                       <p className="fp-address" key={`fpa-${itm.id}`}>
                       <FiMapPin fontSize={15} color='grey' style={{marginRight: '4px'}} />
                         {itm.province_name}, {itm.city_name} 

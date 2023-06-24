@@ -1,11 +1,10 @@
 import CmsPage from '@/component/Pages/CmsPage'
-import { store } from '@/redux/store';
 import React from 'react'
 import { getStoredetails } from "@/lib/getStoredetails";
 import { getCMSDetails } from "@/lib/getCMSList"
 
+
 export async function generateMetadata(){
-  
   const storeDetails=await getStoredetails();   
   const cmsinfo = await getCMSDetails('cmsdetails',storeDetails[0].id,'about-us') 
 

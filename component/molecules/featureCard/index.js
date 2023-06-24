@@ -16,7 +16,7 @@ function FeatureCard({itm}) {
   return (
     <div className="col-md-4 col-xs-12" key={`div-${itm.id}`}>
       <div className="blogCol" key={`blog-${itm.id}`}>
-        <Link href={`/${itm.slug}`} className="featureCard" key={`featureCard-${itm.id}`}>
+        <Link href={`/overview/${itm.slug}`} className="featureCard" key={`featureCard-${itm.id}`}>
           <div className="image" key={`imgp-${itm.id}`}>
             <Image
              src={`${process.env.IMG_URL}${process.env.HOME_BLOCK_PROPERTY_IMG_URL}${itm.property_image.split(",")[0]}`}
