@@ -99,6 +99,27 @@ export const GET = async (req)=>{
         }
         
 
+    }else if(apiType=='sp'){ 
+
+        const slug = req.nextUrl.searchParams.get("slug");  
+
+        try {
+            
+            const sql = `SELECT * FROM flower_property_master WHERE slug=?`
+
+            const result = query({
+                query: sql,
+                values: [slug] 
+            })
+
+            return NextResponse.json(result)
+
+        } catch (error) {
+
+            return NextResponse.json(error)
+            
+        }
+
     }
 
 }
