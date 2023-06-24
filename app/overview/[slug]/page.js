@@ -4,7 +4,7 @@ import React from 'react'
 export async function generateMetadata({params}){
     
     const res=await getSingleproperty(params.slug,'sp')
-    console.log("anup",res)
+    
     return {
       title:"this is property", 
       description:"this is description",

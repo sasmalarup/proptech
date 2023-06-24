@@ -106,8 +106,8 @@ export const GET = async (req)=>{
         try {
             
             const sql = `SELECT * FROM flower_property_master WHERE slug=?`
-           
-            const result = query({
+
+            const result = await query({
                 query: sql,
                 values: [slug] 
             })
