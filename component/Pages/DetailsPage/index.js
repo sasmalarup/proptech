@@ -1,50 +1,52 @@
+"use client"
 import React from "react";
 import phoneCell from '../../../public/images/phone-call.png'
 import emailIcon from'../../../public/images/email.png';
-import { BsPatchCheckFill } from 'react-icons/bs';
 import { RiRoadMapLine } from 'react-icons/ri';
 import Image from "next/image";
 import Slider from "./slider";
+import parse from 'html-react-parser';
+import getSymbolFromCurrency from 'currency-symbol-map'
 import './styles.scss';
 
 
-function Details() {
+function Details({data}) {
    
   return (
     <>
     <div className="bodyWrapper width-100">
         <div className="container titleDetails_proptech">
-            <h1>Title Details</h1>
+            <h1>{data[0]?.title}</h1>
             <div className="addressWrapper">
                 <p>
                     <RiRoadMapLine fontSize={24} color='grey' style={{marginRight: '4px'}} /> 
-                    Proveince, city, Barangay, Philippines
+                    {data[0]?.province_name}, {data[0]?.city_name}, {data[0]?.municipality_name}, {data[0]?.country_name}
                 </p>
             </div>
-            <h2>₱ 530,000</h2>
+            <h2>{data[0]?.price_show==='Y' ? `${getSymbolFromCurrency('PHP')}${parseFloat(data[0]?.price).toLocaleString()}`:null}</h2>
             <div className="detailsContainer">
                 <div className="col-md-8 floatLeft detailsContent_proptech">
-                    <Slider />
+                    <Slider level_name={data[0].level_name} property_image={data[0].property_image}/>
                     <div className="propertyDetails_content width-100">
                         <div className="rightContent_property">
-                            <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.</p>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there </p>
+                               {parse(data[0]?.description)}
                             <div className="prop_Features width-100">
                                 <h4>Facilities</h4>
                                 <div className="facilitiesBox">
                                     <span>Indoor features :-</span>
                                     <div className="facilitieslist">
-                                        <p>Balcony</p>
-                                        <p>Children Park</p>
-                                        <p>Attick</p>
+                                       {
+                                           data[0]?.indoorf?.split(',').map(itm=><p key={itm}>{itm}</p>) 
+                                        }
                                     </div>
                                 </div>
                                 <div className="facilitiesBox">
                                     <span>Outdoor features :-</span>
                                     <div className="facilitieslist">
-                                        <p>Pool Baar</p>
-                                        <p>Library</p>
-                                        <p>Carport</p>
+                                        {
+                                           data[0]?.outdoorf?.split(',').map(itm=><p key={itm}>{itm}</p>) 
+                                        }
+                                        
                                     </div>
                                 </div>
                             </div>
@@ -52,34 +54,34 @@ function Details() {
                                     <h4>Property Details</h4>
                                     <ul>
                                         <li>
-                                            <label>Bedrooms:<span>Family Home</span></label>
+                                            <label>Bedrooms:<span>{data[0]?.bedrooms}</span></label>
                                         </li>
                                         <li>
-                                            <label>Baths:<span>Rent</span></label>
+                                            <label>Baths:<span>{data[0]?.baths}</span></label>
                                         </li>
                                         <li>
-                                            <label>Total Inventory:<span>Family Home</span></label>  
+                                            <label>Total Inventory:<span>{data[0]?.total_inventory}</span></label>  
                                         </li>
                                         <li>
-                                            <label>Floor area (m2):<span>Family Home</span></label>
+                                            <label>Floor area (sqm):<span>{data[0]?.floor_area}</span></label>
                                         </li>
                                         <li>
-                                            <label>Total No. of Floor:<span>Family Home</span></label>
+                                            <label>Total No. of Floor:<span>{data[0]?.block_lot_unit_floor_no}</span></label>
                                         </li>
                                         <li>
-                                            <label>Subdivision Name:<span>Family Home</span></label>
+                                            <label>Subdivision Name:<span>{data[0]?.key_info_common_name}</span></label>
                                         </li>
                                         <li>
-                                            <label>Build (Year):<span>Family Home</span></label>
+                                            <label>Build (Year):<span>{data[0]?.build_year}</span></label>
                                         </li>
                                         <li>
-                                            <label>Car Spaces:<span>Family Home</span></label>
+                                            <label>Car Spaces(sqm):<span>{data[0]?.car_space}</span></label>
                                         </li>
                                         <li>
-                                            <label>Classification:<span>Family Home</span></label>
+                                            <label>Classification:<span>{data[0]?.classification}</span></label>
                                         </li>
                                         <li>
-                                            <label>Fully furnished:<span>Family Home</span></label>
+                                            <label>Fully furnished:<span>{data[0]?.is_fully_furnished}</span></label>
                                         </li>
                                     </ul>
                                 </div>

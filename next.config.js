@@ -11,6 +11,7 @@ const nextConfig = {
     HOME_BANNER_IMG_URL:'img/b/hsb/s/1440/432/',
     BLOG_HOME_IMG_URL:'img/b/bimg/a/370/300/',
     HOME_FEATURE_BANNER_IMG_URL:'img/b/hsb/s/1200/411/',
+    GALLERY_PROPERTY_IMG_URL:'img/p/pimg/su/500/430/',
 
   },
   images: {
