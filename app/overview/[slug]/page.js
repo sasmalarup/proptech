@@ -2,7 +2,9 @@ import Details from '@/component/Pages/DetailsPage'
 import { getSingleproperty } from '@/lib/getSingleproperty'
 import React from 'react'
 export async function generateMetadata({params}){
-    console.log("anup",params.slug)
+    
+    const res=await getSingleproperty(params.slug,'sp')
+    console.log("anup",res)
     return {
       title:"this is property", 
       description:"this is description",
