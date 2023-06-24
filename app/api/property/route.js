@@ -104,9 +104,19 @@ export const GET = async (req)=>{
         const slug = req.nextUrl.searchParams.get("slug");  
 
         try {
-            
-            const sql = `SELECT * FROM flower_property_master WHERE slug=?`
 
+            const sql = `SELECT fpm.*,fp.province_name,fc.city_name,fm.municipality_name,fco.country_name,fscl.level_name,GROUP_CONCAT(DISTINCT fif.name ORDER BY fif.id) indoorf,GROUP_CONCAT(DISTINCT fof.name ORDER BY fof.id) outdoorf
+            FROM flower_property_master as fpm
+            INNER JOIN flower_province as fp ON fp.province_id=fpm.province
+            INNER JOIN flower_city as fc ON fc.cid=fpm.city
+            INNER JOIN flower_municipality as fm ON fm.municipality_id=fpm.barangay
+            INNER JOIN flower_country as fco ON fco.country_code=fpm.country_code
+            INNER JOIN flower_supplier_category_level as fscl ON fscl.id=fpm.offer_type
+            INNER JOIN flower_indoor_features as fif ON FIND_IN_SET(fif.id, fpm.indoor) > 0
+            INNER JOIN flower_outdoor_features as fof ON FIND_IN_SET(fof.id, fpm.outdoor) > 0
+        WHERE slug=?
+        GROUP   BY fpm.id`
+           
             const result = await query({
                 query: sql,
                 values: [slug] 
