@@ -6,6 +6,8 @@ import '../styles/globals.scss'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
 import { Reduxprovider } from "../redux/provider";
+import ErrorBoundary from "../component/errorboundary/errorboundary"
+import Error from "./error";
 
 
 
@@ -19,8 +21,12 @@ export default function RootLayout({ children }) {
     <html lang="en">
         <body>
         <Reduxprovider>  
-            <Header/>                  
-            {children}            
+            <Header/>  
+           <ErrorBoundary fallback={<Error />}>
+           {children} 
+           </ErrorBoundary>
+               
+                                 
             <Footer/>
          </Reduxprovider>       
       </body>

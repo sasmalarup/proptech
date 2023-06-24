@@ -26,7 +26,7 @@ function Details({data}) {
             <h2>{data[0]?.price_show==='Y' ? `${getSymbolFromCurrency('PHP')}${parseFloat(data[0]?.price).toLocaleString()}`:null}</h2>
             <div className="detailsContainer">
                 <div className="col-md-8 floatLeft detailsContent_proptech">
-                    <Slider level_name={data[0].level_name} property_image={data[0].property_image}/>
+                    <Slider level_name={data[0]?.level_name} property_image={data[0]?.property_image}/>
                     <div className="propertyDetails_content width-100">
                         <div className="rightContent_property">
                                {parse(data[0]?.description)}
