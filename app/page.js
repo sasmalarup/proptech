@@ -15,11 +15,6 @@ export async function generateMetadata(){
 export default async function Landingpage() { 
  
   return (
-    <>
-   
       <Home />
-     
-    </>
-      
   )
 }
