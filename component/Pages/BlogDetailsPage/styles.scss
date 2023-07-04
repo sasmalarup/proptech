@@ -1,0 +1,53 @@
+@import "../../../styles/color.module.scss";
+
+.blog_container{
+    h1.title_first{
+        margin-bottom: 15px;
+        font-size: 32px;
+        font-weight: 600;
+    }
+}
+.boxProject{
+    float: left;
+    width: 100%;
+    margin-bottom: 15px;
+    .shadow{
+        padding: 12px;
+        float: left;
+        width: 100%;
+    }
+    img{
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+}
+.publishDetails{
+    float: left;
+    width: 100%;
+    h1.title_first{
+        margin-bottom: 4px;
+        font-size: 28px;
+        font-weight: 600;
+        float: left;
+        margin-top: 20px;
+        float: left;
+        width: 100%;
+    }
+    .publishContent{
+        display: flex;
+        flex-direction: row;
+        float: left;
+        p{
+            margin: 0;
+            font-size: 14px;
+            color: #878787;
+            margin-right: 20px;
+        }
+    }
+}
+.detailsdescription{
+    float: left;
+    width: 100%;
+    margin-top: 20px;
+}

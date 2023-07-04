@@ -104,7 +104,7 @@ export const GET = async (req)=>{
         const slug = req.nextUrl.searchParams.get("slug");  
 
         try {
-            
+
             const sql = `SELECT fpm.*,fp.province_name,fc.city_name,fm.municipality_name,fco.country_name,fscl.level_name,GROUP_CONCAT(DISTINCT fif.name ORDER BY fif.id) indoorf,GROUP_CONCAT(DISTINCT fof.name ORDER BY fof.id) outdoorf
             FROM flower_property_master as fpm
             INNER JOIN flower_province as fp ON fp.province_id=fpm.province
