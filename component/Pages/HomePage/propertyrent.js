@@ -26,16 +26,13 @@ const Propertyrent = () => {
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
           <div className='row gy-1 mt-5'>
-          { 
-              isLoading ? 
-              <>
-              {
-                [...Array(3)].map((i)=><CardSkeleton/>)
+             { 
+                isLoading ? 
+                
+                  [...Array(3)].map((v,i)=><CardSkeleton key={i} />)             
+                  :
+                  rentp.length>0 && rentp.map((itm,i)=><FeatureCard itm={itm} key={i} />)
               }
-              </>
-               :
-               rentp?.length>0 && rentp.map((itm,i)=><FeatureCard itm={itm}/>)
-            }
            
           </div>
         </div>

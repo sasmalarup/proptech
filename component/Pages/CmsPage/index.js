@@ -30,11 +30,11 @@ function CmsPage() {
                     <div className="col-md-12 leftContect-box"> 
                         <h2>
                         { 
-                          cmsDetails.length>0 ?  parse(cmsDetails[0]?.title) : <></>
+                          cmsDetails.length>0 ?  parse(cmsDetails[0].title) : <></>
                         }
                         </h2>                       
                         { 
-                          cmsDetails.length>0 ?  parse(cmsDetails[0]?.content) : <></>
+                          cmsDetails.length>0 ?  parse(cmsDetails[0].content) : <></>
                         }
                     </div>
                 </div>

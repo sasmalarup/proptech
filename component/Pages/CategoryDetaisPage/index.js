@@ -158,7 +158,7 @@ function CategoryPage() {
                     >
                         <option value="0">Choose Type</option>
                         {
-                                        subcatres?.length>0 && subcatres.map(itm=>(
+                                        subcatres.length>0 && subcatres.map(itm=>(
                                        
                                     <option key={itm.id} value={itm.id}>{itm.sub_category_name}</option>
                                     ))
@@ -176,7 +176,7 @@ function CategoryPage() {
                     >
                         <option value="0">Choose Province</option>
                         {
-                                        searchinfo?.province?.length>0 && searchinfo.province.map(value=>(
+                                        searchinfo.province.length>0 && searchinfo.province.map(value=>(
                                             
                                             <option key={value.province_id} value={value.province_id}>{value.province_name}</option>
 
@@ -195,7 +195,7 @@ function CategoryPage() {
                     >
                         <option value="0">Choose City/Muncipality</option>
                         {
-                                        searchinfo?.cities?.length>0 && searchinfo.cities.map(value=>(
+                                        searchinfo.cities.length>0 && searchinfo.cities.map(value=>(
                                            
                                             <option value={value.cid} key={value.cid}>{value.city_name}</option>
 
@@ -213,7 +213,7 @@ function CategoryPage() {
                     >
                         <option value="0">Choose Barangay</option>
                         {
-                                        searchinfo?.barangay?.length>0 && searchinfo.barangay.map(value=>(
+                                        searchinfo.barangay.length>0 && searchinfo.barangay.map(value=>(
                                             
                                             <option key={value.municipality_id} value={value.municipality_id}>{value.municipality_name}</option>
 
@@ -229,7 +229,7 @@ function CategoryPage() {
             <div className="col-md-9 rightContainer category_list">
                 <h1 className='pl10'>Find Property</h1>
                  {
-                    sercres?.length>0 && sercres.map((itm)=><FeatureCard itm={itm}/>)
+                    sercres.length>0 && sercres.map((itm,i)=><FeatureCard itm={itm} key={i}/>)
                 }
                
             </div>

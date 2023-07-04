@@ -11,8 +11,8 @@ const PropertySkeleton = () => {
             <Skeleton height={100} width={100} borderRadius={'50%'} />
         </div>
         <div className="skeletonContent" >
-            {[...Array(2)].map((item) => (
-                <p className="cardDescription" >
+            {[...Array(2)].map((item,i) => (
+                <p className="cardDescription" key={i}>
                 <Skeleton duration={1} height={10} width={'100%'} />
                 </p>
             ))}

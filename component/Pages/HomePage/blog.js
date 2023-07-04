@@ -25,7 +25,7 @@ const Blog = () => {
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
           </div>
           <div className='row gy-1 mt-5'>
-            {blogs?.length>0 && blogs.map((blog)=><BlogCard blog={blog}/>)}
+            {blogs.length>0 && blogs.map((blog,i)=><BlogCard blog={blog} key={i} />)}
             
           </div>
         </div>

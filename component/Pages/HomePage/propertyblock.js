@@ -28,13 +28,11 @@ const Propertyblock = () => {
               </div>
               { 
               isLoading ? 
-              <>
-              {
-                [...Array(3)].map((i)=><CardSkeleton/>)
-              }
-              </>
+              
+                [...Array(3)].map((v,i)=><CardSkeleton key={i} />)
+             
                :
-              blockp?.length>0 && blockp.map((itm,i)=><AssetsCard itm={itm}/>)
+              blockp.length>0 && blockp.map((itm,i)=><AssetsCard key={i} itm={itm}/>)
             }
           </div>
       </div>

@@ -26,14 +26,10 @@ const Propertysale = () => {
           </div>
           <div className='row gy-1 mt-5'>
           { 
-              isLoading ? 
-              <>
-              {
-                [...Array(3)].map((i)=><CardSkeleton/>)
-              }
-              </>
+              isLoading ?               
+                [...Array(3)].map((v,i)=><CardSkeleton key={i} />)             
                :
-               salep?.length>0 && salep.map((itm,i)=><FeatureCard itm={itm}/>)
+               salep.length>0 && salep.map((itm,i)=><FeatureCard itm={itm} key={i} />)
             }
            
           </div>

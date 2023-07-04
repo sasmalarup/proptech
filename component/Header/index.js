@@ -38,16 +38,13 @@ function Header({stateSetter}) {
 
     const fetchData = async () => {   
       // Initiate both requests in parallel
-      const resPLevel = getpropertyParentlevel('pclevel')
-      const resCmsList = getCMSList('cmslist',seller_id)
-      
-      // Wait for the promises to resolve
-      const [parentlevelcat, cmslist] = await Promise.all([resPLevel, resCmsList])
+      const resPLevel = await getpropertyParentlevel('pclevel')
+      setData(resPLevel)
 
-      setData(parentlevelcat)
-      setCms(cmslist)
+      const resCmsList = await getCMSList('cmslist',seller_id)
+      setCms(resCmsList)
 
-    };
+    }
   
     fetchData();
 
@@ -95,7 +92,7 @@ function Header({stateSetter}) {
               }
 
               {
-                cmsList.length>0 ?              
+                cmsList?.length>0 ?              
 
                             <li className="nav-item dropdown">
                               <Link className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -104,7 +101,7 @@ function Header({stateSetter}) {
                               <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                  {
                                   cmsList.map(cms => {
-                                      return <li><Link className="dropdown-item" href={`/info/${cms.slug}`}>{cms.title}</Link></li>
+                                      return <li key={cms.slug}><Link className="dropdown-item" href={`/info/${cms.slug}`}>{cms.title}</Link></li>
                                   })
                                  }  
                               </ul>

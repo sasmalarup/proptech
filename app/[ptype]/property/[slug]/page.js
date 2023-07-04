@@ -1,4 +1,4 @@
-import Category from '@/app/category/page'
+import CategoryPage from "@/component/Pages/CategoryDetaisPage" 
 import React from 'react'
 import {getStoredetails} from '../../../../lib/getStoredetails'
 export async function generateMetadata(){
@@ -12,12 +12,9 @@ export async function generateMetadata(){
     }
   }
 const Propertylist = () => {
-    //const searchParams = useSearchParams();
-    //console.log("sparam",searchParams.get('page'))
-   // console.log("slug",params.slug)
   return (
     <>
-      <Category  />
+      <CategoryPage />
       
     </>
   )

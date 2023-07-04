@@ -6,6 +6,10 @@ import Image from 'next/image';
 import { useSelector } from "react-redux";
 import { gethomeBanner } from '@/lib/gethomeBanner';
 import SkeletonBanner from '@/component/molecules/Skeleton/BannerSkeleton';
+//import { imageLoader } from "../../../utils/imageloader";
+const ImageLoader=({ src, width, quality }) => {
+  return `${process.env.IMG_URL}${process.env.HOME_FEATURE_BANNER_IMG_URL}${src}?w=${width}&q=${quality || 75}`
+}
 function FeaturedBanner() {
   const storeid=useSelector(state=>state.globalReducer.value.storeID);
   const [data,setData]=useState([])
@@ -35,18 +39,16 @@ function FeaturedBanner() {
                     <div className="carousel-inner">
                     {
                           isloading ?
-                            (
+                            
                               <SkeletonBanner />
-                            ) :
-
-                            (
-                              <>
-                                {
-                                  data?.length>0 && data.map((itm, i) => {
+                             :
+                                
+                                  data.length>0 && data.map((itm, i) => {
                                     return (
-                                      <div className={`carousel-item ${i===0?'active':""}`} key={itm.id}>
+                                      <div className={`carousel-item ${i===0 && 'active'}`} key={itm.id}>
                                                 <Image
-                                                  src={`${process.env.IMG_URL}${process.env.HOME_FEATURE_BANNER_IMG_URL}${itm.img_path}`}
+                                                  loader={ImageLoader}
+                                                  src={itm.img_path}
                                                   width={1200}
                                                   height={411}
                                                   alt={itm.alt_txt}
@@ -54,11 +56,11 @@ function FeaturedBanner() {
                                               </div>
                                     );
                                   })
-                                }
-                              </>
+                                
+                              
 
 
-                            )
+                            
 
                         }
                     </div>

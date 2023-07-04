@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import absoluteUrl from 'next-absolute-url'
 export const GET = async (req)=>{
   const { origin } = absoluteUrl(req)
-  const domain_name=origin.split("://")[1]=== 'localhost:3000' ? 'http://www.realtymgnt.xyz' : origin
+  const domain_name=origin.split("://")[1]=== 'localhost:3000' ? 'http://www.realtymgnt.xyz' : origin.split("://")[1]
   try {
     const result = await query({
       query: "SELECT * FROM flower_store_master where store_url LIKE ?",

@@ -1,5 +1,5 @@
 "use client";
-import React from 'react';
+import React,{Fragment} from 'react';
 import HomeBanner from './banner'
 import HomeTabs from './tabs';
 import Propertyblock from './propertyblock';
@@ -15,13 +15,13 @@ function HomePage() {
     <>
       <HomeBanner />
       <HomeTabs />
-      <Propertyblock />
+       <Propertyblock />
       <FeaturedBanner />
       <Propertybyarea />
       <Propertyrent />
       <Propertysale />
       <Blog />
-    </>
+      </>
   );
 }
 export default HomePage;

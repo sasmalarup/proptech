@@ -14,8 +14,8 @@ const CardSkeleton = () => {
       <p className="section-title" >
         <Skeleton duration={1} height={10} width={75} />
       </p>
-      {[...Array(2)].map((item) => (
-         <p className="cardDescription">
+      {[...Array(2)].map((item,i) => (
+         <p className="cardDescription" key={i}>
           <Skeleton duration={1} height={10} width={'100%'} />
         </p>
       ))}

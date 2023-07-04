@@ -28,37 +28,32 @@ const Propertybyarea = () => {
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
                     </div>
                     <div className='propertyArea_box'>
-                    { 
-                                isLoading ? 
-                                <>
-                                {
-                                    [1,2,3].map((x)=><PropertySkeleton />)
-                                }
-                                </>
-                                :
-                                propertybyarea?.length>0 && propertybyarea.map(itm=>
-                                <a href={'test'} className="col-md-3 col-xs-12 propertyAreaCard" key={`propertyAreaCard-${itm.cid}`}>
-                                <div className='cardimage' key={`cardimage-${itm.cid}`}>
-                                    <span key={`span-${itm.cid}`}>
-                                        <Image
-                                            src={hotel}
-                                            width='75'
-                                            height='75'
-                                            alt={itm.cname}
-                                            key={`image-${itm.cid}`}
-                                            
-                                        />
-                                      
-                                    </span>
-                                </div>
-                                <div className='cardImage_content' key={`cardimage-content-${itm.cid}`}>
-                                    <span>{itm.cname}</span>
-                                    <p>{itm.total_no_of_property} Listing</p>
-                                </div>
-                            </a>
-                            )
-                                }
-                       
+                                { 
+                                    isLoading ?                                    
+                                   
+                                        [...Array(3)].map((x,i)=><PropertySkeleton key={i} />)                                   
+                                    
+                                    :
+                                    propertybyarea.length>0 && propertybyarea.map(itm=>
+                                            <a href="#" className="col-md-3 col-xs-12 propertyAreaCard" key={itm.cid}>
+                                                <div className='cardimage'>
+                                                    <span>
+                                                        <Image
+                                                            src={hotel}
+                                                            width='75'
+                                                            height='75'
+                                                            alt={itm.cname}                                                
+                                                        />
+                                                    
+                                                    </span>
+                                                </div>
+                                                <div className='cardImage_content'>
+                                                    <span>{itm.cname}</span>
+                                                    <p>{itm.total_no_of_property} Listing</p>
+                                                </div>
+                                            </a>
+                                        )
+                                }                       
                     </div>
                 </div>
             </div>

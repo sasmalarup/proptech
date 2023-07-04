@@ -2,7 +2,6 @@
 import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
 import '../styles/globals.scss'
-//import Header from '@/component/Header'
 import Header from '../component/Header'
 import Footer from '../component/Footer'
 import { Reduxprovider } from "../redux/provider";
@@ -24,9 +23,7 @@ export default function RootLayout({ children }) {
             <Header/>  
            <ErrorBoundary fallback={<Error />}>
            {children} 
-           </ErrorBoundary>
-               
-                                 
+           </ErrorBoundary>                    
             <Footer/>
          </Reduxprovider>       
       </body>

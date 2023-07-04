@@ -59,9 +59,9 @@ function HomeTabs() {
           <nav>
             <div className="nav nav-tabs mb-3" id="nav-tab" role="tablist">
               {
-                plevel?.length > 0 && plevel.map((itm, i) => {
+                plevel.length > 0 && plevel.map((itm, i) => {
 
-                  return <button className={`nav-link ${i === 0 ? 'active' : ''}`} key={itm.id} id="nav-rent-tab" data-bs-toggle="tab" data-bs-target={`#nav-${itm.level_name.toLowerCase()}`} type="button" role="tab" aria-selected="true" onClick={() => tabHandler(itm.id)}>{itm.level_name}</button>
+                  return <button className={`nav-link ${i === 0 && 'active'}`} key={itm.id} id="nav-rent-tab" data-bs-toggle="tab" data-bs-target={`#nav-${itm.level_name.toLowerCase()}`} type="button" role="tab" aria-selected="true" onClick={() => tabHandler(itm.id)}>{itm.level_name}</button>
 
                 })
               }
@@ -81,15 +81,13 @@ function HomeTabs() {
                       >
                         {
                           catisLoading ?
-                            (
+                            
                               <option>Loading please wait...</option>
-                            ) :
-
-                            (
+                             :
                               <>
                                 <option>Choose Type</option>
                                 {
-                                  catdata?.length>0 && catdata.map((value, key) => {
+                                  catdata.length>0 && catdata.map((value, key) => {
                                     return (
                                       <option value={value.id} key={value.id}>
                                         {value.category_name}
@@ -100,7 +98,7 @@ function HomeTabs() {
                               </>
 
 
-                            )
+                            
 
                         }
 
@@ -117,7 +115,7 @@ function HomeTabs() {
 
                         <option>Choose Province</option>
                         {
-                          provincedata?.length>0 && provincedata.length > 0 && provincedata.map((value, key) => {
+                          provincedata.length>0 && provincedata.length > 0 && provincedata.map((value, key) => {
                             return (
                               <option value={value.province_id} key={value.province_id}>
                                 {value.province_name}
@@ -136,15 +134,15 @@ function HomeTabs() {
                       >
                         {
                           cityisLoading ?
-                            (
+                            
                               <option>Loading please wait...</option>
-                            ) :
+                             :
 
-                            (
+                            
                               <>
                                 <option>Choose City/Muncipality</option>
                                 {
-                                  citydata?.length>0 && citydata.map((value, key) => {
+                                  citydata.length>0 && citydata.map((value, key) => {
                                     return (
                                       <option value={value.cid} key={value.cid}>
                                         {value.city_name}
@@ -155,13 +153,13 @@ function HomeTabs() {
                               </>
 
 
-                            )
+                            
 
                         }
 
 
                       </select>
-                      <label for="floatingSelect">Select City/Muncipality</label>
+                      <label  htmlFor='floatingSelect'>Select City/Muncipality</label>
                     </div>
                   </div>
                   <div className="searchButton col-md-2 col-12">
@@ -182,15 +180,13 @@ function HomeTabs() {
                       >
                         {
                           catisLoading ?
-                            (
+                            
                               <option>Loading please wait...</option>
-                            ) :
-
-                            (
+                             :
                               <>
                                 <option>Choose Type</option>
                                 {
-                                  catdata?.length>0 && catdata.map((value, key) => {
+                                  catdata.length>0 && catdata.map((value, key) => {
                                     return (
                                       <option value={value.id} key={value.id}>
                                         {value.category_name}
@@ -201,7 +197,7 @@ function HomeTabs() {
                               </>
 
 
-                            )
+                            
 
                         }
                       </select>
@@ -216,7 +212,7 @@ function HomeTabs() {
 
                         <option>Choose Province</option>
                         {
-                          provincedata?.length>0 && provincedata.length > 0 && provincedata.map((value, key) => {
+                          provincedata.length > 0 && provincedata.map((value, key) => {
                             return (
                               <option value={value.province_id} key={value.province_id}>
                                 {value.province_name}
@@ -235,11 +231,9 @@ function HomeTabs() {
                       >
                         {
                           cityisLoading ?
-                            (
+                            
                               <option>Loading please wait...</option>
-                            ) :
-
-                            (
+                            :
                               <>
                                 <option>Choose City/Muncipality</option>
                                 {
@@ -254,7 +248,7 @@ function HomeTabs() {
                               </>
 
 
-                            )
+                            
 
                         }
                       </select>

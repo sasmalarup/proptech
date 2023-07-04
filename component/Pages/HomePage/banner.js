@@ -6,7 +6,10 @@ import './styles.scss';
 import { useSelector } from "react-redux";
 import { gethomeBanner } from '@/lib/gethomeBanner';
 import SkeletonBanner from '@/component/molecules/Skeleton/BannerSkeleton';
-
+//import { imageLoader } from "../../../utils/imageloader";
+const ImageLoader=({ src, width, quality }) => {
+  return `${process.env.IMG_URL}${process.env.HOME_BANNER_IMG_URL}${src}?w=${width}&q=${quality || 75}`
+}
 function HomeBanner() {
   const storeid=useSelector(state=>state.globalReducer.value.storeID);
   const [data,setData]=useState([])
@@ -37,7 +40,8 @@ function HomeBanner() {
                                     return (
                                       <div className={`carousel-item ${i===0?'active':""}`} key={itm.id}>
                                                 <Image
-                                                  src={`${process.env.IMG_URL}${process.env.HOME_BANNER_IMG_URL}${itm.img_path}`}
+                                                 loader={ImageLoader}
+                                                  src={itm.img_path}
                                                   width={1440}
                                                   height={432}
                                                   alt={itm.alt_txt}
