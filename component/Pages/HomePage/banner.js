@@ -25,7 +25,7 @@ function HomeBanner() {
   },[storeid])
   return (
     <>
-        <div id="carouselExampleFade" className="carousel slide carousel-fade">
+        <div id="carouselExampleFade" className="carousel slide carousel-fade homeBanner">
         <div className="carousel-inner">
         {
                           isloading ?

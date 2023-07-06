@@ -1,9 +1,20 @@
 @import "../../../styles/color.module.scss";
 
+.homeBanner{
+  img{
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+}
 .tabsCaption{
   border-bottom: 0px solid !important;
   display: flex !important;
   justify-content: center;
+  &.searchFilter{
+    display: block !important;
+    margin-top: -80px !important;
+  }
   li{
     margin: 0 1px;
     &.nav-item{
