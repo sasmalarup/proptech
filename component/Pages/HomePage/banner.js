@@ -10,14 +10,14 @@ import SkeletonBanner from '@/component/molecules/Skeleton/BannerSkeleton';
 const ImageLoader=({ src, width, quality }) => {
   return `${process.env.IMG_URL}${process.env.HOME_BANNER_IMG_URL}${src}?w=${width}&q=${quality || 75}`
 }
-function HomeBanner() {
+function HomeBanner({origin}) {
   const storeid=useSelector(state=>state.globalReducer.value.storeID);
   const [data,setData]=useState([])
   const [isloading,setLoading]=useState(false)
   useEffect( ()=>{
    const homep=async ()=>{
     setLoading(true)
-    const res = await gethomeBanner(storeid,'Banner');
+    const res = await gethomeBanner(origin,storeid,'Banner');
     setData(res)
     setLoading(false)
    }

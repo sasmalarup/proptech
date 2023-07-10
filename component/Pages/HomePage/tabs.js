@@ -7,7 +7,7 @@ import { getallProvince } from '@/lib/getallProvince';
 import { getallcityByprovince } from '@/lib/getallcityByprovince';
 
 
-function HomeTabs() {
+function HomeTabs({origin}) {
   //global part for both
   const [category, setCategory] = useState(0)
   const [province, setProvince] = useState(0)
@@ -24,7 +24,7 @@ function HomeTabs() {
   //onchange generate category data element common part start
   const tabHandler = async (id) => {
     setcatLoading(true)
-    const res = await getpropertyCategory(id, 'clevel')
+    const res = await getpropertyCategory(origin,id, 'clevel')
     setCatdata(res)
     setProvince(0)
     setCitydata([])
@@ -35,18 +35,18 @@ function HomeTabs() {
     //console.log("province", provinceID)
     setProvince(provinceID);
     //setcatLoading(true)
-    const res=await getallcityByprovince(provinceID,'city')
+    const res=await getallcityByprovince(origin,provinceID,'city')
     setCitydata(res)
     //setcatLoading(false)
   }
   useEffect(() => {
     const tabload=async ()=>{
       setcatLoading(true);
-    const resPlel = await getpropertyParentlevel('pclevel');
+    const resPlel = await getpropertyParentlevel(origin,'pclevel');
     setData(resPlel);
-    const res = await getpropertyCategory(resPlel[0].id, 'clevel');
+    const res = await getpropertyCategory(origin,resPlel[0].id, 'clevel');
     setCatdata(res);
-    const provinceres = await getallProvince('prov');
+    const provinceres = await getallProvince(origin,'prov');
     setProvincedata(provinceres);
     setcatLoading(false);
     }

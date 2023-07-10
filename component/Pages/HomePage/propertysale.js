@@ -3,14 +3,14 @@ import FeatureCard from '../../molecules/featureCard/index';
 import { getProperty } from '@/lib/getProperty';
 import { useSelector } from 'react-redux';
 import CardSkeleton from '@/component/molecules/Skeleton/CardSkelton';
-const Propertysale = () => {
+const Propertysale = ({origin}) => {
      const [salep,setSale]=useState([]);
      const [isLoading,setLoading]=useState(false)
      const seller_id=useSelector(state=>state.globalReducer.value.storeID)
   useEffect(()=>{
      const propertyRes=async ()=>{
          setLoading(true)
-         const res=await getProperty(seller_id,3,'pl',5);
+         const res=await getProperty(origin,seller_id,3,'pl',5);
          setSale(res)
          setLoading(false)
      }

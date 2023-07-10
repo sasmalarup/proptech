@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import parse from 'html-react-parser'
 
-function CmsPage() {
+function CmsPage({origin}) {
 
   const seller_id = useSelector(state => state.globalReducer.value.storeID)
   const params = useParams()
@@ -14,7 +14,7 @@ function CmsPage() {
   useEffect(()=>{
 
       const fetchData = async () => {         
-        const cmsinfo = await getCMSDetails('cmsdetails',seller_id,params.slug)        
+        const cmsinfo = await getCMSDetails(origin,'cmsdetails',seller_id,params.slug)        
         setCmsDetails(cmsinfo)
       };
     

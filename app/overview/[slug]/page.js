@@ -1,9 +1,11 @@
 import Details from '@/component/Pages/DetailsPage'
-import { getSingleproperty } from '@/lib/getSingleproperty'
 import React from 'react'
+import { headers } from 'next/headers';
+import { getSingleproperty } from '@/lib/getSingleproperty'
+
 export async function generateMetadata({params}){
-    
-    const res=await getSingleproperty(params.slug,'sp')
+    const headersList = headers();
+    const res=await getSingleproperty(`${headersList.get('x-forwarded-proto')}://${headersList.get('host')}`,params.slug,'sp')
 
     return {
       title: res[0]?.title, 
@@ -13,12 +15,12 @@ export async function generateMetadata({params}){
       }
     }
   }
-const Propertydetails = async ({params}) => {
-    const res=await getSingleproperty(params.slug,'sp')
-    //console.log("res",params.slug)
+  export default async function Propertydetails({params}){
+    const headersList = headers();
+    const res=await getSingleproperty(`${headersList.get('x-forwarded-proto')}://${headersList.get('host')}`,params.slug,'sp')
   return (
-    <Details data={res}/>
+    <Details data={res[0]}/>
   )
 }
 
-export default Propertydetails
+

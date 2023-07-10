@@ -10,7 +10,7 @@ import Error from "./error";
 
 
 
-export default function RootLayout({ children }) {
+export default function RootLayout({children,params}) {
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
     
@@ -20,7 +20,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
         <body>
         <Reduxprovider>  
-            <Header/>  
+            <Header origin={params.origin}/>  
            <ErrorBoundary fallback={<Error />}>
            {children} 
            </ErrorBoundary>                    

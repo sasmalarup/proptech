@@ -11,32 +11,31 @@ import './styles.scss';
 
 
 function Details({data}) {
-   
   return (
     <>
     <div className="bodyWrapper width-100">
         <div className="container titleDetails_proptech">
-            <h1>{data[0]?.title}</h1>
+            <h1>{data.title}</h1>
             <div className="addressWrapper">
                 <p>
                     <RiRoadMapLine fontSize={24} color='grey' style={{marginRight: '4px'}} /> 
-                    {data[0]?.province_name}, {data[0]?.city_name}, {data[0]?.municipality_name}, {data[0]?.country_name}
+                    {data.province_name}, {data.city_name}, {data.municipality_name}, {data.country_name}
                 </p>
             </div>
-            <h2>{data[0]?.price_show==='Y' ? `${getSymbolFromCurrency('PHP')}${parseFloat(data[0]?.price).toLocaleString()}`:null}</h2>
+            <h2>{data.price_show==='Y' ? `${getSymbolFromCurrency('PHP')}${parseFloat(data.price).toLocaleString()}`:null}</h2>
             <div className="detailsContainer">
                 <div className="col-md-8 floatLeft detailsContent_proptech">
-                    <Slider level_name={data[0]?.level_name} property_image={data[0]?.property_image}/>
+                    <Slider level_name={data.level_name} property_image={data.property_image}/>
                     <div className="propertyDetails_content width-100">
                         <div className="rightContent_property">
-                               {parse(data[0]?.description)}
+                               {parse(data.description)}
                             <div className="prop_Features width-100">
                                 <h4>Facilities</h4>
                                 <div className="facilitiesBox">
                                     <span>Indoor features :-</span>
                                     <div className="facilitieslist">
                                        {
-                                           data[0]?.indoorf?.split(',').map(itm=><p key={itm}>{itm}</p>) 
+                                           data.indoorf.split(',').map(itm=><p key={itm}>{itm}</p>) 
                                         }
                                     </div>
                                 </div>
@@ -44,7 +43,7 @@ function Details({data}) {
                                     <span>Outdoor features :-</span>
                                     <div className="facilitieslist">
                                         {
-                                           data[0]?.outdoorf?.split(',').map(itm=><p key={itm}>{itm}</p>) 
+                                           data.outdoorf.split(',').map(itm=><p key={itm}>{itm}</p>) 
                                         }
                                         
                                     </div>
@@ -54,34 +53,34 @@ function Details({data}) {
                                     <h4>Property Details</h4>
                                     <ul>
                                         <li>
-                                            <label>Bedrooms:<span>{data[0]?.bedrooms}</span></label>
+                                            <label>Bedrooms:<span>{data.bedrooms}</span></label>
                                         </li>
                                         <li>
-                                            <label>Baths:<span>{data[0]?.baths}</span></label>
+                                            <label>Baths:<span>{data.baths}</span></label>
                                         </li>
                                         <li>
-                                            <label>Total Inventory:<span>{data[0]?.total_inventory}</span></label>  
+                                            <label>Total Inventory:<span>{data.total_inventory}</span></label>  
                                         </li>
                                         <li>
-                                            <label>Floor area (sqm):<span>{data[0]?.floor_area}</span></label>
+                                            <label>Floor area (sqm):<span>{data.floor_area}</span></label>
                                         </li>
                                         <li>
-                                            <label>Total No. of Floor:<span>{data[0]?.block_lot_unit_floor_no}</span></label>
+                                            <label>Total No. of Floor:<span>{data.block_lot_unit_floor_no}</span></label>
                                         </li>
                                         <li>
-                                            <label>Subdivision Name:<span>{data[0]?.key_info_common_name}</span></label>
+                                            <label>Subdivision Name:<span>{data.key_info_common_name}</span></label>
                                         </li>
                                         <li>
-                                            <label>Build (Year):<span>{data[0]?.build_year}</span></label>
+                                            <label>Build (Year):<span>{data.build_year}</span></label>
                                         </li>
                                         <li>
-                                            <label>Car Spaces(sqm):<span>{data[0]?.car_space}</span></label>
+                                            <label>Car Spaces(sqm):<span>{data.car_space}</span></label>
                                         </li>
                                         <li>
-                                            <label>Classification:<span>{data[0]?.classification}</span></label>
+                                            <label>Classification:<span>{data.classification}</span></label>
                                         </li>
                                         <li>
-                                            <label>Fully furnished:<span>{data[0]?.is_fully_furnished}</span></label>
+                                            <label>Fully furnished:<span>{data.is_fully_furnished}</span></label>
                                         </li>
                                     </ul>
                                 </div>

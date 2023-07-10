@@ -2,14 +2,14 @@ import React,{useState,useEffect} from 'react'
 import BlogCard from '../../molecules/blogCard/index';
 import { getBlog } from '@/lib/getBlog';
 import { useSelector } from 'react-redux';
-const Blog = () => {
+const Blog = ({origin}) => {
     const [blogs,setBlog]=useState([]);
     const [isLoading,setLoading]=useState(false)
     const seller_id=useSelector(state=>state.globalReducer.value.storeID)
  useEffect(()=>{
     const blogRes=async ()=>{
         setLoading(true)
-        const res=await getBlog(seller_id,4,'blogs');
+        const res=await getBlog(origin,seller_id,4,'blogs');
         setBlog(res)
         setLoading(false)
     }

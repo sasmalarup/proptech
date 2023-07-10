@@ -21,7 +21,6 @@ const nextConfig = {
       ];
     },
     env:{
-      BASE_URL:"http://127.0.0.1:3000/",
       DB_HOST:"whuk-52764.whukhost.com",
       DB_USER:"rephil_mlspms2023",
       DB_PASSWORD:",nCcJk)@~%TK@pmsMLS2023",
@@ -30,6 +29,7 @@ const nextConfig = {
       HOME_BLOCK_PROPERTY_IMG_URL:'img/p/pimg/su/370/300/',
       HOME_BANNER_IMG_URL:'img/b/hsb/s/1440/432/',
       BLOG_HOME_IMG_URL:'img/b/bimg/a/370/300/',
+      BLOG_DETAILS_IMG_URL:'img/b/bimg/a/1200/311/',
       HOME_FEATURE_BANNER_IMG_URL:'img/b/hsb/s/1200/411/',
       GALLERY_PROPERTY_IMG_URL:'img/p/pimg/su/500/430/',
   

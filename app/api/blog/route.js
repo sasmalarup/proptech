@@ -20,5 +20,27 @@ export const GET = async (req) => {
         } catch (error) {
             NextResponse.json(error)
         }
+    }else if(apiType=='sb'){ 
+
+        const slug = req.nextUrl.searchParams.get("slug");  
+       
+
+        try {
+
+            const sql =`SELECT * FROM flower_blog WHERE slug=?`
+           
+            const result = await query({
+                query: sql,
+                values: [slug] 
+            })
+
+            return NextResponse.json(result)
+
+        } catch (error) {
+
+            return NextResponse.json(error)
+            
+        }
+
     }
 }

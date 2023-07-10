@@ -10,17 +10,17 @@ import Propertyrent from './propertyrent';
 import Propertysale from './propertysale';
 import Blog from './blog';
 
-function HomePage() {
+function HomePage({origin}) {
   return (
     <>
-      <HomeBanner />
-      <HomeTabs />
-       <Propertyblock />
-      <FeaturedBanner />
-      <Propertybyarea />
-      <Propertyrent />
-      <Propertysale />
-      <Blog />
+      <HomeBanner origin={origin}/>
+      <HomeTabs origin={origin}/>
+       <Propertyblock origin={origin}/>
+      <FeaturedBanner origin={origin}/>
+      <Propertybyarea origin={origin}/>
+      <Propertyrent origin={origin}/>
+      <Propertysale origin={origin}/>
+      <Blog origin={origin}/>
       </>
   );
 }

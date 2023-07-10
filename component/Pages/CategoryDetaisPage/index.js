@@ -14,7 +14,7 @@ import { getBarangay } from '@/lib/getBarangay';
 
 
 
-function CategoryPage() {
+function CategoryPage({origin}) {
     const [sercres,setSearchres]=useState([]);
     const [subcatres,setSubcatres]=useState([]);
     const qsearchparams=useSearchParams()
@@ -45,11 +45,11 @@ function CategoryPage() {
 
   useEffect(()=>{
     const subcatFunc=async (ptypeID)=>{
-        const res=await getpropertySubcategory(params.ptype,ptypeID,'sclevel')
+        const res=await getpropertySubcategory(origin,params.ptype,ptypeID,'sclevel')
         res.sort(dynamicSort("sub_category_name"))
         setSubcatres(res)
 
-        const provinceres = await getallProvince('prov');
+        const provinceres = await getallProvince(origin,'prov');
         provinceres.sort(dynamicSort("province_name"))
         setSearchInfo({...searchinfo,province: [...provinceres]})
         
@@ -63,7 +63,7 @@ function CategoryPage() {
   },[ptypeID])
   const provinceHandler = async (provid) => {
     const { cities } = searchinfo;
-    const res=await getallcityByprovince(provid,'city')
+    const res=await getallcityByprovince(origin,provid,'city')
     setSearchInfo({...searchinfo,cities: [...res]})
     if(provid>0){
         setFilter({...filterinfo,province: parseInt(provid)})
@@ -77,7 +77,7 @@ function CategoryPage() {
   const cityHandler =  async (cid) => {
     const { barangay } = searchinfo;
     const { province } = filterinfo;
-    const res=await getBarangay(province,cid,'barangay')
+    const res=await getBarangay(origin,province,cid,'barangay')
     setSearchInfo({...searchinfo,barangay: [...res]})
     if(cid>0){
         setFilter({...filterinfo,city: parseInt(cid)})
@@ -125,7 +125,7 @@ function CategoryPage() {
   useEffect(()=>{
     
     const fetchData = async () => {
-        const res = await getpropertyCategory(params.slug, 'clevel');
+        const res = await getpropertyCategory(origin,params.slug, 'clevel');
         const fres=res.filter(itm=>itm.level_id==params.ptype)
         setPtypeid(fres[0].id)
     };
@@ -133,7 +133,7 @@ function CategoryPage() {
     fetchData(); 
     const searchRes=async ()=>{
         
-        const res=await getcatsearchProperty(params.ptype,seller_id,params.slug,'pl',subtype,province,city,barangay);
+        const res=await getcatsearchProperty(origin,params.ptype,seller_id,params.slug,'pl',subtype,province,city,barangay);
         setSearchres(res)
        
     }

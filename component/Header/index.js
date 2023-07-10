@@ -1,5 +1,5 @@
 "use client"
-import React,{useState,useEffect} from "react"
+import React, { useState, useEffect } from "react"
 import './styles.scss';
 import Image from 'next/image';
 import logo from '../../public/images/logo.png';
@@ -18,41 +18,41 @@ import { getStoredetails } from "@/lib/getStoredetails";
 
 
 
-function Header({stateSetter}) {
+function Header({ origin }) {
+  // console.log("anup12",origin)
   const dispatch = useDispatch()
   const pathname = usePathname();
-  const seller_id=useSelector(state=>state.globalReducer.value.storeID)
+  const seller_id = useSelector(state => state.globalReducer.value.storeID)
   const headerClass = pathname === '/' ? 'navbar navbar-expand-lg navbar-light bg-light' : 'navbar navbar-expand-lg navbar-light bg-light innerHeader';
-  const [plevel,setData]=useState([])
-  const [cmsList,setCms] = useState([])
-  
-  
-  useEffect(()=>{
+  const [plevel, setData] = useState([])
+  const [cmsList, setCms] = useState([])
 
-    const getStore=async ()=>{
-      const storeDetails=await getStoredetails(); 
+
+  useEffect(() => {
+    const getStore = async () => {
+      const storeDetails = await getStoredetails(origin);
       dispatch(setGlobalstate(storeDetails[0].id))
     }
 
     getStore()
 
-    const fetchData = async () => {   
+    const fetchData = async () => {
       // Initiate both requests in parallel
-      const resPLevel = await getpropertyParentlevel('pclevel')
+      const resPLevel = await getpropertyParentlevel(origin, 'pclevel')
       setData(resPLevel)
 
-      const resCmsList = await getCMSList('cmslist',seller_id)
+      const resCmsList = await getCMSList(origin, 'cmslist', seller_id)
       setCms(resCmsList)
 
     }
-  
+
     fetchData();
 
-  },[seller_id])
+  }, [seller_id])
 
 
   //console.log("cmsList",cmsList);
-  
+
   return (
     <>
       <nav className={headerClass}>
@@ -80,38 +80,36 @@ function Header({stateSetter}) {
                 <Link className="nav-link active" aria-current="page" href="/">Home</Link>
               </li>
               {
-                plevel?.length > 0 && plevel.map(itm => 
+                plevel.length > 0 && plevel.map(itm =>
                   <li className="nav-item dropdown" key={itm.id}>
                     <Link className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       {itm.level_name}
                     </Link>
-                    <Secondlevel id={itm.id}/>
+                    <Secondlevel id={itm.id} origin={origin} />
                   </li>
 
                 )
               }
 
-              {
-                cmsList?.length>0 ?              
 
-                            <li className="nav-item dropdown">
-                              <Link className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Services
-                              </Link>
-                              <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                 {
-                                  cmsList.map(cms => {
-                                      return <li key={cms.slug}><Link className="dropdown-item" href={`/info/${cms.slug}`}>{cms.title}</Link></li>
-                                  })
-                                 }  
-                              </ul>
-                            </li>
 
-                            :
 
-                            <></>
-              }
-              
+              <li className="nav-item dropdown">
+                <Link className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Services
+                </Link>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  {
+                    cmsList.length > 0 && cmsList.map(cms => {
+                      return <li key={cms.slug}><Link className="dropdown-item" href={`/info/${cms.slug}`}>{cms.title}</Link></li>
+                    })
+                  }
+                </ul>
+              </li>
+
+
+
+
             </ul>
             <Link href="/login" className="userIcon">
               <Image

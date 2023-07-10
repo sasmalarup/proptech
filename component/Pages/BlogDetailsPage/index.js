@@ -1,12 +1,18 @@
+"use client"
 import React from 'react';
 import Image from "next/image";
 import { FaUser } from 'react-icons/fa';
 import { BsCalendar } from 'react-icons/bs';
-import banner from'../../../public/images/featured-banner.jpg';
+//import banner from'../../../public/images/featured-banner.jpg';
+import parse from 'html-react-parser';
+import dateFormat from "dateformat";
 import './styles.scss';
 
-
-function BlogDetailsPage() {
+const ImageLoader=({ src, width, quality }) => {
+  return `${process.env.IMG_URL}${process.env.BLOG_DETAILS_IMG_URL}${src}?w=${width}&q=${quality || 75}`
+}
+function BlogDetailsPage({data}) {
+  const now = new Date(data.blog_post_date);
   return (
     <>
      <div className="bodyWrapper width-100">
@@ -15,22 +21,22 @@ function BlogDetailsPage() {
             <div className='col-md-12 blog_container'>
                 <div className='boxProject'>
                     <div className='shadow'>
-                        <Image
-                            src={banner}
-                            width='100%'
-                            height='auto'
-                            alt="banner"
+                    <Image
+                           loader={ImageLoader}
+                            src={data.image_name}
+                            width='1200'
+                            height='311'
+                            alt={data.title}
                         />
                     </div>
                     <div className='publishDetails'>
-                      <h1 className='title_first'>Blog Details Title</h1>
+                      <h1 className='title_first'>{data.title}</h1>
                       <div className='publishContent'>
                         <p><FaUser fontSize={12} color='grey' style={{marginRight: '4px'}} />Ravi Kumar</p>
-                        <p><BsCalendar fontSize={12} color='grey' style={{marginRight: '4px'}} />19, Oct</p>
+                        <p><BsCalendar fontSize={12} color='grey' style={{marginRight: '4px'}} />{dateFormat(now,"mmmm dS, yyyy")}</p>
                       </div>
                       <div className='detailsdescription'>
-                        <p>Continued Demand for Residential Properties: The Philippines has a growing population and a rising middle class, which will likely drive the demand for residential properties. The trend of urbanization is expected to continue, leading to increased demand for affordable housing, particularly in major cities like Metro Manila and Cebu.</p>
-                        <p>Focus on Sustainable and Green Buildings: With increasing environmental concerns, there is likely to be a growing emphasis on sustainable and green buildings in the real estate sector. Developers may incorporate energy-efficient features, renewable energy sources, and eco-friendly designs to meet the demand for environmentally conscious properties.</p>
+                      {parse(data.content)}
                       </div>
                     </div>
                 </div>

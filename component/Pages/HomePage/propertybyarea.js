@@ -5,14 +5,14 @@ import hotel from'../../../public/images/propertyHotel.jpeg';
 import PropertySkeleton from '@/component/molecules/Skeleton/PropertySkeleton';
 import { useSelector } from 'react-redux';
 import { getProperty } from '@/lib/getProperty';
-const Propertybyarea = () => {
+const Propertybyarea = ({origin}) => {
     const [propertybyarea,setPropbyarea]=useState([]);
     const [isLoading,setLoading]=useState(false)
     const seller_id=useSelector(state=>state.globalReducer.value.storeID)
     useEffect(()=>{
        const propertycityRes=async ()=>{
            setLoading(true)
-           const res=await getProperty(seller_id,0,'plbyc');
+           const res=await getProperty(origin,seller_id,0,'plbyc');
            setPropbyarea(res)
            setLoading(false)
        }
