@@ -30,7 +30,6 @@ function Header({ origin }) {
     const getStore = async () => {
       const storeDetails = await getStoredetails(origin);
       dispatch(setGlobalstate(storeDetails[0]?.id))
-      
     }
 
     getStore()

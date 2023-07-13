@@ -10,7 +10,7 @@ export const GET = async (req)=>{
     domain_name=headerList.get('host')
   }
   
-  //console.log("domain_name",domain_name)
+  console.log("domain_name",domain_name)
   try {
     const result = await query({
       query: "SELECT * FROM flower_store_master where store_url LIKE ?",

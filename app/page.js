@@ -17,7 +17,6 @@ export async function generateMetadata(){
 export default async function Landingpage({params}) { 
   const headersList = headers();
   params.origin=`${headersList.get('x-forwarded-proto')}://${headersList.get('host')}`;
- //console.log("anup",params.origin)
   
   return (
       <Home origin={params.origin}/>
