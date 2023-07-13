@@ -1,6 +1,6 @@
 import { query } from '../db'
 import { NextResponse } from 'next/server'
-import absoluteUrl from 'next-absolute-url'
+
 
 export const GET = async (req)=>{
 

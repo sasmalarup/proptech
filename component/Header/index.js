@@ -17,9 +17,7 @@ import { getStoredetails } from "@/lib/getStoredetails";
 
 
 
-
 function Header({ origin }) {
-  // console.log("anup12",origin)
   const dispatch = useDispatch()
   const pathname = usePathname();
   const seller_id = useSelector(state => state.globalReducer.value.storeID)
@@ -31,7 +29,8 @@ function Header({ origin }) {
   useEffect(() => {
     const getStore = async () => {
       const storeDetails = await getStoredetails(origin);
-      dispatch(setGlobalstate(storeDetails[0].id))
+      dispatch(setGlobalstate(storeDetails[0]?.id))
+      
     }
 
     getStore()
@@ -80,7 +79,7 @@ function Header({ origin }) {
                 <Link className="nav-link active" aria-current="page" href="/">Home</Link>
               </li>
               {
-                plevel.length > 0 && plevel.map(itm =>
+                plevel?.length > 0 && plevel.map(itm =>
                   <li className="nav-item dropdown" key={itm.id}>
                     <Link className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                       {itm.level_name}
@@ -100,7 +99,7 @@ function Header({ origin }) {
                 </Link>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                   {
-                    cmsList.length > 0 && cmsList.map(cms => {
+                    cmsList?.length > 0 && cmsList.map(cms => {
                       return <li key={cms.slug}><Link className="dropdown-item" href={`/info/${cms.slug}`}>{cms.title}</Link></li>
                     })
                   }

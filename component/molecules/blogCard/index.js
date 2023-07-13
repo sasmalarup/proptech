@@ -13,8 +13,8 @@ const ImageLoader=({ src, width, quality }) => {
 }
 
 function BlogCard({blog}) {
-  const now = new Date(blog.blog_post_date);
-  //dateFormat(now, "dddd, mmmm dS, yyyy, h:MM:ss TT");
+  //console.log(blog)
+  //const now = new Date(blog.blog_post_date);
   return (
     <div className="col-md-6 col-xs-12" >
         <div className="blogCard row">
@@ -30,7 +30,7 @@ function BlogCard({blog}) {
             </div>
             <span className="feature_date">
               <FcCalendar fontSize={15} color='grey' style={{marginRight: '4px'}} /> 
-              {dateFormat(now,"mmmm dS, yyyy")}
+              {dateFormat(blog.blog_post_date,"mmmm dS, yyyy")}
             </span>
           </div>
           <figcaption className="col-md-6 col-xs-12">

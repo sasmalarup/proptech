@@ -12,7 +12,7 @@ const ImageLoader=({ src, width, quality }) => {
   return `${process.env.IMG_URL}${process.env.BLOG_DETAILS_IMG_URL}${src}?w=${width}&q=${quality || 75}`
 }
 function BlogDetailsPage({data}) {
-  const now = new Date(data.blog_post_date);
+  //const now = new Date(data.blog_post_date);
   return (
     <>
      <div className="bodyWrapper width-100">
@@ -33,7 +33,7 @@ function BlogDetailsPage({data}) {
                       <h1 className='title_first'>{data.title}</h1>
                       <div className='publishContent'>
                         <p><FaUser fontSize={12} color='grey' style={{marginRight: '4px'}} />Ravi Kumar</p>
-                        <p><BsCalendar fontSize={12} color='grey' style={{marginRight: '4px'}} />{dateFormat(now,"mmmm dS, yyyy")}</p>
+                        <p><BsCalendar fontSize={12} color='grey' style={{marginRight: '4px'}} />{dateFormat(data.blog_post_date,"mmmm dS, yyyy")}</p>
                       </div>
                       <div className='detailsdescription'>
                       {parse(data.content)}

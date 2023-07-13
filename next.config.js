@@ -22,8 +22,8 @@ const nextConfig = {
     },
     env:{
       DB_HOST:"whuk-52764.whukhost.com",
-      DB_USER:"rephil_mlspms2023",
-      DB_PASSWORD:",nCcJk)@~%TK@pmsMLS2023",
+      DB_USER:"rephil",
+      DB_PASSWORD:"EDqrQOyA+lMZ@Arup@anup@Abu",
       DB_DATABASE:"rephil_mlspms2023",
       IMG_URL:"https://www.rephil.app/",
       HOME_BLOCK_PROPERTY_IMG_URL:'img/p/pimg/su/370/300/',
